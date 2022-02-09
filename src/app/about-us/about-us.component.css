@@ -1,0 +1,28 @@
+.about_heading{
+   padding:50px 50px;  
+    background-color:black;
+    color:white;
+}
+.about_heading > p{
+    text-align:center;
+}
+.owl_heading{
+    padding:20px 0px;
+    font-size:1.59rem;
+}
+.description{
+    padding-right: 112px;
+    font-size:14px;
+    padding-bottom: 40px;
+
+}
+.content_owl{
+    width:100%;
+}
+.Truk{
+    font-weight: 600 !important;
+
+    flex-direction: column;
+    display:flex;
+    align-items:center;
+}

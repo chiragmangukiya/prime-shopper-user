@@ -1,0 +1,146 @@
+.categories {
+    padding: 20px 0;
+}
+.pointer{
+    cursor: pointer;
+}
+
+
+/* .categories ul {
+    margin: 0;
+    padding: 0;
+}
+
+.categories ul li {
+    list-style-type: none;
+    text-align: center;
+    display: inline-block;
+    padding: 0 37px;
+} */
+
+.categories img {
+    border-radius: 50%;
+    width: 87px;
+    height: 87px;
+    margin: 0 auto;
+}
+
+.categories span {
+    display: block;
+    font-size: 12px;
+    color: #000;
+    font-weight: 600;
+    padding-top: 10px;
+}
+
+.page-hero {
+    width: 100%;
+}
+
+.page-hero img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+.page-section h1 {
+    font-size: 38px;
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+    padding: 0 0 45px 0;
+}
+
+.section-products ul li .pro_img{
+    max-height: 350px;
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.section-products ul li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.section-products ul li .pro_img .pro_offer_txt{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .8);
+    color: #fff;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+
+
+.flash-products h1 {
+    font-size: 38px;
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+    padding: 0 0 45px 0;
+}
+
+.flash-products h3 {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+    padding: 25px 0 0 0;
+    margin: 0;
+}
+
+.flash-products p {
+    text-align: center;
+    font-size: 14px;
+    color: #000;
+    font-weight: 600;
+    padding: 6px 0;
+    margin: 0;
+}
+
+.flash-products p span {}
+
+.flash-products label {
+    text-align: center;
+    display: block;
+    font-size: 12px;
+    font-weight: 200;
+    padding: 0;
+    margin: 0;
+}
+
+.btn-view-all {
+    background: #000;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    color: #FFF;
+    margin: 50px auto 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-view-all a {
+    color: #FFF;
+}
+
+.priceing {
+    font-size: 18px;
+    color: #5e5e5e;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}

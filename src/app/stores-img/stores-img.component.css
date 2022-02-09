@@ -1,0 +1,259 @@
+.main_store {
+  padding: 15px;
+  background-color:white;
+}
+.img {
+  width: 100%;
+}
+/* .img-view {
+  padding-top: 0px !important;
+  padding: 8px;
+} */
+.product-left {
+  background: #fff;
+  padding-bottom: 15px;
+}
+.slider-zoom {
+  overflow: hidden;
+  margin: 25px;
+}
+
+.slider-thumb-bottom {
+  text-align: center;
+}
+.slider-thumb-bottom ul {
+  margin: 0;
+  padding: 0;
+}
+
+.slider-thumb-bottom ul li {
+  list-style-type: none;
+  width: 75px;
+  display: inline-block;
+  border: solid 1px #ccc;
+  margin-right: 8px;
+  padding: 5px;
+}
+
+.slider-thumb-bottom ul li img {
+  width: 100%;
+}
+.product-buy-main-details {
+  padding: 50px 25px 0 0;
+}
+.product-main-text {
+  padding-bottom: 35px;
+}
+
+.product-main-text h1 {
+  font-size: 22px;
+  color: #000;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+}
+
+.product-main-text h1 span {
+  font-size: 12px;
+}
+
+.product-main-text h2 {
+  font-size: 25px;
+  font-weight: 600;
+  padding: 20px 0 0 0;
+  margin: 0;
+}
+
+.product-main-text h2 span {
+  font-size: 22px;
+  font-weight: 400;
+  padding-left: 10px;
+  text-decoration: line-through;
+  color: #999797;
+}
+
+.product-main-text h2 span.green {
+  color: green;
+  text-decoration: none;
+}
+
+.product-main-text p {
+  font-size: 10px;
+  padding: 0;
+  margin: 0;
+}
+.star-listing ul li a {
+  color: #000;
+}
+
+.star-listing {
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.star-listing ul {
+  margin: 0;
+  padding: 0;
+}
+
+.star-listing ul li {
+  list-style-type: none;
+  float: left;
+  padding: 0 35px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+.product-main-text h2 span.green {
+  color: green;
+  text-decoration: none;
+}
+.buy-from h3 {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+}
+
+.buy-from h3 i {
+  border: solid 1px #ccc;
+  border-radius: 25px;
+  width: 45px;
+  height: 45px;
+  font-size: 25px;
+  text-align: center;
+  line-height: 45px;
+}
+.buy-from p {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0 0 10px 0;
+  margin: 0;
+}
+
+.buy-from .buy-text p {
+  padding: 10px 0 0 0;
+  font-weight: 500;
+  font-size: 13px;
+}
+.select_EMI {
+  align-items: baseline;
+}
+.emi-promo {
+  padding: 10px 0 0 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+.emi-promo {
+  font-size: 14px !important;
+}
+
+.emi-promo a {
+  border: solid 1px #ccc;
+  padding: 4px 13px;
+  color: #000;
+  margin: 0 0 0 10px;
+}
+.buy-text a {
+  color: #999797;
+  font-weight: 500;
+  text-decoration: underline;
+  font-size: 12px;
+  display: block;
+}
+
+.buy-from .buy-text p {
+  padding: 10px 0 0 0;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.buy-text span {
+  font-weight: bold;
+  display: block;
+  font-size: 16px;
+  padding: 20px 0 0 0;
+}
+
+.buy-text label {
+  background: #ccc;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px;
+  border-radius: 2px;
+  margin: 5px ​0 0 0;
+}
+.more_offers {
+  cursor: pointer;
+  font-size: 14px;
+  color: green;
+  margin-bottom: 25px;
+}
+.product-high ul {
+  margin: 0;
+  padding: 0;
+}
+
+.product-high ul li {
+  font-size: 14px;
+  padding: 6px;
+  list-style-type: none;
+}
+.main_button {
+  border: 1px solid #e7e7e7;
+  box-shadow: 0 1px 1px rgb(95 95 95 / 30%);
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+}
+.product-title {
+  font-size: 13px;
+}
+.product_name {
+  font-weight: bold;
+}
+.seller_offer{
+  font-size:13px;
+  font-weight: 700;
+}
+.seller_offer_details{
+  color: #555;
+  font-size:14px;
+  line-height: 20px;
+}
+.details_ul{
+padding-left:15px;
+}
+
+.seller_offer_details>li {
+  margin-bottom: 4px;
+ 
+}
+.show_more_seller{
+  color:#0066c0;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+.icon_more{
+  color:#555;
+}
+.btn_card_add{
+  width:40%;
+  padding:10px;
+  font-size:13px;
+  font-weight: 500;
+  border-radius: 20px;
+  background-color: black;
+  color:#fff;
+  outline: none;
+  border:none;
+}
+.details_btn{
+  background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+  color:black;
+}
+
+.sold_details{
+  font-size: 13px;
+  font-weight: 500;
+}

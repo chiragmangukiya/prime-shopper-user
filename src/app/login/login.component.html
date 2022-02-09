@@ -1,0 +1,43 @@
+<div class="user-main-logo">
+    <img src="/assets/images/original-logo.png" alt="">
+</div>
+<div class="login-container">
+    <div class="login-header">
+        <div class="header-image">
+            <img src="/assets/images/login.png" alt="">
+        </div>
+
+        <h1 class="header-title text-center">
+            Welcome to <b>PrimeShopper</b>
+        </h1>
+    </div>
+
+    <form #loginForm="ngForm" autocomplete="off" (ngSubmit)="handleLogin(loginForm)">
+        <div class="input app-input">
+            <label for="email">Email</label>
+            <input ngModel #email="ngModel" type="email" name="email" id="email" placeholder="Enter your Email" required />
+            <span *ngIf="email.invalid && (email.dirty || email.touched)">Enter valid email address</span>
+        </div>
+
+        <div class="input app-input">
+            <label for="password">Password</label>
+            <input #password="ngModel" type="password" name="password" id="password" placeholder="password" ngModel required />
+            <span *ngIf="email.invalid && (email.dirty || email.touched)">Enter valid password</span>
+        </div>
+
+        <button [disabled]="!loginForm.valid" type="submit" class="button app-login-button">
+            Login
+        </button>
+    </form>
+
+    <div class="text-center">
+        <a routerLink="/forgot" class="text link">Forgot password?</a>
+    </div>
+
+    <div class="footer">
+        <p class="text text-center">
+            Don't have an account?
+            <a [routerLink]="['/register']" class="text link">Register!</a>
+        </p>
+    </div>
+</div>

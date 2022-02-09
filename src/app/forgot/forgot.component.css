@@ -1,0 +1,107 @@
+.user-main-logo {
+    width: 150px;
+    margin: 30px auto 0;
+}
+
+.user-main-logo img {
+    width: 100%;
+}
+
+.login-container {
+    position: relative;
+    width: 360px;
+    height: auto;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #FFF;
+    overflow: hidden;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin: 30px auto 0;
+}
+
+.login-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.header-image {
+    height: auto;
+    width: 210px;
+    margin: 25px auto;
+}
+
+.header-image img {
+    width: 100%;
+}
+
+.button {
+    width: 100%;
+    padding: 16px 16px;
+    margin: 16px 0;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFF;
+    background-color: #000;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.button:active {
+    background-color: #333;
+}
+
+.link {
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.text {
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.input {
+    position: relative;
+    margin: 16px 0;
+    font-size: 16px;
+}
+
+.input label {
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+
+.input input {
+    padding: 15px 20px;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    background: #f1f1f1 !important;
+}

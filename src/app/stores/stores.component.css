@@ -1,0 +1,39 @@
+.main_store {
+  padding: 15px;
+}
+.images_view {
+  cursor: pointer;
+  width: 100%;
+}
+.image_content {
+    width: 100%;
+}
+.main_store_card{
+    width:100%;
+}
+.card_content{
+    font-size:.8em;
+}
+.main_header{
+    font-size:24px;
+    font-weight: bold;
+    color:black;
+}
+.main_header_content{
+    color:black;
+    font-size:24px;
+
+}
+.icon_img{
+    width: 100%;
+    height:100%;
+}
+.img_icon{
+    padding:10px 10px;
+    width:50px;
+    margin:0px 60px;
+    cursor:pointer;
+}
+
+
+

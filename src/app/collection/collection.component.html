@@ -1,0 +1,403 @@
+<div class="container-main">
+
+    <div class="breadcrumbs">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li>/</li>
+            <li><a href="#">Men Cloths</a></li>
+            <li>/</li>
+            <li>T-Shirt</li>
+        </ul>
+    </div>
+
+    <div class="right-main-title">
+        T-Shirts For Men - <span>20,000 Products</span>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="colleting-left">
+                <div class="price-rang">
+                    <h1>Price</h1>
+                    <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+                </div>
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Price <span>+</span>
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="left-pro-main-con">
+                                    <input type="text" name="a" placeholder="search">
+                                    <ul>
+                                        <li><input type="checkbox" id="1">
+                                            <label for="1">text here</label> <span>200</span></li>
+                                        <li><input type="checkbox" id="2">
+                                            <label for="2">text here</label> <span>200</span></li>
+                                        <li><input type="checkbox" id="3">
+                                            <label for="3">text here</label> <span>200</span></li>
+                                        <li>
+                                            <input type="checkbox" id="4">
+                                            <label for="4">text here</label> <span>200</span>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="5">
+                                            <label for="5">text here</label> <span>200</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Ideal For <span>+</span>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="left-pro-main-con">
+                                    <input type="text" name="a" placeholder="search">
+                                    <ul>
+                                        <li>
+                                            <input type="checkbox" id="1">
+                                            <label for="1">text here</label> <span>200</span>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="2">
+                                            <label for="2">text here</label> <span>200</span>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="3">
+                                            <label for="3">text here</label> <span>200</span>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="4">
+                                            <label for="4">text here</label> <span>200</span>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="5">
+                                            <label for="5">text here</label> <span>200</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Color <span>+</span>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="left-pro-main-con">
+                                    <input type="text" name="a" placeholder="search">
+                                    <ul>
+                                        <li>
+                                            <input type="checkbox" id="1">
+                                            <label for="1">text here</label> <span>200</span>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="2">
+                                            <label for="2">text here</label> <span>200</span>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="3">
+                                            <label for="3">text here</label> <span>200</span>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="4">
+                                            <label for="4">text here</label> <span>200</span>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="5">
+                                            <label for="5">text here</label> <span>200</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="colleting-right">
+                <div class="col-right-title">
+                    <div class="filter-drop">
+                        <select name="" id="">
+                            <option value="">Popular</option>
+                            <option value="">new</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="main-products">
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']" >
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="main-pro-img">
+                            <img src="/assets/images/product-photo1.png" alt="">
+                        </div>
+                        <div class="btn-add-to-cart">
+                            <a [routerLink]="['/product']">
+                                add to cart
+                            </a>
+                        </div>
+                        <div class="collection-pro-det">
+                            <h1>Men Round Neck Colorblocked T-Shirt Pack Of 1</h1>
+                            <label for="">Stylemayth</label>
+                            <h2>258 <i>699</i> <span>63%</span> </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="coll-pagenation">
+                <nav aria-label="navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div> -->
+        </div>
+    </div>
+</div>

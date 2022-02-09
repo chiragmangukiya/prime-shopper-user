@@ -1,0 +1,55 @@
+<header>
+    <div class="row header align-items-center justify-content-between">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-5 logo">
+            <img src="/assets/images/logo.png" alt="">
+        </div>
+        <div class="col-lg-6 col-md-8 col-sm-8 col-12  header-center">
+            <div class="row gx-2 justify-content-between">
+                <div class="col-md-4 d-none d-md-block">
+                    <div class="categories-menu d-none d-md-block">
+                        <a class="nav-link dropdown-toggle text-truncate" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="/assets/images/menu.png" alt=""> Shop By Category
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            sdfsd
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-12">
+                    <div class="searching d-flex">
+                        <img src="/assets/images/search.png" alt="" class="search_icon">
+                        <input type="text" placeholder="Search for a Products, Brand or Category">
+                    </div>
+                </div>
+                 <!-- <div class="col-3 searching d-flex pincode">
+                <img src="/assets/images/location.png" alt="">
+                <input type="text" placeholder="Pincode">
+            </div> -->
+            </div>
+            
+            
+           
+        </div>
+        <div class="col-lg-4 col-md-2 col-sm-2 col-5 header-right d-flex align-items-center justify-content-between">
+            <div class="my-order">
+                <a href="#">
+                    <img src="/assets/images/head-right-icon1.png" alt="" class="mr-2"> <span>My Order</span>
+                </a>
+            </div>
+            <div  class="cart">
+                <!-- <span>0</span> -->
+                <a [routerLink]="['/cart']" >
+                    <img src="/assets/images/head-right-icon2.png" alt="" class="mr-2">
+                    <!-- <span class="cart_badge">10</span> -->
+                    <span>No Items</span>
+                </a>
+            </div>
+            <div class="login">
+                <a [routerLink]="['/login']" routerLinkActive="active" >
+                    <img src="/assets/images/head-right-icon3.png" alt="" class="mr-2"> 
+                    <span>Login / Sign Up</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>

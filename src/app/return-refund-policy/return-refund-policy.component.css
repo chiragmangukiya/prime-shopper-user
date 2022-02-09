@@ -1,0 +1,36 @@
+.refund-returns-title {
+    color: #071c34;
+    text-transform: capitalize;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    padding: 35px 0 35px 0;
+}
+
+.return-policy {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.return-policy h1 {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 0 10px 0;
+    margin: 0;
+}
+
+.return-policy p {
+    font-size: 12px;
+    padding: 0 0 15px 0;
+    margin: 0;
+}
+
+.return-policy ul li {
+    font-size: 12px;
+    padding: 0 0 5px 0;
+    margin: 0;
+}
+
+.main-table {
+    padding-bottom: 20px;
+}
