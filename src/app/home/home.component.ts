@@ -86,6 +86,79 @@ export class HomeComponent implements OnInit {
     nav: true
   }
 
+  top_brands: OwlOptions = {
+    loop: true,
+    margin:15,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    nav: true,
+    navSpeed: 1000,
+    navText: [ '<img src="/assets/images/left-arrow.png">', '<img src="/assets/images/right-arrow.png">' ],
+    autoWidth: true,
+    autoplay: true,
+    autoplayHoverPause:true,
+    responsive: {
+      0: {
+        items: 2,
+        nav:false,
+        touchDrag: true
+      },
+      576: {
+        items: 3,
+        nav:false,
+        touchDrag: true
+      },
+      768: {
+        items: 4,
+        nav:false,
+        touchDrag: true
+      },
+      1000: {
+        items: 5
+      }
+
+    }
+    
+  }
+
+  top_brands_banner: OwlOptions = {
+    loop: true,
+    margin:15,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    nav: true,
+    navSpeed: 1000,
+    navText: [ '<img src="/assets/images/left-arrow.png">', '<img src="/assets/images/right-arrow.png">' ],
+    autoWidth: true,
+    autoplay: true,
+    autoplayHoverPause:true,
+    responsive: {
+      0: {
+        items: 1,
+        nav:false,
+        touchDrag: true
+      },
+      576:{
+        items: 2,
+        nav:false,
+        touchDrag: true
+      },
+      768: {
+        items: 2,
+        nav:false,
+        touchDrag: true
+      },
+      1000: {
+        items: 3
+      }
+
+    }
+    
+  }
 
   flashProducts: OwlOptions = {
     loop: true,
