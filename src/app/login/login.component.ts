@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDataService } from '../services/user-data.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginuser: UserDataService, private toastr: ToastrService,private router:Router) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('userLogin') != null) {
+      this.router.navigate(['/']);
+    }
   }
 
-  handleLogin(loginForm : any){
-    console.log(loginForm.value)
+  userlogin: any;
+
+  handleLogin(loginForm: any) {
+
+    this.loginuser.login(loginForm).subscribe((result: any) => {
+      if (result.data == "Email Not Exists!Please Check Your Email") {
+        this.toastr.error(result.data);
+      }
+      else if (result.data == "Invalid Password! Please check your password.") {
+        this.toastr.error(result.data);
+      }
+      else {
+        this.toastr.success("Login Success..");
+        localStorage.setItem('userLogin', result.data._id);
+        this.router.navigate(['/']);
+      }
+    });
+
   }
 
 }

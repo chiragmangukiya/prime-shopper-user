@@ -24,10 +24,8 @@ import { ReturnRefundPolicyComponent } from './return-refund-policy/return-refun
 import { FaqComponent } from './faq/faq.component';
 import { StoresComponent } from './stores/stores.component';
 import { StoresImgComponent } from './stores-img/stores-img.component';
-
-
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -56,7 +54,10 @@ import { StoresImgComponent } from './stores-img/stores-img.component';
     CarouselModule,
     NgxSliderModule,
     NgxImageZoomModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

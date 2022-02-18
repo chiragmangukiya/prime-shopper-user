@@ -12,7 +12,7 @@
         </h1>
     </div>
 
-    <form #loginForm="ngForm" autocomplete="off" (ngSubmit)="handleLogin(loginForm)">
+    <form #loginForm="ngForm" autocomplete="off" (ngSubmit)="handleLogin(loginForm.value)">
         <div class="input app-input">
             <label for="email">Email</label>
             <input ngModel #email="ngModel" type="email" name="email" id="email" placeholder="Enter your Email" required />
