@@ -12,15 +12,14 @@
         </h1>
     </div>
 
-    <form autocomplete="off">
+    <form #mail="ngForm" autocomplete="off" (ngSubmit)="forgot_password(mail.value)">
         <div class="input app-input">
             <label for="email">Email</label>
-            <input type="text" name="email" id="email" placeholder="Enter your Email" />
+            <input type="text" name="email" id="email" placeholder="Enter your Email" ngModel/>
         </div>
 
-        <button type="button" class="button app-login-button">
-            Send Email
-        </button>
+        <input type="submit" class="button app-login-button" value="Send Email">
+            
     </form>
 
     <div class="footer">

@@ -11,31 +11,32 @@
             Welcome to <b>PrimeShopper</b>
         </h1>
     </div>
-
-    <form autocomplete="off">
+    
+    <form autocomplete="off" #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
         <div class="input app-input">
             <label for="email">Name</label>
-            <input type="text" name="name" id="name" placeholder="Enter Your Name" />
+            <input type="text" name="name" id="name" placeholder="Enter Your Name" ngModel/>
         </div>
-
+        <div class="input app-input">
+            <label for="email">UserName</label>
+            <input type="text" name="username" id="username" placeholder="Enter user name" ngModel/>
+        </div>
         <div class="input app-input">
             <label for="password">Email</label>
-            <input type="text" name="email" id="email" placeholder="Enter Your Email" />
+            <input type="text" name="email" id="email" placeholder="Enter Your Email" ngModel/>
         </div>
 
         <div class="input app-input">
             <label for="email">Phone</label>
-            <input type="text" name="phone" id="phone" placeholder="Enter Phone Number" />
+            <input type="text" name="phoneNumber" id="phone" placeholder="Enter Phone Number" ngModel/>
         </div>
 
         <div class="input app-input">
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="password" />
+            <input type="password" name="password" id="password" placeholder="password" ngModel/>
         </div>
 
-        <button type="button" class="button app-login-button">
-            Register
-        </button>
+        <Input type="submit" class="button app-login-button" value="Register">
     </form>
 
     <div class="footer">

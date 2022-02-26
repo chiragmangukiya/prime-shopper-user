@@ -44,12 +44,24 @@
                     <span>No Items</span>
                 </a>
             </div>
-            <div class="login">
+
+            <h1 *ngIf="checkLogin; then logout else login"></h1>
+            <ng-template #login>
+            <div class="login"> 
                 <a [routerLink]="['/login']" routerLinkActive="active" >
                     <img src="/assets/images/head-right-icon3.png" alt="" class="mr-2"> 
                     <span>Login / Sign Up</span>
                 </a>
             </div>
+        </ng-template>
+        <ng-template #logout>
+            <div class="login">
+                <a href="javascript:void(0);" class="d-flex align-items-center" (click)="logout_user()">
+                    <i class="fa fa-power-off mr-2 fs-5" aria-hidden="true"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </ng-template>
         </div>
     </div>
 </header>
