@@ -8,10 +8,6 @@
 }
 
 .product {
-    width: calc(25% - 20px);
-    float: left;
-    padding: 0;
-    margin: 0 10px 50px 10px;
     position: relative;
 }
 
@@ -27,7 +23,7 @@
     font-weight: 500;
 }
 
-.product h1 {
+.product .h1 {
     margin: 0;
     padding: 0;
     color: #000;
@@ -35,7 +31,9 @@
     font-size: 14px;
     font-weight: 600;
 }
-
+.product .h1 a{
+    color: inherit;
+}
 .product h2 {
     margin: 0;
     padding: 5px 0 0;
@@ -53,6 +51,7 @@
     padding: 0 5px 0 2px;
     font-weight: 500;
     color: gray;
+    font-size: 14px;
 }
 
 .product h3 {
@@ -224,7 +223,7 @@
     font-size: 20px;
     padding: 0 0 20px 0;
     color: #000;
-    float: left;
+    float: none;
     font-weight: 500;
     width: 100%;
 }
@@ -239,7 +238,6 @@
 
 .main-products {
     padding: 0;
-    margin: 15px 0 -50px 0px;
 }
 
 .filter-drop select {
@@ -289,3 +287,32 @@
 .btn.btn-link span {
     display: none;
 }
+.filter_opt{
+    height: 50px;
+    width: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+    text-align: center;
+    line-height: 50px;
+    font-size: 22px;
+    z-index: 9999;
+    display: none;
+}
+
+@media screen and (max-width: 767px){
+    
+    .main-pro-img {
+        height: 300px;
+    }
+    .filter_opt
+    {
+        display: block;
+    }
+
+}
+
+

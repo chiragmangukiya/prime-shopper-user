@@ -9,10 +9,10 @@
 </div>
 <div class="container-main nobg">
 	<div class="row">
-		<div class="col-sm-9">
+		<div class="col-lg-9 col-md-7 col-12">
 			<div class="product-left">
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-lg-6 col-12">
 						<div class="slider-zoom">
 							<lib-ngx-image-zoom [magnification]="1.1" [zoomMode]="'hover'"
 								[thumbImage]="'/assets/images/slider-1.png'" [fullImage]="'/assets/images/slider-1.png'">
@@ -39,7 +39,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-lg-6 col-12">
 						<div class="product-buy-main-details">
 							<div class="product-main-text">
 								<h1>
@@ -66,26 +66,38 @@
 												17 Reviews
 											</a>
 										</li>
-										<li>
-											<a href="#">
-												Have a questions?
-											</a>
-										</li>
-
 									</ul>
+									<div class="have_a_que my-3">
+										<a href="#" class="link">
+											Have a questions?
+										</a>
+									</div>
 								</div>
-								<h2>Rs.399 <span>MRP 1290</span> <span class="green">-69%</span></h2>
+								
+								<h2 class="price my-3 mb-0">
+									<span class="new_price">₹ 399</span>
+									<span class="old_price"> ₹ 1290 </span>
+									<span class="offer_price green"> -69% </span>
+								</h2>
 								<p>Inclusive of all Taxes</p>
 							</div>
 							<div class="buy-from">
 								<p>Apply this promo on cart</p>
-								<h3><i class="fa fa-gift"></i> Offers</h3>
-								<h3 class="d-flex select_EMI"><i class="fa fa-money mt-2 mr-2"></i> Select Low Cost EMI
+								<div class="product_offer my-2">
+									<a href="#" class="link d-flex align-items-center">
+										<i class="fa fa-gift promo_icon"></i> 
+										<span>Offers</span>
+									</a>
+								</div>
+								<div class="product_offer my-2 d-flex">
+									<a href="#" class="link d-flex align-items-center">
+										<i class="fa fa-money promo_icon"></i> 
+										<span>Select Low Cost EMI</span>										
+									</a>
 									<div class="emi-promo">
 										<a href="#">Select EMI</a>
 									</div>
-								</h3>
-
+								</div>
 
 								<div class="from-promo-code">
 									<div class="buy-text">
@@ -121,23 +133,19 @@
 					</div>
 				</div>
 			</div>
-			<!-- <div class="product-description">
+			<div class="product-description">
 				<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 					<li class="nav-item">
-						<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-							aria-controls="pills-home" aria-selected="true">Overview</a>
+						<button class="nav-link active" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" >Overview</button>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-							aria-controls="pills-profile" aria-selected="false">Description</a>
+						<button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" >Description</button>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
-							aria-controls="pills-contact" aria-selected="false">Manufacturing Info</a>
+						<button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" >Mfg. Info</button>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-Return" role="tab"
-							aria-controls="pills-contact" aria-selected="false">Return Policy</a>
+						<button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-Return" type="button">Return Policy</button>
 					</li>
 				</ul>
 				<div class="tab-content" id="pills-tabContent">
@@ -219,7 +227,7 @@
 
 						</div>
 					</div>
-					<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+					<div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 						<p class="dis-page-main">
 							Serenade the scene with the boAt Bass head's 172, the bass oasis to your Nirvana. Equipped with 10mm
 							Drivers, experience Audio Nirvana to take the pace of your surroundings with a quick in step and a
@@ -234,7 +242,7 @@
 							Epic Sh*t when you re rocking with the Bass head's 172, the power is yours.
 						</p>
 					</div>
-					<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+					<div class="tab-pane fade " id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
 						<div class="sold-product-details">
 							<ul>
 								<li>
@@ -254,7 +262,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="tab-pane fade" id="pills-Return" role="tabpanel" aria-labelledby="pills-return-tab">
+					<div class="tab-pane fade " id="pills-Return" role="tabpanel" aria-labelledby="pills-return-tab">
 						<div class="sold-product-details">
 							<ul>
 								<li>
@@ -270,10 +278,9 @@
 							</ul>
 						</div>
 					</div>
-
 				</div>
-			</div> -->
-			<div class="product-description">
+			</div>
+			<div class="product-description mt-3 mb-5">
 				<div class="row border-row">
 					<div class="col-md-4 padding-box">
 						<div class="box-heading">
@@ -599,14 +606,11 @@
 						</div>
 					</div>
 				</div>
-
-
-
 			</div>
 		</div>
 
-		<div class="col-sm-3">
-			<div class="product-detail-right">
+		<div class="col-lg-3 col-md-5 col-12">
+			<div class="product-detail-right pb-5">
 				<div class="right-top-pincode">
 					<div class="right-box-main-title truck-delivery buy-from">
 						<h3 class="order-truck">
@@ -615,8 +619,8 @@
 						Delivery by 11th Oct
 					</div>
 					<div class="right-pincode">
-						<p>395001</p>
-						<a href="#">change</a>
+						<input type="text" class="form-control" value="395001">
+						<a href="javascript:void(0)">change</a>
 					</div>
 					<div class="right-top-icons icon-margin">
 						<ul>
@@ -769,7 +773,7 @@
 
 	</div>
 
-	<div class="row flash">
+	<!-- <div class="row flash">
 
 		<div class="col-md-12">
 			<div class="flash-products">
@@ -840,9 +844,9 @@
 
 
 		</div>
-	</div>
+	</div> -->
 
-	<div class="row flash margin-cx pb-5 mt-1">
+	<!-- <div class="row flash margin-cx pb-5 mt-1">
 		<div class="col-md-12">
 			<div class="flash-products">
 				<h1>Brand Related</h1>
@@ -872,7 +876,7 @@
 				</owl-carousel-o>
 			</div>
 		</div>
-		<div class=" rows mt-5">
+		<div class=" row mt-5">
 			<div class="col-md-4 ">
 				<div class="main-review">
 					<div class="rating_review">
@@ -890,32 +894,7 @@
 						<div class="golbal_review">
 							<p>5,826 global rating</p>
 						</div>
-						<!-- <div class="main-rate-right">
-							<div class="yellow_star">
-								<span>5 star</span>
-								<div class="progress">
-									<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-									</div>
-								</div>
-							</div>
-
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-									aria-valuemax="100"></div>
-							</div>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-									aria-valuemax="100"></div>
-							</div>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
-									aria-valuemax="100"></div>
-							</div>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
-									aria-valuemax="100"></div>
-							</div>
-						</div> -->
+						
 						<div class="calculated">
 							<i class="fa mr-2 fa-angle-down" aria-hidden="true"></i>
 							<span>How are ratings calculated?</span>
@@ -1064,7 +1043,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 
 

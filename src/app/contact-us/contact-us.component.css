@@ -4,7 +4,6 @@
     font-size: 38px;
     font-weight: 400;
     text-align: center;
-    padding: 35px 0 0 0;
 }
 
 .contact-page-form .col-md-6.col-sm-6.col-xs-12 {
@@ -106,7 +105,6 @@
 .contact-page-form {
     display: inline-block;
     width: 100%;
-    margin-top: 30px;
 }
 
 .contact-page-map {
