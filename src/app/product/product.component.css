@@ -24,14 +24,14 @@
 .slider-thumb-bottom ul {
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 8px;
 }
 
 .slider-thumb-bottom ul li {
   list-style-type: none;
-  width: 75px;
-  display: inline-block;
   border: solid 1px #ccc;
-  margin-right: 8px;
   padding: 5px;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .product-main-text {
-  padding-bottom: 35px;
+  padding-bottom: 20px;
 }
 
 .product-main-text h1 {
@@ -54,25 +54,26 @@
 .product-main-text h1 span {
   font-size: 12px;
 }
-
-.product-main-text h2 {
+.product-main-text .price span{
+  margin-right: 10px;
+}
+.product-main-text .new_price {
   font-size: 25px;
   font-weight: 600;
-  padding: 20px 0 0 0;
   margin: 0;
 }
 
-.product-main-text h2 span {
-  font-size: 22px;
+.product-main-text .price .old_price {
+  font-size: 16px;
   font-weight: 400;
-  padding-left: 10px;
   text-decoration: line-through;
   color: #999797;
 }
 
-.product-main-text h2 span.green {
+.product-main-text .price .offer_price {
   color: green;
   text-decoration: none;
+  font-size: 16px;
 }
 
 .product-main-text p {
@@ -106,8 +107,7 @@
   padding: 0;
   margin: 0;
 }
-
-.buy-from h3 i {
+.buy-from .product_offer .promo_icon {
   border: solid 1px #ccc;
   border-radius: 25px;
   width: 45px;
@@ -115,6 +115,7 @@
   font-size: 25px;
   text-align: center;
   line-height: 45px;
+  margin-right: 15px;
 }
 .pointer {
   cursor: pointer;
@@ -140,6 +141,11 @@
   width: 100%;
   padding: 10px 0px;
   background-color: transparent;
+  transition: .2s;
+}
+.button-bag:hover{
+  background-color: #000;
+  color: #fff;
 }
 .button-buy {
   width: 100%;
@@ -226,7 +232,6 @@
 
 .product-description {
   background: #fff;
-  margin-top: 70px;
   padding: 25px;
 }
 
@@ -322,6 +327,11 @@
   padding-bottom: 25px;
 }
 
+.product-detail-right{
+  position: sticky;
+  top: 0px;
+  
+}
 .right-top-pincode,
 .offer,
 .sold-by,
@@ -373,26 +383,30 @@
 }
 
 .right-pincode {
-  background: #f4f4f4;
   overflow: hidden;
-  padding: 15px;
-  border-radius: 7px;
+  margin: 15px;
+  /* display: flex; */
+  position: relative;
 }
-
-.right-pincode p {
-  padding: 0;
-  margin: 0;
-  float: left;
-  font-size: 16px;
-  font-weight: 500;
+.right-pincode > input{
+  background: #f4f4f4;
+  border: 1px solid #ced4da !important;
+  outline: none;
+  box-shadow: none;
 }
-
+.right-pincode > input:focus{
+  background: #fff;
+}
 .right-pincode a {
-  float: right;
   color: #000;
   font-weight: 600;
   text-transform: capitalize;
   font-size: 14px;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  line-height: 37px;
+  height: 100%;
 }
 
 .right-top-icons {
@@ -446,8 +460,7 @@
   padding: 10px 0 0 0;
 }
 
-.sold-by p {
-}
+
 
 .details-listing ul {
   margin: 0;
@@ -466,18 +479,18 @@
 
 .star-listing {
   overflow: hidden;
-  padding: 20px 0;
+  padding-top: 20px;
   border-bottom: dotted 1px #ccc;
 }
 
 .star-listing ul {
   margin: 0;
   padding: 0;
+  display: flex;
 }
 
 .star-listing ul li {
   list-style-type: none;
-  float: left;
   padding: 0 35px 0 0;
   font-size: 14px;
   font-weight: 400;
@@ -499,11 +512,8 @@
 
 .emi-promo {
   padding: 10px 0 0 0;
-  font-size: 14px;
-  font-weight: 600;
-}
-.emi-promo {
   font-size: 14px !important;
+  font-weight: 600;
 }
 
 .emi-promo a {
@@ -512,9 +522,12 @@
   color: #000;
   margin: 0 0 0 10px;
 }
-
-.product-high {
+.emi-promo:hover a {
+  background-color: #000;
+  color: #fff;
+  border-color: transparent;
 }
+
 
 .product-high ul {
   margin: 0;
@@ -569,8 +582,6 @@
   background-color: #fff !important;
 }
 
-.flash-products p span {
-}
 
 .flash-products label {
   text-align: center;
@@ -718,4 +729,22 @@ padding-bottom: 25px;
 
 .review_details>h2{
     font-size:13px;
+}
+
+@media screen and (max-width: 991px) {
+
+  .product-description{
+    padding: 15px;
+  }
+  .product-description .nav-pills{
+    justify-content: space-between;
+  }
+  .product-description .nav-pills .nav-item .nav-link{
+    font-size: 14px !important;
+    margin: 0 0px;
+  }
+  .border-row{
+    padding: 0;
+  }
+
 }

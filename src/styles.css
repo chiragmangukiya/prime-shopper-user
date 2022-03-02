@@ -13,6 +13,12 @@ a,a:hover {
     text-decoration: none;
 }
 
+a.link{
+    color: #666;
+}
+a.link:hover{
+    color: #000;
+}
 .row{
     margin: 0;
 }
@@ -223,7 +229,7 @@ ul{
 
 
 .breadcrumbs {
-    width: 1860px;
+    /* width: 1860px; */
     margin: 20px auto 20px;
 }
 
