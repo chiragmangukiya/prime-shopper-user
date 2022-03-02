@@ -6,9 +6,9 @@ import { HttpClient }  from '@angular/common/http';
 })
 export class UserDataService {
 
-  Register_url = "https://prime-shopper.herokuapp.com/api/v1/user/register";
-  login_url = "https://prime-shopper.herokuapp.com/api/v1/user/login";
-  mail_url = "https://mailsendapi1.herokuapp.com/";
+  Register_url = "https://prime-shopper-api.herokuapp.com/api/v1/user/register";
+  login_url = "https://prime-shopper-api.herokuapp.com/api/v1/user/login";
+  forgot_password_url = "https://prime-shopper-api.herokuapp.com/api/v1/user/forgot/password";
 
   constructor(private http:HttpClient) {}
 
@@ -24,7 +24,7 @@ export class UserDataService {
 
   mail_password(email:any)
   {
-      return this.http.post(this.mail_url,email)
+      return this.http.post(this.forgot_password_url,email)
   }
 
 }
