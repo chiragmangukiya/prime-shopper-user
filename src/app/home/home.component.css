@@ -164,5 +164,8 @@
         font-size: 16px !important;
 
     }
-
+}
+.best_selling
+{
+    position: relative;
 }
