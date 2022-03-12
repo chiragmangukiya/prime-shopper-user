@@ -78,6 +78,10 @@ const routes: Routes = [
         path : 'sub-category',
         component : SubCategoryComponent
       },
+      {
+        path : 'sub-category',
+        component : SubCategoryComponent
+      },
     ]
   },
   {
