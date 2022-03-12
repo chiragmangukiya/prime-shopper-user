@@ -15,7 +15,9 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void { }
 
   toster:any;
+
   register(data: any) {
+    
     this.http.register(data).subscribe((result:any) => {
       if(result.data!= false)
       {
