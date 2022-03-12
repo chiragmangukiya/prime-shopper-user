@@ -12,8 +12,10 @@ import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
 import { RegisterComponent } from './register/register.component';
 import { ReturnRefundPolicyComponent } from './return-refund-policy/return-refund-policy.component';
+import { SallerProductComponent } from './saller-product/saller-product.component';
 import { StoresImgComponent } from './stores-img/stores-img.component';
 import { StoresComponent } from './stores/stores.component';
+import { SubCategoryComponent } from './sub-category/sub-category.component';
 
 const routes: Routes = [
   
@@ -67,6 +69,14 @@ const routes: Routes = [
       {
         path : 'return-refund-policy',
         component : ReturnRefundPolicyComponent
+      },
+      {
+        path : 'saller',
+        component : SallerProductComponent
+      },
+      {
+        path : 'sub-category',
+        component : SubCategoryComponent
       },
     ]
   },

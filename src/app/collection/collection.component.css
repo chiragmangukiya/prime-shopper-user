@@ -45,8 +45,7 @@
     color: green;
 }
 
-.product h2 i {
-    text-decoration: line-through;
+.product h2 s, .off_pr {
     font-style: normal;
     padding: 0 5px 0 2px;
     font-weight: 500;
@@ -207,11 +206,6 @@
     border-bottom: solid 1px #e1e1e1 !important;
 }
 
-.pagination {
-    justify-content: center;
-    margin-top: 25px;
-    margin-bottom: 0;
-}
 
 .breadcrumbs {
     width: 100%;
@@ -302,7 +296,84 @@
     z-index: 9999;
     display: none;
 }
+.main-pro-img{
+    position: relative;
+}
+.add_wishlist{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #fff;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
+    color: #000;
+}
+.add_wishlist a{
+    display: block;
+    color: inherit;
+    margin-top: 5px;
+}
+.offer_pr{
+    position: absolute;
+    top: 15px;
+    left: 0;
+    /* width: 70px;
+    height: 70px; */
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    font-size: 15px;
 
+}
+.offer_pr:before{
+    content: '';
+    height: 0;
+    width: 0;
+    border-top: 16px transparent solid;
+    border-bottom: 16px transparent solid;
+    border-left: 18px #000 solid;
+    position: absolute;
+    left: 100%;
+    top: 0;
+}
+.offer_pr span{
+    /* display: block; */
+    /* font-size: 16px; */
+    font-weight: bold;
+
+}
+
+
+.pagination {
+    display: flex;
+    margin: 30px 0 50px;
+    justify-content: center;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pagination a.active {
+    background-color: #000;
+    color: white;
+    border: 1px solid #000;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
 @media screen and (max-width: 767px){
     
     .main-pro-img {

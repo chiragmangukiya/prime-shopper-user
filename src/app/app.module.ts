@@ -26,6 +26,8 @@ import { StoresComponent } from './stores/stores.component';
 import { StoresImgComponent } from './stores-img/stores-img.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { SallerProductComponent } from './saller-product/saller-product.component';
+import { SubCategoryComponent } from './sub-category/sub-category.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { ToastrModule } from 'ngx-toastr';
     ReturnRefundPolicyComponent,
     FaqComponent,
     StoresComponent,
-    StoresImgComponent
+    StoresImgComponent,
+    SallerProductComponent,
+    SubCategoryComponent
   ],
   imports: [
     BrowserModule,

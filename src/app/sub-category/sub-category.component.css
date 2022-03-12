@@ -1,0 +1,198 @@
+.categories {
+     padding: 20px 0;
+ }
+ .pointer{
+     cursor: pointer;
+ }
+ 
+ 
+ 
+ .categories img {
+     border-radius: 50%;
+     width: 87px;
+     height: 87px;
+     margin: 0 auto;
+ }
+ 
+ .categories span {
+     display: block;
+     font-size: 12px;
+     color: #000;
+     font-weight: 600;
+     padding-top: 10px;
+ }
+ 
+ .page-hero {
+     width: 100%;
+ }
+ 
+ .page-hero img {
+     /* border-radius: 10px; */
+     width: 100%;
+ }
+ 
+ .brands_banner img{
+     border-radius: 10px;
+ }
+ .page-section h1 {
+     font-size: 38px;
+     color: #000;
+     text-align: center;
+     font-weight: bold;
+     padding: 0 0 45px 0;
+ }
+ 
+ .section-products .pro_img{
+     max-height: 350px;
+     height: 350px;
+     border-radius: 10px;
+     overflow: hidden;
+     position: relative;
+ }
+ 
+ .section-products .pro_img img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     object-position: center top;
+ }
+ 
+ .section-products .pro_img .pro_offer_txt{
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     background-color: rgba(0, 0, 0, .8);
+     color: #fff;
+     padding: 10px 20px;
+     width: 100%;
+     text-align: center;
+     letter-spacing: 1px;
+     font-size: 18px;
+     cursor: pointer;
+ }
+ .section-products .pro_img .pro_offer_txt a{color: inherit;}
+ .best_selling{
+     border-radius: 0 0 10px 10px;
+ }
+ .best_selling .pro_img{
+     border-radius: 10px 10px 0 0;
+     height: 350px;
+     overflow: hidden;
+ }
+ .best_selling .pro_img img,
+ .top_brands_offer .pro_img img{
+     object-position: center top;
+     transition: .3s;
+ }
+ .pro_content{
+     background-color: #fff;
+     padding: 15px;
+     text-align: center;
+     border-radius: 0 0 10px 10px;
+ }
+ .pro_content a{
+     color: #000;
+     
+ }
+ .section-laptop .best_selling .pro_img{
+     max-height: 250px !important;
+     height: auto;
+     overflow: hidden;
+     border-radius: 10px;
+     
+ }
+ .offer_selling,
+ .offer_selling .pro_img img{
+     border-radius: 10px;
+ }
+ 
+ .best_selling:hover .pro_img>img,
+ .top_brands_offer .pro_img:hover > img{
+     transform: scale(1.1);
+ }
+ 
+ 
+ 
+ 
+ .btn-view-all {
+     border: 2px #000 solid;
+     text-align: center;
+     border-radius: 30px;
+     text-align: center;
+     color: #000;
+     margin: 50px auto 0;
+     font-size: 14px;
+     font-weight: 600;
+     padding: 15px 40px;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     position: relative;
+     overflow: hidden;
+     transition: background .2s, color .2s;
+ }
+ .btn-view-all:hover{
+     background: #000;
+     color: #fff;
+ }
+ 
+ .priceing {
+     font-size: 18px;
+     color: #5e5e5e;
+     font-weight: 400;
+     padding: 0;
+     margin: 0;
+     text-align: center;
+ }
+ .sub_category .category_img{
+      max-height: 179px;
+ }
+.sub_category .category_img,
+.sub_category .category_img img{
+     border-radius: 10px;
+     overflow: hidden;
+}
+ .sub_category .cate_name{
+     text-align: center;
+     color: #000;
+     /* font-size: 18px; */
+     margin: 10px 0;
+     font-weight: bold;
+     padding: 0 10px;
+ }
+ 
+ 
+ @media screen and (min-width: 992px) and (max-width: 1199px){
+     .section_title{
+         font-size: 30px !important;
+         width: 75% !important;
+     }
+ }
+ @media (max-width: 991px){
+     
+     .best_selling .pro_img{
+         max-height: 225px;
+     }
+     .best_selling .pro_content{
+         padding: 10px;
+     }
+     .best_selling .pro_content .pro_name,
+     .best_selling .pro_content .pro_offer{
+         font-size: 16px !important;
+ 
+     }
+ 
+ }
+ @media screen and (max-width: 767px) {
+
+     .page-section h1 {
+          font-size: 25px;
+          font-weight: bold;
+          padding: 0 0 20px 0;
+          width: 100% !important;
+      }
+      
+ }
+ 
+ .best_selling {
+     position: relative;
+ }
