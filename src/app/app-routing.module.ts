@@ -71,7 +71,7 @@ const routes: Routes = [
         component : ReturnRefundPolicyComponent
       },
       {
-        path : 'saller',
+        path : 'seller',
         component : SallerProductComponent
       },
       {
