@@ -16,6 +16,7 @@ import { SallerProductComponent } from './saller-product/saller-product.componen
 import { StoresImgComponent } from './stores-img/stores-img.component';
 import { StoresComponent } from './stores/stores.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 const routes: Routes = [
   
@@ -71,7 +72,7 @@ const routes: Routes = [
         component : ReturnRefundPolicyComponent
       },
       {
-        path : 'saller',
+        path : 'seller',
         component : SallerProductComponent
       },
       {
@@ -79,9 +80,9 @@ const routes: Routes = [
         component : SubCategoryComponent
       },
       {
-        path : 'sub-category',
-        component : SubCategoryComponent
-      },
+        path : 'view-profile',
+        component : ViewProfileComponent
+      }
     ]
   },
   {

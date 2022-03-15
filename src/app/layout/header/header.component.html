@@ -1,9 +1,9 @@
 <header>
     <div class="row header align-items-center justify-content-between">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-5 logo">
+        <div class="col-sm-2 col-5 logo">
             <a [routerLink]="['']"><img src="/assets/images/logo.png" alt=""></a>
         </div>
-        <div class="col-lg-6 col-md-8 col-sm-8 col-12  header-center">
+        <div class="col-lg-6 col-md-8 col-sm-7 col-12  header-center">
             <div class="row gx-2 justify-content-between">
                 <div class="col-md-4 d-none d-md-block">
                     <div class="categories-menu d-none d-md-block">
@@ -30,18 +30,17 @@
             
            
         </div>
-        <div class="col-lg-4 col-md-2 col-sm-2 col-5 header-right d-flex align-items-center justify-content-between">
+        <div class="col-lg-4 col-md-2 col-sm-3 col-5 header-right d-flex align-items-center justify-content-between">
             <div class="my-order">
                 <a href="#">
-                    <img src="/assets/images/head-right-icon1.png" alt="" class="mr-2"> <span>My Order</span>
+                    <img src="/assets/images/head-right-icon1.png" alt="" class="mr-2"> <span> My Order</span>
                 </a>
             </div>
             <div  class="cart">
-                <!-- <span>0</span> -->
                 <a [routerLink]="['/cart']" >
-                    <img src="/assets/images/head-right-icon2.png" alt="" class="mr-2">
+                    <img src="/assets/images/head-right-icon2.png" alt="" class="me-1">
                     <!-- <span class="cart_badge">10</span> -->
-                    <span>No Items</span>
+                    <span> No Items</span>
                 </a>
             </div>
 
@@ -49,18 +48,37 @@
             <ng-template #login>
             <div class="login"> 
                 <a [routerLink]="['/login']" routerLinkActive="active" >
-                    <img src="/assets/images/head-right-icon3.png" alt="" class="mr-2"> 
-                    <span>Login / Sign Up</span>
+                    <img src="/assets/images/head-right-icon3.png" alt="" class="me-1"> 
+                    <span> Login / Sign Up</span>
                 </a>
             </div>
         </ng-template>
         <ng-template #logout>
-            <div class="login">
-                <a href="javascript:void(0);" class="d-flex align-items-center" (click)="logout_user()">
-                    <i class="fa fa-power-off mr-2 fs-5" aria-hidden="true"></i>
-                    <span>Logout</span>
+
+            <div class="login dropdown">
+                <a href="#" class="d-flex align-items-center dropdown-toggle" data-bs-toggle="dropdown" id="profile-dropdown" data-bs-offset="0,20">
+                    <span class="text-truncate" style="max-width: 100px;">Ravi Jasoliya kjhb jbj b</span>
+                    <i class="fa fa-user-circle ms-2 fs-3" aria-hidden="true"></i>
                 </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile-dropdown" >
+                    
+                    <li><a class="dropdown-item" href="#">My Account</a></li>
+                    <li><a class="dropdown-item" [routerLink]="['/view-profile']">View Profile</a></li>
+                    <li><a class="dropdown-item" [routerLink]="['/edit-profile']">Edit Profile</a></li>
+                    <li><a class="dropdown-item" [routerLink]="['/myorders']">My Orders</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <a href="javascript:void(0);" class="d-flex align-items-center dropdown-item" (click)="logout_user()">
+                            <i class="fa fa-power-off me-2 fs-5" aria-hidden="true"></i>
+                            <span> Logout</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
+
+            <!-- <div class="login">
+                
+            </div> -->
         </ng-template>
         </div>
     </div>

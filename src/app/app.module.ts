@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { SallerProductComponent } from './saller-product/saller-product.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { SubCategoryComponent } from './sub-category/sub-category.component';
     StoresComponent,
     StoresImgComponent,
     SallerProductComponent,
-    SubCategoryComponent
+    SubCategoryComponent,
+    ViewProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,7 @@ import { SubCategoryComponent } from './sub-category/sub-category.component';
     NgxImageZoomModule,
     FormsModule,
     HttpClientModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot()
   
   ],
   providers: [],

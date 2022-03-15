@@ -52,8 +52,8 @@ ul{
 
 .header {
     background: #F3F7F8;
-    overflow: hidden;
-    padding: 15px 25px;
+    /* overflow: hidden; */
+    padding: 0 25px;
 }
 
 
@@ -364,6 +364,9 @@ font-family: 'Montserrat', sans-serif;
     .container-main{
         padding: 0 10px;
     }
+    .header {
+        padding: 15px 0;
+    }
 
 }
 @media (max-width: 575px){
@@ -378,11 +381,6 @@ font-family: 'Montserrat', sans-serif;
     .header-right{
         order: 2;
     }
-
-}
-
-@media (max-width: 575px){
-
     .spacerY{
         padding-top: 40px;
         padding-bottom: 40px;
