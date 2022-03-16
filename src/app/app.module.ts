@@ -29,6 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { SallerProductComponent } from './saller-product/saller-product.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
     StoresImgComponent,
     SallerProductComponent,
     SubCategoryComponent,
-    ViewProfileComponent
+    ViewProfileComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

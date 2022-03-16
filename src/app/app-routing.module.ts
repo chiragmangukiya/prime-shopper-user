@@ -4,6 +4,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { CartComponent } from './cart/cart.component';
 import { CollectionComponent } from './collection/collection.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { FaqComponent } from './faq/faq.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { HomeComponent } from './home/home.component';
@@ -82,6 +83,10 @@ const routes: Routes = [
       {
         path : 'view-profile',
         component : ViewProfileComponent
+      },
+      {
+        path : 'edit-profile',
+        component : EditProfileComponent
       }
     ]
   },
