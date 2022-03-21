@@ -2,7 +2,9 @@
     background: #0A121A;
     overflow: hidden;
 }
-
+.footer-logo{
+    text-align: center;
+}
 
 .footer-boxes h1 {
     font-size: 22px;
@@ -26,15 +28,17 @@
 .footer-boxes ul li a {
     color: #ccc;
 }
-
+.footer-boxes ul.country_list li + li::before{
+    content: '|';
+    color: #fff;
+    margin: 0 5px;
+}
 .footer-boxes.box1 ul {
     padding-top: 30px;
 }
 
 .footer-boxes.box1 ul li {
     display: inline-block;
-    border-left: solid 1px #5e5e5e;
-    padding: 0 5px;
     line-height: 15px;
 }
 
