@@ -36,7 +36,7 @@
 .delete-btn,
 .like-btn {
     display: inline-block;
-    Cursor: pointer;
+    cursor: pointer;
 }
 
 .delete-btn {
