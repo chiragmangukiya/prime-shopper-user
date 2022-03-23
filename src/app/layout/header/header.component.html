@@ -1,21 +1,25 @@
 <header>
-    <div class="row header align-items-center justify-content-between">
-        <div class="col-sm-2 col-5 logo">
-            <a [routerLink]="['']"><img src="/assets/images/logo.png" alt=""></a>
+    <div class="row header align-items-center justify-content-between pt-0">
+        <div class="col-sm-2 col-3 logo py-2">
+            <a [routerLink]="['']"><img src="/assets/images/original-logo.png" alt="" width="100"></a>
         </div>
-        <div class="col-lg-6 col-md-8 col-sm-7 col-12  header-center">
+        <div class="col-xxl-8 col-lg-7 col-md-8 col-sm-7 col-12  header-center">
             <div class="row gx-2 justify-content-between">
-                <div class="col-md-4 d-none d-md-block">
-                    <div class="categories-menu d-none d-md-block">
-                        <a class="nav-link dropdown-toggle text-truncate" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="/assets/images/menu.png" alt=""> Shop By Category
+                <div class="col-lg-3 col-md-4 d-none d-lg-block">
+                    <div class="categories-menu dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center text-truncate" href="#" id="category-dropdown" data-bs-toggle="dropdown">
+                            <!-- <img src="/assets/images/menu.png" alt="">  -->
+                            <i class="fa fa-list px-2"></i>
+                            <span>Shop By Category</span>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            sdfsd
-                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="category-dropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-8 col-12">
+                <div class="col-lg-9 col-lg-8 col-md-12 col-12">
                     <div class="searching d-flex">
                         <img src="/assets/images/search.png" alt="" class="search_icon">
                         <input type="text" placeholder="Search for a Products, Brand or Category">
@@ -25,25 +29,22 @@
                 <img src="/assets/images/location.png" alt="">
                 <input type="text" placeholder="Pincode">
             </div> -->
-            </div>
-            
-            
-           
+            </div>    
         </div>
-        <div class="col-lg-4 col-md-2 col-sm-3 col-5 header-right d-flex align-items-center justify-content-between">
-            <div class="my-order">
-                <a href="#">
-                    <img src="/assets/images/head-right-icon1.png" alt="" class="mr-2"> <span> My Order</span>
+        <div class="col-xxl-2 col-lg-3 col-md-2 col-sm-2 col-5 p-0 header-right d-flex align-items-center justify-content-end">
+            <div class="my-order me-3">
+                <a href="#" title="My Orders">
+                    <img src="/assets/images/head-right-icon1.png" alt="" class="mr-2"> 
+                    <span class="d-none"> My Order</span>
                 </a>
             </div>
-            <div  class="cart">
+            <div class="cart me-3">
                 <a [routerLink]="['/cart']" >
                     <img src="/assets/images/head-right-icon2.png" alt="" class="me-1">
-                    <!-- <span class="cart_badge">10</span> -->
-                    <span> No Items</span>
+                    <span class="cart_badge bg-danger">10</span>
+                    <span class="d-none"> No Items</span>
                 </a>
             </div>
-
             <h1 *ngIf="checkLogin; then logout else login"></h1>
             <ng-template #login>
             <div class="login"> 

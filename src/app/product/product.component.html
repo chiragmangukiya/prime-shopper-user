@@ -13,11 +13,19 @@
 			<div class="product-left">
 				<div class="row">
 					<div class="col-lg-6 col-12">
-						<div class="slider-zoom">
+						
+						<div class="img-zoom-container" (mouseenter)="imageZoom('myimage', 'myresult');">
+							<img id="myimage" src="/assets/images/slider-1.png"
+							 width="300">
+							<div id="myresult" class="img-zoom-result"></div>
+						</div>
+
+						<!-- <div class="slider-zoom">
+
 							<lib-ngx-image-zoom [magnification]="1.1" [zoomMode]="'hover'"
 								[thumbImage]="'/assets/images/slider-1.png'" [fullImage]="'/assets/images/slider-1.png'">
 							</lib-ngx-image-zoom>
-						</div>
+						</div> -->
 						<div class="slider-thumb-bottom">
 							<ul>
 								<li>
@@ -1048,3 +1056,6 @@
 
 
 </div>
+
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
