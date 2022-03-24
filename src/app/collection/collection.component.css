@@ -208,18 +208,15 @@
 
 
 .breadcrumbs {
-    width: 100%;
-    margin: 0 auto 10px;
-    padding: 30px 0 0 0;
+    margin: 0;
 }
 
 .right-main-title {
     font-size: 20px;
-    padding: 0 0 20px 0;
     color: #000;
     float: none;
     font-weight: 500;
-    width: 100%;
+    padding: 0;
 }
 
 .breadcrumbs ul li:first-child {
@@ -329,7 +326,7 @@
     left: 0;
     /* width: 70px;
     height: 70px; */
-    background-color: #000;
+    background-color: maroon;
     color: #fff;
     text-align: center;
     padding: 5px 10px;
@@ -343,7 +340,7 @@
     width: 0;
     border-top: 14px transparent solid;
     border-bottom: 14px transparent solid;
-    border-left: 14px #000 solid;
+    border-left: 14px maroon solid;
     position: absolute;
     left: 100%;
     top: 0;
