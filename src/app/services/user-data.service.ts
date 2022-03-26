@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders}  from '@angular/common/http';
+import { Options } from '@angular-slider/ngx-slider';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ export class UserDataService {
   login_url = "https://prime-shopper-api.herokuapp.com/api/v1/user/login";
   forgot_password_url = "https://prime-shopper-api.herokuapp.com/api/v1/user/forgot/password";
   userProfile = "https://prime-shopper-api.herokuapp.com/api/v1/user/profile";
+  profileupdate = "https://prime-shopper-api.herokuapp.com/api/v1/user/profile/update";
+
 
   constructor(private http:HttpClient) {}
 
@@ -43,6 +46,12 @@ export class UserDataService {
   {
     let options : any = { headers: this._getHeaders() };
     return this.http.post(this.userProfile,'',options);
+  }
+
+  update_profile(data:any)
+  {
+      let options : any = { headers: this._getHeaders() };
+     return this.http.post(this.profileupdate,data,options)
   }
 
 }

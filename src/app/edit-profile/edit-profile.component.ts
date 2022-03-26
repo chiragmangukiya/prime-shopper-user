@@ -14,15 +14,17 @@ export class EditProfileComponent implements OnInit {
   constructor(private http: UserDataService) { }
   userProfile: any;
   ngOnInit(): void {
-    this.http.get_profile().subscribe((result:any)=>{
-    this.userProfile = result;
-
-    alert(this.userProfile.data.name);
-    })  
+    this.http.get_profile().subscribe((result: any) => {
+      this.userProfile = result
+      console.warn(result)
+    })
   }
 
-  updateuser(data:any)
-  {
+  updateuser(data: any) {
+
+    this.http.update_profile(data).subscribe((result:any)=>{
+      
+    })
 
   }
 }
