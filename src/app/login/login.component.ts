@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
       else {
         this.toastr.success("Login Success..");
         localStorage.setItem('userLogin', result.data._id);
+        localStorage.setItem('X-Authentication-token', result.data.token);
         this.router.navigate(['/']);
       }
     });

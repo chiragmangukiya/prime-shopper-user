@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDataService } from '../services/user-data.service';
 
 @Component({
   selector: 'app-view-profile',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewProfileComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private http: UserDataService) { }
+  userProfile: any;
   ngOnInit(): void {
+    this.http.get_profile().subscribe((result:any)=>{
+      this.userProfile = result;
+      console.log(result)
+    })
+
   }
 
 }
