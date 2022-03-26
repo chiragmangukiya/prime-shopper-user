@@ -8,6 +8,7 @@ import { UserDataService } from '../services/user-data.service';
 })
 export class ViewProfileComponent implements OnInit {
 
+  
   constructor(private http: UserDataService) { }
   userProfile: any;
   ngOnInit(): void {
