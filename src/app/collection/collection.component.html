@@ -152,12 +152,13 @@
                 </div>
                 <div class="main-products">
                     <div class="row mb-5 g-2 g-sm-3">
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6">
+                        <!-- {{productData.banner}} -->
+                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6" *ngFor="let product of productData.data">
                             <div class="product">
                                 <div class="main-pro-img">
-                                    <img src="../../assets/images/pro (1).png" alt="">
+                                    <img src="{{product.banner}}" alt="">
                                     <div class="offer_pr">
-                                        <span>63%</span>
+                                        <span>{{product.discount.discount_price_in_india}}%</span>
                                         Off
                                     </div>
                                     <div class="add_wishlist">
@@ -165,165 +166,12 @@
                                     </div>
                                 </div>
                                 <div class="collection-pro-det">
-                                    <label for="">Stylemayth</label>
-                                    <p class="h1"><a href="#" class="stretched-link">Men Round Neck Colorblocked T-Shirt Pack Of 1</a></p>
-                                    <h2 class="fs-5">$258 <s>$699</s> <span class="off_pr">63% Off</span> </h2>
+                                    <p class="h1"><a href="#" class="stretched-link">{{product.title}}</a></p>
+                                    <h2 class="fs-5">{{product.sellingPrice.selling_price_in_india}}% <s>${{product.price.price_in_india}}</s> <span class="off_pr">{{product.discount.discount_price_in_india}}% Off</span> </h2>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6">
-                            <div class="product">
-                                <div class="main-pro-img">
-                                    <img src="../../assets/images/pro (2).png" alt="">
-                                    <div class="offer_pr">
-                                        <span>63%</span>
-                                        Off
-                                    </div>
-                                    <div class="add_wishlist">
-                                        <a href="#" title="Add To Wishlist"><i class="fa fa-heart fs-5"></i></a>
-                                    </div>
-                                </div>
-                                <div class="collection-pro-det">
-                                    <label for="">Stylemayth</label>
-                                    <p class="h1"><a href="#" class="stretched-link">Men Round Neck Colorblocked T-Shirt Pack Of 1</a></p>
-                                    <h2 class="fs-5">$258 <s>$699</s> <span class="off_pr">63% Off</span> </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6">
-                            <div class="product">
-                                <div class="main-pro-img">
-                                    <img src="../../assets/images/pro (3).png" alt="">
-                                    <div class="offer_pr">
-                                        <span>63%</span>
-                                        Off
-                                    </div>
-                                    <div class="add_wishlist">
-                                        <a href="#" title="Add To Wishlist"><i class="fa fa-heart fs-5"></i></a>
-                                    </div>
-                                </div>
-                                <div class="collection-pro-det">
-                                    <label for="">Stylemayth</label>
-                                    <p class="h1"><a href="#" class="stretched-link">Men Round Neck Colorblocked T-Shirt Pack Of 1</a></p>
-                                    <h2 class="fs-5">$258 <s>$699</s> <span class="off_pr">63% Off</span> </h2>
-                                </div>
-                            </div>
-                        </div>                        
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6">
-                            <div class="product">
-                                <div class="main-pro-img">
-                                    <img src="../../assets/images/pro (1).png" alt="">
-                                    <div class="offer_pr">
-                                        <span>63%</span>
-                                        Off
-                                    </div>
-                                    <div class="add_wishlist">
-                                        <a href="#" title="Add To Wishlist"><i class="fa fa-heart fs-5"></i></a>
-                                    </div>
-                                </div>
-                                <div class="collection-pro-det">
-                                    <label for="">Stylemayth</label>
-                                    <p class="h1"><a href="#" class="stretched-link">Men Round Neck Colorblocked T-Shirt Pack Of 1</a></p>
-                                    <h2 class="fs-5">$258 <s>$699</s> <span class="off_pr">63% Off</span> </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6">
-                            <div class="product">
-                                <div class="main-pro-img">
-                                    <img src="../../assets/images/pro (2).png" alt="">
-                                    <div class="offer_pr">
-                                        <span>63%</span>
-                                        Off
-                                    </div>
-                                    <div class="add_wishlist">
-                                        <a href="#" title="Add To Wishlist"><i class="fa fa-heart fs-5"></i></a>
-                                    </div>
-                                </div>
-                                <div class="collection-pro-det">
-                                    <label for="">Stylemayth</label>
-                                    <p class="h1"><a href="#" class="stretched-link">Men Round Neck Colorblocked T-Shirt Pack Of 1</a></p>
-                                    <h2 class="fs-5">$258 <s>$699</s> <span class="off_pr">63% Off</span> </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6">
-                            <div class="product">
-                                <div class="main-pro-img">
-                                    <img src="../../assets/images/pro (3).png" alt="">
-                                    <div class="offer_pr">
-                                        <span>63%</span>
-                                        Off
-                                    </div>
-                                    <div class="add_wishlist">
-                                        <a href="#" title="Add To Wishlist"><i class="fa fa-heart fs-5"></i></a>
-                                    </div>
-                                </div>
-                                <div class="collection-pro-det">
-                                    <label for="">Stylemayth</label>
-                                    <p class="h1"><a href="#" class="stretched-link">Men Round Neck Colorblocked T-Shirt Pack Of 1</a></p>
-                                    <h2 class="fs-5">$258 <s>$699</s> <span class="off_pr">63% Off</span> </h2>
-                                </div>
-                            </div>
-                        </div>                        
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6">
-                            <div class="product">
-                                <div class="main-pro-img">
-                                    <img src="../../assets/images/pro (1).png" alt="">
-                                    <div class="offer_pr">
-                                        <span>63%</span>
-                                        Off
-                                    </div>
-                                    <div class="add_wishlist">
-                                        <a href="#" title="Add To Wishlist"><i class="fa fa-heart fs-5"></i></a>
-                                    </div>
-                                </div>
-                                <div class="collection-pro-det">
-                                    <label for="">Stylemayth</label>
-                                    <p class="h1"><a href="#" class="stretched-link">Men Round Neck Colorblocked T-Shirt Pack Of 1</a></p>
-                                    <h2 class="fs-5">$258 <s>$699</s> <span class="off_pr">63% Off</span> </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6">
-                            <div class="product">
-                                <div class="main-pro-img">
-                                    <img src="../../assets/images/pro (2).png" alt="">
-                                    <div class="offer_pr">
-                                        <span>63%</span>
-                                        Off
-                                    </div>
-                                    <div class="add_wishlist">
-                                        <a href="#" title="Add To Wishlist"><i class="fa fa-heart fs-5"></i></a>
-                                    </div>
-                                </div>
-                                <div class="collection-pro-det">
-                                    <label for="">Stylemayth</label>
-                                    <p class="h1"><a href="#" class="stretched-link">Men Round Neck Colorblocked T-Shirt Pack Of 1</a></p>
-                                    <h2 class="fs-5">$258 <s>$699</s> <span class="off_pr">63% Off</span> </h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6 col-6">
-                            <div class="product">
-                                <div class="main-pro-img">
-                                    <img src="../../assets/images/pro (3).png" alt="">
-                                    <div class="offer_pr">
-                                        <span>63%</span>
-                                        Off
-                                    </div>
-                                    <div class="add_wishlist">
-                                        <a href="#" title="Add To Wishlist"><i class="fa fa-heart fs-5"></i></a>
-                                    </div>
-                                </div>
-                                <div class="collection-pro-det">
-                                    <label for="">Stylemayth</label>
-                                    <p class="h1"><a href="#" class="stretched-link">Men Round Neck Colorblocked T-Shirt Pack Of 1</a></p>
-                                    <h2 class="fs-5">$258 <s>$699</s> <span class="off_pr">63% Off</span> </h2>
-                                </div>
-                            </div>
-                        </div>                        
-                    </div>                    
+                    </div>       
                 </div>
             </div>
             <div class="pagination">

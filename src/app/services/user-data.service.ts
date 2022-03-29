@@ -12,6 +12,7 @@ export class UserDataService {
   forgot_password_url = "https://prime-shopper-api.herokuapp.com/api/v1/user/forgot/password";
   userProfile = "https://prime-shopper-api.herokuapp.com/api/v1/user/profile";
   profileupdate = "https://prime-shopper-api.herokuapp.com/api/v1/user/profile/update";
+  getProduct = "https://prime-shopper-api.herokuapp.com/api/v1/products";
 
 
   constructor(private http:HttpClient) {}
@@ -52,6 +53,11 @@ export class UserDataService {
   {
       let options : any = { headers: this._getHeaders() };
      return this.http.post(this.profileupdate,data,options)
+  }
+
+  get_product()
+  {
+    return this.http.post(this.getProduct,"");
   }
 
 }
