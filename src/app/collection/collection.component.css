@@ -239,6 +239,10 @@
     padding: 15px;
 }
 
+.collection-pro-det .stretched-link{
+    position: relative;
+}
+
 .btn-add-to-cart {
     position: absolute;
     background: #FFF;
