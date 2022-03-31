@@ -33,6 +33,7 @@
   list-style-type: none;
   border: solid 1px #ccc;
   padding: 5px;
+  max-width: 80px;
 }
 
 .slider-thumb-bottom ul li img {
