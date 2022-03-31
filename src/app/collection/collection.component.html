@@ -166,8 +166,8 @@
                                     </div>
                                 </div>
                                 <div class="collection-pro-det">
-                                    <p class="h1"><a href="#" class="stretched-link">{{product.title}}</a></p>
-                                    <h2 class="fs-5">{{product.sellingPrice.selling_price_in_india}}% <s>${{product.price.price_in_india}}</s> <span class="off_pr">{{product.discount.discount_price_in_india}}% Off</span> </h2>
+                                    <p class="h1"><a href="#" class="stretched-link" [routerLink]="['/product/'+product._id]" routerLinkActive="active">{{product.title}}</a></p>
+                                    <h2 class="fs-5">{{product.sellingPrice.selling_price_in_india}}%<s>${{product.price.price_in_india}}</s> <span class="off_pr">{{product.discount.discount_price_in_india}}% Off</span> </h2>
                                 </div>
                             </div>
                         </div>

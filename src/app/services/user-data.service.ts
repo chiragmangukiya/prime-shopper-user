@@ -13,9 +13,12 @@ export class UserDataService {
   userProfile = "https://prime-shopper-api.herokuapp.com/api/v1/user/profile";
   profileupdate = "https://prime-shopper-api.herokuapp.com/api/v1/user/profile/update";
   getProduct = "https://prime-shopper-api.herokuapp.com/api/v1/products";
+  getsproduct = "https://prime-shopper-api.herokuapp.com/api/v1/product";
 
 
   constructor(private http:HttpClient) {}
+
+  product_id:any;
 
   _getHeaders() {
     var token = this.getToken();
@@ -58,6 +61,12 @@ export class UserDataService {
   get_product()
   {
     return this.http.post(this.getProduct,"");
+  }
+
+  product(data:any)
+  {
+    this.product_id = ({ 'product': (data ? data : 'unAuth') })
+      return this.http.post(this.getsproduct,this.product_id);
   }
 
 }

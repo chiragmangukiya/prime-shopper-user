@@ -3,6 +3,7 @@ import { Options } from '@angular-slider/ngx-slider';
 import { UserDataService } from '../services/user-data.service';
 
 
+
 @Component({
   selector: 'app-collection',
   templateUrl: './collection.component.html',

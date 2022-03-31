@@ -49,7 +49,7 @@ const routes: Routes = [
         component : CollectionComponent
       },
       {
-        path : 'product',
+        path : 'product/:p_id',
         component : ProductComponent
       },
       {
