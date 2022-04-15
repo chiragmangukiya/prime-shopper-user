@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders}  from '@angular/common/http';
+import { Options } from '@angular-slider/ngx-slider';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,14 @@ export class UserDataService {
   login_url = "https://prime-shopper-api.herokuapp.com/api/v1/user/login";
   forgot_password_url = "https://prime-shopper-api.herokuapp.com/api/v1/user/forgot/password";
   userProfile = "https://prime-shopper-api.herokuapp.com/api/v1/user/profile";
+  profileupdate = "https://prime-shopper-api.herokuapp.com/api/v1/user/profile/update";
+  getProduct = "https://prime-shopper-api.herokuapp.com/api/v1/products";
+  getsproduct = "https://prime-shopper-api.herokuapp.com/api/v1/product";
+
 
   constructor(private http:HttpClient) {}
+
+  product_id:any;
 
   _getHeaders() {
     var token = this.getToken();
@@ -43,6 +50,23 @@ export class UserDataService {
   {
     let options : any = { headers: this._getHeaders() };
     return this.http.post(this.userProfile,'',options);
+  }
+
+  update_profile(data:any)
+  {
+      let options : any = { headers: this._getHeaders() };
+     return this.http.post(this.profileupdate,data,options)
+  }
+
+  get_product()
+  {
+    return this.http.post(this.getProduct,"");
+  }
+
+  product(data:any)
+  {
+    this.product_id = ({ 'product': (data ? data : 'unAuth') })
+      return this.http.post(this.getsproduct,this.product_id);
   }
 
 }

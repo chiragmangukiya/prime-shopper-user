@@ -20,7 +20,6 @@ export class HeaderComponent implements OnInit {
     }
     this._http.get_profile().subscribe((result:any)=>{
       this.userProfile = result;
-      console.log(result)
     })
   }
 

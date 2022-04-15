@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
+import { UserDataService } from '../services/user-data.service'
 // import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -8,13 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private _http: UserDataService) { }
+
+  productData: any
+  totalimage: any;
 
   ngOnInit(): void {
+    var product = this.route.snapshot.paramMap.get('p_id');
+
+    this._http.product(product).subscribe((result: any) => {
+      this.productData = result;
+
+    })
+
   }
 
-  imageZoom(imgID:any, resultID:any) {
-    var img:any, lens:any, result:any, cx:any, cy:any;
+  counter(i:number)
+  {
+    if(i<5)
+    {
+        return new Array(i);
+    }
+    else
+    {
+        return new Array(5);
+    }
+  }
+
+  imageZoom(imgID: any, resultID: any) {
+    var img: any, lens: any, result: any, cx: any, cy: any;
     img = document.getElementById(imgID);
     result = document.getElementById(resultID);
     /*create lens:*/
@@ -34,7 +58,7 @@ export class ProductComponent implements OnInit {
     /*and also for touch screens:*/
     lens.addEventListener("touchmove", moveLens);
     img.addEventListener("touchmove", moveLens);
-    function moveLens(e:any) {
+    function moveLens(e: any) {
       var pos, x, y;
       /*prevent any other actions that may occur when moving over the image:*/
       e.preventDefault();
@@ -54,7 +78,7 @@ export class ProductComponent implements OnInit {
       /*display what the lens "sees":*/
       result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
     }
-    function getCursorPos(e:any) {
+    function getCursorPos(e: any) {
       var a, x = 0, y = 0;
       e = e || window.event;
       /*get the x and y positions of the image:*/
@@ -152,7 +176,7 @@ export class ProductComponent implements OnInit {
 
   // Product Zoom
 
-  
+
 
 
 

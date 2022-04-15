@@ -9,49 +9,36 @@
 </div>
 <div class="container-main nobg">
 	<div class="row">
-		<div class="col-lg-9 col-md-7 col-12">
+		<div class="col-xl-9 col-lg-10 col-md-7 col-12">
 			<div class="product-left">
 				<div class="row">
 					<div class="col-lg-6 col-12">
 						
 						<div class="img-zoom-container" (mouseenter)="imageZoom('myimage', 'myresult');">
-							<img id="myimage" src="/assets/images/slider-1.png"
+							<img id="myimage" src="{{productData.data.banner}}"
 							 width="300">
 							<div id="myresult" class="img-zoom-result"></div>
 						</div>
 
 						<!-- <div class="slider-zoom">
-
 							<lib-ngx-image-zoom [magnification]="1.1" [zoomMode]="'hover'"
 								[thumbImage]="'/assets/images/slider-1.png'" [fullImage]="'/assets/images/slider-1.png'">
 							</lib-ngx-image-zoom>
 						</div> -->
-						<div class="slider-thumb-bottom">
-							<ul>
-								<li>
-									<img src="/assets/images/slider-1.png" alt="" />
-								</li>
-								<li>
-									<img src="/assets/images/slider-1.png" alt="" />
-								</li>
-								<li>
-									<img src="/assets/images/slider-1.png" alt="" />
-								</li>
-								<li>
-									<img src="/assets/images/slider-1.png" alt="" />
-								</li>
-								<li>
-									<img src="/assets/images/slider-1.png" alt="" />
-								</li>
+					<div class="slider-thumb-bottom">
+						<ul>
 
-							</ul>
-						</div>
+								<li *ngFor="let in of counter(productData.data.images.length); let i = index ">
+									<img src="{{productData.data.images[i]}}" alt="" />
+								</li>
+						</ul>
+					</div>
 					</div>
 					<div class="col-lg-6 col-12">
 						<div class="product-buy-main-details">
 							<div class="product-main-text">
 								<h1>
-									boAt Bassheads 103 In-Ear Wired Headphone (Blue)
+									{{productData.data.title}}
 									<br />
 									<span class="pointer" [routerLink]="['/stores']"  >Visit the Samsung Store</span>
 								</h1>
@@ -83,9 +70,9 @@
 								</div>
 								
 								<h2 class="price my-3 mb-0">
-									<span class="new_price">₹ 399</span>
-									<span class="old_price"> ₹ 1290 </span>
-									<span class="offer_price green"> -69% </span>
+									<span class="new_price">₹{{productData.data.sellingPrice.selling_price_in_india}}</span>
+									<span class="old_price"> ₹{{productData.data.price.price_in_india}} </span>
+									<span class="offer_price green"> -{{productData.data.discount.discount_price_in_india}}% </span>
 								</h2>
 								<p>Inclusive of all Taxes</p>
 							</div>
@@ -160,11 +147,10 @@
 					<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 						<div class="sold-by">
 							<div class="sold-shop">
-								<h1>boAt Authorised Seller</h1>
+								<h1>{{productData.data.seller.name}}</h1>
 								<label for="">Electrop Store</label>
 							</div>
-							<p>Deep 613, Basement, Below E Com Office, Old Delhi Gurugram Road, Near MCD School, Samalka, New Delhi,
-								Delhi, 110037</p>
+							<p>{{productData.data.features}}</p>
 							<p>Customer Care: 01204606060</p>
 						</div>
 						<div class="sold-product-details">
@@ -258,17 +244,7 @@
 					</div>
 					<div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 						<p class="dis-page-main">
-							Serenade the scene with the boAt Bass head's 172, the bass oasis to your Nirvana. Equipped with 10mm
-							Drivers, experience Audio Nirvana to take the pace of your surroundings with a quick in step and a
-							motivated mind-set. Get ready to turn the place over
-							with that heavy bass. A smooth vibrant design available in colours Active Black, Jazzy Blue and Raging
-							Red; step into the fashion game. The perfect on hand earphones to possess, always stay a step ahead. Take
-							calls using the
-							inbuilt microphone and tune out freely with the tangle free braided cable. It s been made for your
-							comfort. Durable to the max, get ready to rock the rhythm with heavy bass tunes, because the private party
-							just got started.
-							Just Plug In with the 3.5mm angled jack. The sound you ve been looking for has been found. Remember to do
-							Epic Sh*t when you re rocking with the Bass head's 172, the power is yours.
+						{{productData.data.description}}
 						</p>
 					</div>
 					<div class="tab-pane fade " id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
@@ -633,7 +609,7 @@
 			</div> -->
 		</div>
 
-		<div class="col-lg-3 col-md-5 col-12">
+		<div class="col-xl-3 col-lg-2 col-md-5 col-12">
 			<div class="product-detail-right pb-5">
 				<div class="right-top-pincode">
 					<div class="right-box-main-title truck-delivery buy-from">
