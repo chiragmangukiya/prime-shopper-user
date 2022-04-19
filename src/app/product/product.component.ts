@@ -25,6 +25,11 @@ export class ProductComponent implements OnInit {
 
   }
 
+  getidvalue()
+  {
+    
+  }
+
   counter(i:number)
   {
     if(i<5)

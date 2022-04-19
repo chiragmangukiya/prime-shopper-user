@@ -154,7 +154,7 @@
                     <div class="row mb-5 g-2 g-sm-3">
                         <!-- {{productData.banner}} -->
                         <div class="col-xl-3 col-lg-4 col-sm-6 col-6" *ngFor="let product of productData.data">
-                            <div class="product">
+                            <a href="javascript:void(0)" class="product_list" [routerLink]="['/product/'+product._id]" routerLinkActive="active"><div class="product">
                                 <div class="main-pro-img">
                                     <img src="{{product.banner}}" alt="">
                                     <div class="offer_pr">
@@ -167,9 +167,9 @@
                                 </div>
                                 <div class="collection-pro-det">
                                     <p class="h1"><a href="#" class="stretched-link" [routerLink]="['/product/'+product._id]" routerLinkActive="active">{{product.title}}</a></p>
-                                    <h2 class="fs-5">{{product.sellingPrice.selling_price_in_india}}%<s>${{product.price.price_in_india}}</s> <span class="off_pr">{{product.discount.discount_price_in_india}}% Off</span> </h2>
+                                    <h2 class="fs-5">{{product.sellingPrice.selling_price_in_india}} <s>${{product.price.price_in_india}}</s> <span class="off_pr">{{product.discount.discount_price_in_india}}% Off</span> </h2>
                                 </div>
-                            </div>
+                            </div></a>
                         </div>
                     </div>       
                 </div>
