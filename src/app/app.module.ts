@@ -30,6 +30,7 @@ import { SallerProductComponent } from './saller-product/saller-product.componen
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     SallerProductComponent,
     SubCategoryComponent,
     ViewProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
