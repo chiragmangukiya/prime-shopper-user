@@ -71,19 +71,7 @@
      cursor: pointer;
  }
  .section-products .pro_img .pro_offer_txt a{color: inherit;}
- .best_selling{
-     border-radius: 0 0 10px 10px;
- }
- .best_selling .pro_img{
-     border-radius: 10px 10px 0 0;
-     height: 350px;
-     overflow: hidden;
- }
- .best_selling .pro_img img,
- .top_brands_offer .pro_img img{
-     object-position: center top;
-     transition: .3s;
- }
+ 
  .pro_content{
      background-color: #fff;
      padding: 15px;
@@ -94,21 +82,8 @@
      color: #000;
      
  }
- .section-laptop .best_selling .pro_img{
-     max-height: 250px !important;
-     height: auto;
+ .section-laptop .best_selling .sub_cate_pro_img{
      overflow: hidden;
-     border-radius: 10px;
-     
- }
- .offer_selling,
- .offer_selling .pro_img img{
-     border-radius: 10px;
- }
- 
- .best_selling:hover .pro_img>img,
- .top_brands_offer .pro_img:hover > img{
-     transform: scale(1.1);
  }
  
  
@@ -143,13 +118,17 @@
      margin: 0;
      text-align: center;
  }
- .sub_category .category_img{
-      max-height: 179px;
- }
+ .sub_category .category_img
+{
+    border: 2px #ccc solid;
+     padding: 3px;
+}
+
 .sub_category .category_img,
 .sub_category .category_img img{
-     border-radius: 10px;
      overflow: hidden;
+     border-radius: 50%;
+     
 }
  .sub_category .cate_name{
      text-align: center;
@@ -196,3 +175,25 @@
  .best_selling {
      position: relative;
  }
+
+
+.main_title > h6{
+    font-weight: bold;
+}
+.main_title{
+    font-size: 14px;
+}
+.main_title .sub_cate_list{
+    margin-left: 20px;
+    line-height: 24px;
+}
+.main_title ul p{
+    margin-left: -10px;
+    font-weight: bold;
+}
+.main_title ul li a{
+    color: #5e5e5e;
+}
+.main_title ul li a:hover{
+    color: #000;
+}

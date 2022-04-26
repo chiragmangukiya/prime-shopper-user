@@ -6,6 +6,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+:root{
+    --themeBgLight:#f3f7f8;
+}
+
 body {
     background: #f3f7f8;
     /* font-family: 'Montserrat', sans-serif; */
@@ -13,7 +17,9 @@ body {
     /* font-family: 'Poppins', sans-serif; */
     font-family: 'Lato', sans-serif;
 }
-
+.bg-theme{
+    background-color: var(--themeBgLight);
+}
 input:focus-visible, 
 input:focus,
 textarea:focus  {
@@ -339,6 +345,25 @@ ul{
     width: 100%;
 }
 
+.sub_category .owl-theme .owl-nav,
+.subCategorySmall .owl-theme .owl-nav{
+    top: calc(50% - 40px) !important;
+ }
+ .sub_category .owl-theme .owl-nav .owl-prev,
+ .sub_category .owl-theme .owl-nav .owl-next,
+ .subCategorySmall .owl-theme .owl-nav .owl-prev,
+ .subCategorySmall .owl-theme .owl-nav .owl-next
+ {
+     left: -20px;
+     height: 40px;
+     width: 40px;
+     line-height: 30px;
+ }
+ .sub_category .owl-theme .owl-nav .owl-next,
+ .subCategorySmall .owl-theme .owl-nav .owl-next{
+    left: auto;
+    right: -20px;
+ }
 
 /*
 font-family: 'Montserrat', sans-serif;
