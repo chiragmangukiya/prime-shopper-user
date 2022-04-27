@@ -250,16 +250,20 @@ input:focus {
     font-weight: 400;
 }
 
-.price-main-right input {
-    width: 100%;
-    background: #000;
-    color: #FFF;
-    border-radius: 25px;
-    border: none;
-    height: 50px;
-    margin: 20px 0 0 0;
-    font-weight: bold;
-    font-size: 14px;
+.price-main-right .proceedToBuy {
+  width: 100%;
+  background: #000;
+  color: #FFF;
+  border-radius: 25px;
+  border: none;
+  height: 50px;
+  margin: 20px 0 0 0;
+  font-weight: bold;
+  padding: 10px 15px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .shopping-cart.top-space {

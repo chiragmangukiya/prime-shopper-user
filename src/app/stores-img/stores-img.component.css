@@ -197,6 +197,7 @@
   font-size: 14px;
   padding: 6px;
   list-style-type: none;
+  word-break: break-word;
 }
 .main_button {
   border: 1px solid #e7e7e7;
@@ -226,7 +227,7 @@ padding-left:15px;
 
 .seller_offer_details>li {
   margin-bottom: 4px;
- 
+
 }
 .show_more_seller{
   color:#0066c0;

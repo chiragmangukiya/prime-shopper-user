@@ -6,14 +6,17 @@ import { Options } from '@angular-slider/ngx-slider';
   providedIn: 'root'
 })
 export class UserDataService {
-
-  Register_url = "https://prime-shopper-api.herokuapp.com/api/v1/user/register";
-  login_url = "https://prime-shopper-api.herokuapp.com/api/v1/user/login";
-  forgot_password_url = "https://prime-shopper-api.herokuapp.com/api/v1/user/forgot/password";
-  userProfile = "https://prime-shopper-api.herokuapp.com/api/v1/user/profile";
-  profileupdate = "https://prime-shopper-api.herokuapp.com/api/v1/user/profile/update";
-  getProduct = "https://prime-shopper-api.herokuapp.com/api/v1/products";
-  getsproduct = "https://prime-shopper-api.herokuapp.com/api/v1/product";
+  // currentLiveUrl = "https://api.datavidhya.com"
+  currentLiveUrl = "http://localhost:5000"
+  Register_url = `${this.currentLiveUrl}/api/v1/user/register`;
+  login_url = `${this.currentLiveUrl}/api/v1/user/login`;
+  forgot_password_url = `${this.currentLiveUrl}/api/v1/user/forgot/password`;
+  userProfile = `${this.currentLiveUrl}/api/v1/user/profile`;
+  profileupdate = `${this.currentLiveUrl}/api/v1/user/profile/update`;
+  getProduct = `${this.currentLiveUrl}/api/v1/products`;
+  getsproduct = `${this.currentLiveUrl}/api/v1/product`;
+  getCart = `${this.currentLiveUrl}/api/v1/cart`;
+  startPayment = `${this.currentLiveUrl}/api/v1/cart`;
 
 
   constructor(private http:HttpClient) {}
@@ -23,7 +26,7 @@ export class UserDataService {
   _getHeaders() {
     var token = this.getToken();
     console.log("token", token);
-    
+
     return new HttpHeaders({ 'X-Authentication-token': (token ? token : 'unAuth') })
   }
 
@@ -67,6 +70,18 @@ export class UserDataService {
   {
     this.product_id = ({ 'product': (data ? data : 'unAuth') })
       return this.http.post(this.getsproduct,this.product_id);
+  }
+
+  cart(data:any)
+  {
+    let options : any = { headers: this._getHeaders() };
+    return this.http.post(this.getCart,'', options);
+  }
+
+  makePayment(stripeToken: any){
+    console.log(stripeToken);
+
+    return this.http.post(this.startPayment,'');
   }
 
 }

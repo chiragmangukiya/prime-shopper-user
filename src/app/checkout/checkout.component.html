@@ -4,16 +4,16 @@
      <div class="row my-4">
          <div class="col-lg-8 col-12">
              <div class="shopping-cart bg-white">
-                 
-                 <!-- Title -->                
+
+                 <!-- Title -->
                  <div class="title">
                      checkout
                  </div>
- 
-                 <div class="col-12 mt-5">
+
+                 <div class="col-12 mt-3">
                     <h4 class="mb-3">Contact Information</h4>
                     <form class="needs-validation" novalidate>
-                      <div class="row g-3">
+                      <div class="row g-2">
                          <div class="col-12">
                               <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
                               <input type="email" class="form-control" id="email" placeholder="you@example.com">
@@ -38,7 +38,7 @@
                             Valid first name is required.
                           </div>
                         </div>
-            
+
                         <div class="col-sm-6">
                           <label for="lastName" class="form-label">Last name</label>
                           <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
@@ -54,12 +54,12 @@
                             Please enter your shipping address.
                           </div>
                         </div>
-            
+
                         <div class="col-12">
                           <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
                           <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
                         </div>
-            
+
                         <div class="col-md-5">
                           <label for="country" class="form-label">Country</label>
                           <select class="form-select" id="country" required>
@@ -70,7 +70,7 @@
                             Please select a valid country.
                           </div>
                         </div>
-            
+
                         <div class="col-md-4">
                           <label for="state" class="form-label">State</label>
                           <select class="form-select" id="state" required>
@@ -81,7 +81,7 @@
                             Please provide a valid state.
                           </div>
                         </div>
-            
+
                         <div class="col-md-3">
                           <label for="zip" class="form-label">Zip</label>
                           <input type="text" class="form-control" id="zip" placeholder="" required>
@@ -98,23 +98,23 @@
                          </div>
                        </div>
                       </div>
-            
+
                       <hr class="my-4">
-            
+
                       <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="same-address">
                         <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
                       </div>
-            
+
                       <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="save-info">
                         <label class="form-check-label" for="save-info">Save this information for next time</label>
                       </div>
-            
+
                       <!-- <hr class="my-4">
-            
+
                       <h4 class="mb-3">Payment</h4>
-            
+
                       <div class="my-3">
                         <div class="form-check">
                           <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
@@ -129,7 +129,7 @@
                           <label class="form-check-label" for="paypal">PayPal</label>
                         </div>
                       </div>
-            
+
                       <div class="row gy-3">
                         <div class="col-md-6">
                           <label for="cc-name" class="form-label">Name on card</label>
@@ -139,7 +139,7 @@
                             Name on card is required
                           </div>
                         </div>
-            
+
                         <div class="col-md-6">
                           <label for="cc-number" class="form-label">Credit card number</label>
                           <input type="text" class="form-control" id="cc-number" placeholder="" required>
@@ -147,7 +147,7 @@
                             Credit card number is required
                           </div>
                         </div>
-            
+
                         <div class="col-md-3">
                           <label for="cc-expiration" class="form-label">Expiration</label>
                           <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
@@ -155,7 +155,7 @@
                             Expiration date required
                           </div>
                         </div>
-            
+
                         <div class="col-md-3">
                           <label for="cc-cvv" class="form-label">CVV</label>
                           <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
@@ -164,54 +164,46 @@
                           </div>
                         </div>
                       </div> -->
-            
+
                       <hr class="my-4">
 
                       <div class="text-center">
                          <button type="submit" class="btn btn-outline-dark rounded-pill mx-3 px-4 py-3"><i class="fa fa-arrow-left me-2"></i>Return to Cart</button>
-                         <button type="submit" class="btn btn-dark rounded-pill px-4 py-3 mx-3">Continue to Shipping</button>                         
+                         <button type="submit" class="btn btn-dark rounded-pill px-4 py-3 mx-3" (click)="makePayment(15)">Continue to Shipping</button>
                       </div>
 
                     </form>
                   </div>
              </div>
-             
+
          </div>
          <div class="col-lg-4 col-12 ">
              <div class="price-main-right bg-white position-sticky top-0">
                  <p class="text-center">Your order is eligible for FREE Delivery. Select this option at checkout.</p>
                  <table class="table pro_detail_table w-100 align-middle">
                       <tbody>
-                         <tr class="border-bottom">
+                         <tr class="border-bottom" *ngFor="let item of cartData">
                               <td class="pro_img pe-2" width="60px">
-                                 <img src="../../assets/images/pro (1).png" alt="" width="60">
+                                 <img src="{{ item.product.variations[0].banner }}" alt="" width="60">
                               </td>
                               <td width="50%" class="pro_name">
-                                 <p class="m-0 fw-bold">Bio - Oil Original Face & Body Oil</p>
-                                 <span>39 / S / Half Sleeves</span>
+                                 <p class="m-0 fw-bold productTitle">{{ item.product.title }}</p>
+                                 <!-- <span>39 / S / Half Sleeves</span> -->
                               </td>
                               <td class="pro_price fw-bold" align="right">
-                                 $ 2000.00
-                              </td>
-                         </tr>
-                         <tr class="border-bottom">
-                              <td class="pro_img pe-2" width="60px">
-                                 <img src="../../assets/images/pro (1).png" alt="" width="60">
-                              </td>
-                              <td width="50%" class="pro_name">
-                                 <p class="m-0 fw-bold">Bio - Oil Original Face & Body Oil</p>
-                                 <span>39 / S / Half Sleeves</span>
-                              </td>
-                              <td class="pro_price fw-bold" align="right">
-                                 $ 2000.00
+                                ₹
+                                {{
+                                  item.quantity *
+                                    item.product.variations[0].price.price_in_india
+                                }}
                               </td>
                          </tr>
                          <tr>
                               <td colspan="2" class="text-start border-0 pt-3">
-                                   Subtotal (2 Items)
+                                   Subtotal ({{cartData.length}} Items)
                               </td>
                               <td class="pro_price fw-bold border-0 pt-3" align="right">
-                                   $ 4000.00
+                                   ₹ {{ totalPrice }}
                               </td>
                          </tr>
                          <tr>
@@ -219,7 +211,7 @@
                                    Delivery Charge
                               </td>
                               <td class="pro_price fw-bold pb-3" align="right">
-                                   $ 50.00
+                                   ₹ 00.00
                               </td>
                          </tr>
                          <tr>
@@ -227,18 +219,18 @@
                                    Total
                               </td>
                               <td colspan="2" class="fw-bold py-3 fs-6" align="right">
-                                   $ 4050000.00
+                                   ₹ {{ totalPrice }}
                               </td>
                          </tr>
                       </tbody>
                  </table>
-                 <!-- <h1>Subtotal (2 items) : <b class="d-block py-2">$ 2,045.00</b></h1>
-                 <h2>Delivery Charge : <b class="d-block py-2">$ 25.00</b></h2>
-                 <h1>Total (2 items) : <b class="d-block py-2">$ 2,045.00</b></h1> -->
+                 <!-- <h1>Subtotal (2 items) : <b class="d-block py-2">₹ 2,045.00</b></h1>
+                 <h2>Delivery Charge : <b class="d-block py-2">₹ 25.00</b></h2>
+                 <h1>Total (2 items) : <b class="d-block py-2">₹ 2,045.00</b></h1> -->
 
                  <!-- <input type="submit" name="Proceed to Buy" class="btn-theme d-block w-100" value="Proceed to Buy"> -->
              </div>
-         </div>        
+         </div>
      </div>
- 
+
  </div>

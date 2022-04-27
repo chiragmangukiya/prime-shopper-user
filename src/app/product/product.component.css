@@ -289,6 +289,7 @@
   float: left;
   font-size: 14px;
   font-weight: 500;
+  word-break: break-word;
 }
 
 .sold-product-details ul li:first-child {
@@ -329,7 +330,7 @@
 .product-detail-right{
   position: sticky;
   top: 0px;
-  
+
 }
 .right-top-pincode,
 .offer,
@@ -537,6 +538,7 @@
   font-size: 14px;
   padding: 6px;
   list-style-type: none;
+  word-break: break-word;
 }
 .logo-brand {
   margin-top: 10px;
@@ -667,7 +669,7 @@ padding-bottom: 25px;
 .img1{
     margin:6px;
     width:60px;
-    
+
 }
 .img-view{
     width:100%;
@@ -716,7 +718,7 @@ padding-bottom: 25px;
     margin-left: 6px;
 }
 .mark{
-    
+
     display:flex;
 }
 .rate_rea{
@@ -738,7 +740,7 @@ padding-bottom: 25px;
 .color_item_list li{
   padding: 5px;
   display: flex;
-  align-items: center;  
+  align-items: center;
   border: 1px #ddd solid;
   cursor: pointer;
   transition: .2s;

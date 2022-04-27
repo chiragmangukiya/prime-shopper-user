@@ -21,7 +21,7 @@ import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 const routes: Routes = [
-  
+
   {
     path : '',
     redirectTo : '/',
@@ -32,7 +32,7 @@ const routes: Routes = [
     path : '',
     component : DefaultComponent,
     children : [
-      
+
       {
         path : '',
         component : HomeComponent
@@ -50,7 +50,7 @@ const routes: Routes = [
         component : CollectionComponent
       },
       {
-        path : 'product/:p_id',
+        path : 'product/:p_id/:var1/:var2',
         component : ProductComponent
       },
       {

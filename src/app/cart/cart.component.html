@@ -1,57 +1,66 @@
 <div class="shopping-cart-main container">
+  <!-- Shopping cart -->
+  <div class="row my-4">
+    <div class="col-lg-9 col-12">
+      <div class="shopping-cart bg-white">
+        <!-- Title -->
+        <div class="title">Shopping Cart</div>
 
-    <!-- Shopping cart -->
-    <div class="row my-4">
-        <div class="col-lg-9 col-12">
-            <div class="shopping-cart bg-white">
-                
-                <!-- Title -->                
-                <div class="title">
-                    Shopping Cart
-                </div>
+        <!-- Product #1 -->
+        <div class="item" *ngFor="let item of cartData">
+          <div class="row align-items-center">
+            <div class="col-lg-2 col-md-2 col-sm-12 col-12">
+              <div class="image">
+                <img src="{{ item.product.variations[0].banner }}" alt="" />
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="description">
+                <span class="w-100 text-truncate">
+                  {{ item.product.title }}
+                </span>
+                <ul>
+                  <li>
+                    <a href="javascript:void(0);"
+                      ><i class="fa fa-trash"></i> Delete</a
+                    >
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);">Save for Later</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 col-quantity">
+              <div class="quantity">
+                <button class="plus-btn" type="button" name="button">
+                  <i class="fa fa-minus quantity_icon"></i>
+                </button>
+                <input
+                  type="text"
+                  name="name"
+                  value="{{ item.quantity }}"
+                  disabled
+                />
+                <button class="minus-btn" type="button" name="button">
+                  <i class="fa fa-plus quantity_icon"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-8 p-0 col-price">
+              <div class="total-price">
+                ₹
+                {{
+                  item.quantity *
+                    item.product.variations[0].price.price_in_india
+                }}
+              </div>
+            </div>
+          </div>
+        </div>
 
-                <!-- Product #1 -->
-                <div class="item">
-                    <div class="row align-items-center">
-                        <div class="col-lg-2 col-md-2 col-sm-12 col-12">
-                            <div class="image">
-                                <img src="../../assets/images/best_sale/best_sale (1).jpg" alt="" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="description">
-                                <span class="w-100 text-truncate">
-                                    Apple 20W USB-C Power Adapter (for iPhone, iPad & AirPods)
-                                </span>
-                                <ul>
-                                    <li>
-                                        <a href="#"><i class="fa fa-trash"></i> Delete</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Save for Later</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-3 col-4 col-quantity">
-                            <div class="quantity">
-                                <button class="plus-btn" type="button" name="button">
-                                    <i class="fa fa-minus quantity_icon"></i>
-                                </button>
-                                <input type="text" name="name" value="1" disabled>
-                                <button class="minus-btn" type="button" name="button">
-                                    <i class="fa fa-plus quantity_icon"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-3 col-8 p-0 col-price">
-                            <div class="total-price">$000549.00</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product #2 -->
-                <div class="item">
+        <!-- Product #2 -->
+        <!-- <div class="item">
                     <div class="row align-items-center">
                         <div class="col-lg-2 col-md-2 col-sm-12 col-12">
                             <div class="image">
@@ -85,13 +94,13 @@
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-3 col-8 p-0 col-price">
-                            <div class="total-price">$000549.00</div>
+                            <div class="total-price">₹000549.00</div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <!-- Product #3 -->
-                <div class="item">
+        <!-- Product #3 -->
+        <!-- <div class="item">
                     <div class="row align-items-center">
                         <div class="col-lg-2 col-md-2 col-sm-12 col-12">
                             <div class="image">
@@ -125,119 +134,127 @@
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-3 col-8 p-0 col-price">
-                            <div class="total-price">$000549.00</div>
+                            <div class="total-price">₹000549.00</div>
                         </div>
                     </div>
-                </div>
-              
-                <div class="sub-price-tatal">
-                    Subtotal : <b>$ 2,045.00</b>
-                </div>
-            </div>
-            
+                </div> -->
+
+        <div class="sub-price-tatal">
+          Subtotal : <b>₹ {{ totalPrice }}</b>
         </div>
-        <div class="col-lg-3 col-12 ">
-            <div class="price-main-right bg-white position-sticky top-0">
-                <p>Your order is eligible for FREE Delivery. Select this option at checkout.</p>
-                <h1>Subtotal (2 items) : <b class="d-block py-2">$ 2,045.00</b></h1>
-                <h2>Delivery Charge : <b class="d-block py-2">$ 25.00</b></h2>
-                <input type="submit" name="Proceed to Buy" value="Proceed to Buy">
-            </div>
-        </div>        
+      </div>
     </div>
+    <div class="col-lg-3 col-12">
+      <div class="price-main-right bg-white position-sticky top-0">
+        <p>
+          Your order is eligible for FREE Delivery. Select this option at
+          checkout.
+        </p>
+        <h1>
+          Subtotal (2 items) : <b class="d-block py-2">₹ {{ totalPrice }}</b>
+        </h1>
+        <h2>Delivery Charge : <b class="d-block py-2">₹ 00.00</b></h2>
+        <a [routerLink]="['/checkout']" class="proceedToBuy">
+          Proceed to Buy
+        </a>
+      </div>
+    </div>
+  </div>
 
+  <!-- Save for later -->
+  <div class="row mb-4">
+    <div class="col-lg-9 col-12">
+      <div class="shopping-cart bg-white">
+        <!-- Title -->
 
-    <!-- Save for later -->
-    <div class="row mb-4">
-        <div class="col-lg-9 col-12">
-            <div class="shopping-cart bg-white">
-                <!-- Title -->
-                
-                <div class="title">
-                    Save for later
-                </div>
+        <div class="title">Save for later</div>
 
-                <!-- Product #1 -->
-                <div class="item">
-                    <div class="row align-items-center">
-                        <div class="col-lg-2 col-md-2 col-sm-12 col-12">
-                            <div class="image">
-                                <img src="../../assets/images/best_sale/best_sale (1).jpg" alt="" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="description">
-                                <span class="w-100 text-truncate">
-                                    Apple 20W USB-C Power Adapter (for iPhone, iPad & AirPods)
-                                </span>
-                                <ul>
-                                    <li>
-                                        <a href="#">Delete</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Move to Cart</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-3 col-4 col-quantity">
-                            <div class="quantity">
-                                <button class="plus-btn" type="button" name="button">
-                                    <i class="fa fa-minus quantity_icon"></i>
-                                </button>
-                                <input type="text" name="name" value="1" disabled>
-                                <button class="minus-btn" type="button" name="button">
-                                    <i class="fa fa-plus quantity_icon"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-3 col-8 p-0 col-price">
-                            <div class="total-price">$000549.00</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product #1 -->
-                <div class="item">
-                    <div class="row align-items-center">
-                        <div class="col-lg-2 col-md-2 col-sm-12 col-12">
-                            <div class="image">
-                                <img src="../../assets/images/best_sale/best_sale (1).jpg" alt="" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="description">
-                                <span class="w-100 text-truncate">
-                                    Apple 20W USB-C Power Adapter (for iPhone, iPad & AirPods)
-                                </span>
-                                <ul>
-                                    <li>
-                                        <a href="#">Delete</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Move to Cart</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-3 col-4 col-quantity">
-                            <div class="quantity">
-                                <button class="plus-btn" type="button" name="button">
-                                    <i class="fa fa-minus quantity_icon"></i>
-                                </button>
-                                <input type="text" name="name" value="1" disabled>
-                                <button class="minus-btn" type="button" name="button">
-                                    <i class="fa fa-plus quantity_icon"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-3 col-8 p-0 col-price">
-                            <div class="total-price">$000549.00</div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Product #1 -->
+        <div class="item">
+          <div class="row align-items-center">
+            <div class="col-lg-2 col-md-2 col-sm-12 col-12">
+              <div class="image">
+                <img
+                  src="../../assets/images/best_sale/best_sale (1).jpg"
+                  alt=""
+                />
+              </div>
             </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="description">
+                <span class="w-100 text-truncate">
+                  Apple 20W USB-C Power Adapter (for iPhone, iPad & AirPods)
+                </span>
+                <ul>
+                  <li>
+                    <a href="#">Delete</a>
+                  </li>
+                  <li>
+                    <a href="#">Move to Cart</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 col-quantity">
+              <div class="quantity">
+                <button class="plus-btn" type="button" name="button">
+                  <i class="fa fa-minus quantity_icon"></i>
+                </button>
+                <input type="text" name="name" value="1" disabled />
+                <button class="minus-btn" type="button" name="button">
+                  <i class="fa fa-plus quantity_icon"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-8 p-0 col-price">
+              <div class="total-price">₹000549.00</div>
+            </div>
+          </div>
         </div>
-    </div>
 
+        <!-- Product #1 -->
+        <div class="item">
+          <div class="row align-items-center">
+            <div class="col-lg-2 col-md-2 col-sm-12 col-12">
+              <div class="image">
+                <img
+                  src="../../assets/images/best_sale/best_sale (1).jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="description">
+                <span class="w-100 text-truncate">
+                  Apple 20W USB-C Power Adapter (for iPhone, iPad & AirPods)
+                </span>
+                <ul>
+                  <li>
+                    <a href="#">Delete</a>
+                  </li>
+                  <li>
+                    <a href="#">Move to Cart</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-4 col-quantity">
+              <div class="quantity">
+                <button class="plus-btn" type="button" name="button">
+                  <i class="fa fa-minus quantity_icon"></i>
+                </button>
+                <input type="text" name="name" value="1" disabled />
+                <button class="minus-btn" type="button" name="button">
+                  <i class="fa fa-plus quantity_icon"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-8 p-0 col-price">
+              <div class="total-price">₹000549.00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
