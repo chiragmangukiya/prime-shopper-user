@@ -1,117 +1,213 @@
 <div class="shopping-cart-main container">
+  <!-- Shopping cart -->
+  <div class="row my-4">
+    <div class="col-lg-8 col-12">
+      <div class="shopping-cart bg-white">
+        <!-- Title -->
+        <div class="title">checkout</div>
 
-     <!-- Shopping cart -->
-     <div class="row my-4">
-         <div class="col-lg-8 col-12">
-             <div class="shopping-cart bg-white">
+        <div class="col-12 mt-3">
+          <h4 class="mb-3">Contact Information</h4>
+          <form class="needs-validation" novalidate  #checkoutForm="ngForm" autocomplete="off" (ngSubmit)="pay(checkoutForm.value)">
+            <div class="row g-2">
+              <div class="col-12">
+                <label for="email" class="form-label"
+                  >Email <span class="text-muted">(Optional)</span></label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="you@example.com"
+                  name="contact_email"
+                  ngModel #email="ngModel"
+                />
+                <div class="invalid-feedback">
+                  Please enter a valid email address for shipping updates.
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <label for="contact_number" class="form-label">Phone Number</label>
+                <input
+                  type="text"
+                  name="contact_number"
+                  #phoneno="ngModel"
+                  ngModel
+                  class="form-control"
+                  id="phoneno"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Valid mobile number is required.
+                </div>
+              </div>
 
-                 <!-- Title -->
-                 <div class="title">
-                     checkout
-                 </div>
+              <h4 class="mb-3">Shipping Address</h4>
 
-                 <div class="col-12 mt-3">
-                    <h4 class="mb-3">Contact Information</h4>
-                    <form class="needs-validation" novalidate>
-                      <div class="row g-2">
-                         <div class="col-12">
-                              <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-                              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                              <div class="invalid-feedback">
-                                Please enter a valid email address for shipping updates.
-                              </div>
-                         </div>
-                        <div class="col-sm-12">
-                          <label for="phoneno" class="form-label">Pnone Number</label>
-                          <input type="text" class="form-control" id="phoneno" placeholder="" value="" required>
-                          <div class="invalid-feedback">
-                            Valid mobile number is required.
-                          </div>
-                        </div>
+              <div class="col-sm-6">
+                <label for="first_name" class="form-label">First name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="first_name"
+                  #firstName="ngModel"
+                  ngModel
+                  id="firstName"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+              </div>
 
-                        <h4 class="mb-3">Shipping Address</h4>
+              <div class="col-sm-6">
+                <label for="last_name" class="form-label">Last name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="last_name"
+                  #lastName="ngModel"
+                  ngModel
+                  id="lastName"
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">Valid last name is required.</div>
+              </div>
 
-                        <div class="col-sm-6">
-                          <label for="firstName" class="form-label">First name</label>
-                          <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                          <div class="invalid-feedback">
-                            Valid first name is required.
-                          </div>
-                        </div>
+              <div class="col-12">
+                <label for="address_line1" class="form-label">Address</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="address_line1"
+                  #address_line1="ngModel"
+                  ngModel
+                  id="address_line1"
+                  placeholder="1234 Main St"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please enter your shipping address.
+                </div>
+              </div>
 
-                        <div class="col-sm-6">
-                          <label for="lastName" class="form-label">Last name</label>
-                          <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                          <div class="invalid-feedback">
-                            Valid last name is required.
-                          </div>
-                        </div>
+              <div class="col-12">
+                <label for="address_line2" class="form-label"
+                  >Address 2 <span class="text-muted">(Optional)</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address_line2"
+                  name="address_line2"
+                  #address_line2="ngModel"
+                  ngModel
+                  placeholder="Apartment or suite"
+                />
+              </div>
 
-                        <div class="col-12">
-                          <label for="address" class="form-label">Address</label>
-                          <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                          <div class="invalid-feedback">
-                            Please enter your shipping address.
-                          </div>
-                        </div>
+              <div class="col-md-3">
+                <label for="address_city" class="form-label">City</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address_city"
+                  name="address_city"
+                  #address_city="ngModel"
+                  ngModel
+                  placeholder=""
+                  required
+                />
+                <div class="invalid-feedback">Zip code required.</div>
+              </div>
 
-                        <div class="col-12">
-                          <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
-                          <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                        </div>
+              <div class="col-md-5">
+                <label for="address_country" class="form-label">Country</label>
+                <select class="form-select" id="address_country" required name="address_country"
+                #address_country="ngModel"
+                ngModel>
+                  <option value="">Choose...</option>
+                  <option value="india">india</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+              </div>
 
-                        <div class="col-md-5">
-                          <label for="country" class="form-label">Country</label>
-                          <select class="form-select" id="country" required>
-                            <option value="">Choose...</option>
-                            <option>United States</option>
-                          </select>
-                          <div class="invalid-feedback">
-                            Please select a valid country.
-                          </div>
-                        </div>
+              <div class="col-md-4">
+                <label for="address_state" class="form-label">State</label>
+                <select class="form-select" id="address_state" required name="address_state"
+                #address_state="ngModel"
+                ngModel>
+                  <option value="">Choose...</option>
+                  <option value="gujarat">Gujarat</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
 
-                        <div class="col-md-4">
-                          <label for="state" class="form-label">State</label>
-                          <select class="form-select" id="state" required>
-                            <option value="">Choose...</option>
-                            <option>California</option>
-                          </select>
-                          <div class="invalid-feedback">
-                            Please provide a valid state.
-                          </div>
-                        </div>
+              <div class="col-md-3">
+                <label for="address_zip" class="form-label">Zip</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address_zip"
+                  name="address_zip"
+                  #address_zip="ngModel"
+                  ngModel
+                  placeholder=""
+                  required
+                />
+                <div class="invalid-feedback">Zip code required.</div>
+              </div>
 
-                        <div class="col-md-3">
-                          <label for="zip" class="form-label">Zip</label>
-                          <input type="text" class="form-control" id="zip" placeholder="" required>
-                          <div class="invalid-feedback">
-                            Zip code required.
-                          </div>
-                        </div>
+              <div class="col-sm-8">
+                <label for="shipping_contact" class="form-label">Phone Number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="shipping_contact"
+                  name="shipping_contact"
+                  #shipping_contact="ngModel"
+                  ngModel
+                  placeholder=""
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Valid mobile number is required.
+                </div>
+              </div>
+            </div>
 
-                        <div class="col-sm-12">
-                         <label for="phoneno" class="form-label">Pnone Number</label>
-                         <input type="text" class="form-control" id="phoneno" placeholder="" value="" required>
-                         <div class="invalid-feedback">
-                           Valid mobile number is required.
-                         </div>
-                       </div>
-                      </div>
+            <hr class="my-4" />
 
-                      <hr class="my-4">
+            <!-- <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="same-address"
+              />
+              <label class="form-check-label" for="same-address"
+                >Shipping address is the same as my billing address</label
+              >
+            </div> -->
 
-                      <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="same-address">
-                        <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-                      </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="save-info" />
+              <label class="form-check-label" for="save-info"
+                >Save this information for next time</label
+              >
+            </div>
 
-                      <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="save-info">
-                        <label class="form-check-label" for="save-info">Save this information for next time</label>
-                      </div>
-
-                      <!-- <hr class="my-4">
+            <!-- <hr class="my-4">
 
                       <h4 class="mb-3">Payment</h4>
 
@@ -165,72 +261,80 @@
                         </div>
                       </div> -->
 
-                      <hr class="my-4">
+            <hr class="my-4" />
 
-                      <div class="text-center">
-                         <button type="submit" class="btn btn-outline-dark rounded-pill mx-3 px-4 py-3"><i class="fa fa-arrow-left me-2"></i>Return to Cart</button>
-                         <button type="submit" class="btn btn-dark rounded-pill px-4 py-3 mx-3" (click)="makePayment(15)">Continue to Shipping</button>
-                      </div>
-
-                    </form>
-                  </div>
-             </div>
-
-         </div>
-         <div class="col-lg-4 col-12 ">
-             <div class="price-main-right bg-white position-sticky top-0">
-                 <p class="text-center">Your order is eligible for FREE Delivery. Select this option at checkout.</p>
-                 <table class="table pro_detail_table w-100 align-middle">
-                      <tbody>
-                         <tr class="border-bottom" *ngFor="let item of cartData">
-                              <td class="pro_img pe-2" width="60px">
-                                 <img src="{{ item.product.variations[0].banner }}" alt="" width="60">
-                              </td>
-                              <td width="50%" class="pro_name">
-                                 <p class="m-0 fw-bold productTitle">{{ item.product.title }}</p>
-                                 <!-- <span>39 / S / Half Sleeves</span> -->
-                              </td>
-                              <td class="pro_price fw-bold" align="right">
-                                ₹
-                                {{
-                                  item.quantity *
-                                    item.product.variations[0].price.price_in_india
-                                }}
-                              </td>
-                         </tr>
-                         <tr>
-                              <td colspan="2" class="text-start border-0 pt-3">
-                                   Subtotal ({{cartData.length}} Items)
-                              </td>
-                              <td class="pro_price fw-bold border-0 pt-3" align="right">
-                                   ₹ {{ totalPrice }}
-                              </td>
-                         </tr>
-                         <tr>
-                              <td colspan="2" class="pb-3 text-start">
-                                   Delivery Charge
-                              </td>
-                              <td class="pro_price fw-bold pb-3" align="right">
-                                   ₹ 00.00
-                              </td>
-                         </tr>
-                         <tr>
-                              <td  class="py-3 fw-bold">
-                                   Total
-                              </td>
-                              <td colspan="2" class="fw-bold py-3 fs-6" align="right">
-                                   ₹ {{ totalPrice }}
-                              </td>
-                         </tr>
-                      </tbody>
-                 </table>
-                 <!-- <h1>Subtotal (2 items) : <b class="d-block py-2">₹ 2,045.00</b></h1>
+            <div class="text-center">
+              <button
+                type="button"
+                class="btn btn-outline-dark rounded-pill mx-3 px-4 py-3"
+              >
+                <i class="fa fa-arrow-left me-2"></i>Return to Cart
+              </button>
+              <button
+                type="submit"
+                class="btn btn-dark rounded-pill px-4 py-3 mx-3"
+              >
+                Continue to Shipping
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-12">
+      <div class="price-main-right bg-white position-sticky top-0">
+        <p class="text-center">
+          Your order is eligible for FREE Delivery. Select this option at
+          checkout.
+        </p>
+        <table class="table pro_detail_table w-100 align-middle">
+          <tbody>
+            <tr class="border-bottom" *ngFor="let item of cartData">
+              <td class="pro_img pe-2" width="60px">
+                <img
+                  src="{{ item.product.variations[0].banner }}"
+                  alt=""
+                  width="60"
+                />
+              </td>
+              <td width="50%" class="pro_name">
+                <p class="m-0 fw-bold productTitle">{{ item.product.title }}</p>
+                <!-- <span>39 / S / Half Sleeves</span> -->
+              </td>
+              <td class="pro_price fw-bold" align="right">
+                ₹
+                {{
+                  item.quantity *
+                    item.product.variations[0].price.price_in_india
+                }}
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" class="text-start border-0 pt-3">
+                Subtotal ({{ cartData.length }} Items)
+              </td>
+              <td class="pro_price fw-bold border-0 pt-3" align="right">
+                ₹ {{ totalPrice }}
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" class="pb-3 text-start">Delivery Charge</td>
+              <td class="pro_price fw-bold pb-3" align="right">₹ 00.00</td>
+            </tr>
+            <tr>
+              <td class="py-3 fw-bold">Total</td>
+              <td colspan="2" class="fw-bold py-3 fs-6" align="right">
+                ₹ {{ totalPrice }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <h1>Subtotal (2 items) : <b class="d-block py-2">₹ 2,045.00</b></h1>
                  <h2>Delivery Charge : <b class="d-block py-2">₹ 25.00</b></h2>
                  <h1>Total (2 items) : <b class="d-block py-2">₹ 2,045.00</b></h1> -->
 
-                 <!-- <input type="submit" name="Proceed to Buy" class="btn-theme d-block w-100" value="Proceed to Buy"> -->
-             </div>
-         </div>
-     </div>
-
- </div>
+        <!-- <input type="submit" name="Proceed to Buy" class="btn-theme d-block w-100" value="Proceed to Buy"> -->
+      </div>
+    </div>
+  </div>
+</div>

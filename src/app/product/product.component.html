@@ -13,19 +13,11 @@
       <div class="product-left">
         <div class="row">
           <div class="col-lg-6 col-12">
-            <div
-              class="img-zoom-container"
-              (mouseenter)="imageZoom('myimage', 'myresult')"
-            >
-              <img id="myimage" src="{{ currentProduct.banner }}" width="300" />
-              <div id="myresult" class="img-zoom-result"></div>
-            </div>
-
-            <!-- <div class="slider-zoom">
+            <div class="slider-zoom">
 							<lib-ngx-image-zoom [magnification]="1.1" [zoomMode]="'hover'"
-								[thumbImage]="'/assets/images/slider-1.png'" [fullImage]="'/assets/images/slider-1.png'">
+								[thumbImage]="zoomImageSrc" [fullImage]="previewImageSrc">
 							</lib-ngx-image-zoom>
-						</div> -->
+						</div>
             <div class="slider-thumb-bottom">
               <ul>
                 <li
@@ -33,6 +25,7 @@
                     let in of counter(currentProduct.images.length);
                     let i = index
                   "
+                  (click)="setImageActive(currentProduct.images[i])"
                 >
                   <img src="{{ currentProduct.images[i] }}" alt="" />
                 </li>
@@ -71,7 +64,12 @@
                 </div>
 
                 <div class="color_variation my-3">
-                  <div *ngIf="currentProduct.variation1.var_title && currentProduct.variation1.value">
+                  <div
+                    *ngIf="
+                      currentProduct.variation1.var_title &&
+                      currentProduct.variation1.value
+                    "
+                  >
                     <h6 class="fw-bold">
                       {{ currentProduct.variation1.var_title }} :
                       <span class="text-muted fw-normal">{{
@@ -80,9 +78,7 @@
                     </h6>
                     <ul class="color_item_list">
                       <li
-                        *ngFor="
-                          let product of productData.variations1.data
-                        "
+                        *ngFor="let product of productData.variations1.data"
                         [ngClass]="{
                           active: product == currentProduct.variation1.value
                         }"
@@ -110,7 +106,12 @@
                     </ul>
                   </div>
                   <div class="mt-3"></div>
-                  <div *ngIf="currentProduct.variation2.var_title && currentProduct.variation2.value">
+                  <div
+                    *ngIf="
+                      currentProduct.variation2.var_title &&
+                      currentProduct.variation2.value
+                    "
+                  >
                     <h6 class="fw-bold">
                       {{ currentProduct.variation2.var_title }} :
                       <span class="text-muted fw-normal">{{
@@ -119,9 +120,7 @@
                     </h6>
                     <ul class="color_item_list">
                       <li
-                        *ngFor="
-                          let product of productData.variations2.data
-                        "
+                        *ngFor="let product of productData.variations2.data"
                         [ngClass]="{
                           active: product == currentProduct.variation2.value
                         }"
@@ -326,8 +325,9 @@
               <ul>
                 <li>Material Type</li>
                 <li>
-                  <ng-container *ngFor="let material of productData.material_type_free">
-
+                  <ng-container
+                    *ngFor="let material of productData.material_type_free"
+                  >
                     {{ material }},
                   </ng-container>
                 </li>
@@ -808,8 +808,8 @@
           </div>
           <div class="button-section">
             <button class="button-bag">ADD TO BAG</button>
-
-            <button class="button-buy">BUY NOW</button>
+            <a href="#" [routerLink]="['/cart']" class="button-buy">BUY NOW</a>
+            <!-- <button class="button-buy">BUY NOW</button> -->
             <div class="sold-by-delhi">
               <p>
                 sold by

@@ -1,6 +1,6 @@
 import { NgModule} from '@angular/core';
 import { BrowserModule} from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,11 +26,13 @@ import { StoresComponent } from './stores/stores.component';
 import { StoresImgComponent } from './stores-img/stores-img.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxImgZoomModule  } from 'ngx-img-zoom';
 import { SallerProductComponent } from './saller-product/saller-product.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { NgxStripeModule } from 'ngx-stripe';
 
 @NgModule({
   declarations: [
@@ -65,9 +67,11 @@ import { CheckoutComponent } from './checkout/checkout.component';
     NgxSliderModule,
     NgxImageZoomModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule.forRoot()
-  
+    NgxImgZoomModule,
+    ToastrModule.forRoot(),
+    NgxStripeModule.forRoot('pk_test_51KsmT8SEjT7ghSr23sO4arBOd5JiwkYNqVAlgv7OUPFytKOJpkibtGA7eJIztROxZbK0sTX9dE5GClLcNmarD7L1000T1byaYy')
   ],
   providers: [],
   bootstrap: [AppComponent]

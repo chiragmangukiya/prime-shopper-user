@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserDataService } from '../services/user-data.service';
+import { NgxImgZoomService } from 'ngx-img-zoom';
 // import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -9,20 +10,36 @@ import { UserDataService } from '../services/user-data.service';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private _http: UserDataService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private _http: UserDataService,
+    private ngxImgZoom: NgxImgZoomService
+  ) {
+    this.ngxImgZoom.setZoomBreakPoints([
+      { w: 50, h: 50 },
+      { w: 100, h: 100 },
+      { w: 150, h: 150 },
+      { w: 200, h: 200 },
+      { w: 250, h: 250 },
+      { w: 300, h: 300 },
+    ]);
+  }
 
   productData: any;
   currentProduct: any;
   totalimage: any;
   var1val: any;
   var2val: any;
+  // enableZoom: Boolean = true;
+  previewImageSrc: any;
+  zoomImageSrc: any;
 
   ngOnInit(): void {
     var product = this.route.snapshot.paramMap.get('p_id');
     var var1 = this.route.snapshot.paramMap.get('var1');
-    this.var1val = var1 && var1 != "null" ? var1 : null;
+    this.var1val = var1 && var1 != 'null' ? var1 : null;
     var var2 = this.route.snapshot.paramMap.get('var2');
-    this.var2val = var2 && var2 != "null" ? var2 : null;
+    this.var2val = var2 && var2 != 'null' ? var2 : null;
 
     this._http.product(product).subscribe((result: any) => {
       this.productData = result.data;
@@ -31,26 +48,30 @@ export class ProductComponent implements OnInit {
         let checkItem;
 
         if (this.var1val && this.var2val) {
-          checkItem = this.productData.variations.find(
-            (el: any, i: number) => {
-              return this.var1val == el.variation1.value && this.var2val == el.variation2.value;
-            }
-          );
+          checkItem = this.productData.variations.find((el: any, i: number) => {
+            return (
+              this.var1val == el.variation1.value &&
+              this.var2val == el.variation2.value
+            );
+          });
         } else if (this.var1val) {
-          checkItem = this.productData.variations.find(
-            (el: any, i: number) => {
-              return this.var1val == el.variation1.value;
-            }
-          );
+          checkItem = this.productData.variations.find((el: any, i: number) => {
+            return this.var1val == el.variation1.value;
+          });
         } else if (this.var2val) {
-          checkItem = this.productData.variations.find(
-            (el: any, i: number) => {
-              return this.var2val == el.variation2.value;
-            }
-          );
+          checkItem = this.productData.variations.find((el: any, i: number) => {
+            return this.var2val == el.variation2.value;
+          });
         }
         console.log('current variation::', checkItem);
         this.currentProduct = checkItem;
+        if (checkItem.images.length) {
+          this.previewImageSrc = checkItem.images[0];
+          this.zoomImageSrc = checkItem.images[0];
+        } else {
+          this.previewImageSrc = checkItem.banner;
+          this.zoomImageSrc = checkItem.banner;
+        }
       }
     });
   }
@@ -214,7 +235,7 @@ export class ProductComponent implements OnInit {
 
   toggleModal(id: string, var1: string, var2: string) {
     // console.log("Hello");
-    if(this.var1val != var1 || this.var2val != var2){
+    if (this.var1val != var1 || this.var2val != var2) {
       this.var1val = var1 ? var1 : null;
       this.var2val = var2 ? var2 : null;
       this._http.product(id).subscribe((result: any) => {
@@ -225,7 +246,9 @@ export class ProductComponent implements OnInit {
           if (var1 && var2) {
             checkItem = this.productData.variations.find(
               (el: any, i: number) => {
-                return var1 == el.variation1.value && var2 == el.variation2.value;
+                return (
+                  var1 == el.variation1.value && var2 == el.variation2.value
+                );
               }
             );
           } else if (var1) {
@@ -246,5 +269,10 @@ export class ProductComponent implements OnInit {
         }
       });
     }
+  }
+
+  setImageActive(image: any) {
+    this.previewImageSrc = image;
+    this.zoomImageSrc = image;
   }
 }

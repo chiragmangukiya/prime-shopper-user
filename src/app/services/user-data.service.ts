@@ -6,8 +6,8 @@ import { Options } from '@angular-slider/ngx-slider';
   providedIn: 'root'
 })
 export class UserDataService {
-  // currentLiveUrl = "https://api.datavidhya.com"
-  currentLiveUrl = "http://localhost:5000"
+  currentLiveUrl = "https://api.datavidhya.com"
+  // currentLiveUrl = "http://localhost:5000"
   Register_url = `${this.currentLiveUrl}/api/v1/user/register`;
   login_url = `${this.currentLiveUrl}/api/v1/user/login`;
   forgot_password_url = `${this.currentLiveUrl}/api/v1/user/forgot/password`;
@@ -16,7 +16,7 @@ export class UserDataService {
   getProduct = `${this.currentLiveUrl}/api/v1/products`;
   getsproduct = `${this.currentLiveUrl}/api/v1/product`;
   getCart = `${this.currentLiveUrl}/api/v1/cart`;
-  startPayment = `${this.currentLiveUrl}/api/v1/cart`;
+  startPayment = `${this.currentLiveUrl}/api/v1/create-payment`;
 
 
   constructor(private http:HttpClient) {}
@@ -79,9 +79,9 @@ export class UserDataService {
   }
 
   makePayment(stripeToken: any){
-    console.log(stripeToken);
-
-    return this.http.post(this.startPayment,'');
+    // console.log(stripeToken);
+    let options : any = { headers: this._getHeaders() };
+    return this.http.post(this.startPayment, stripeToken, options);
   }
 
 }
