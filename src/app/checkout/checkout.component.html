@@ -292,7 +292,7 @@
             <tr class="border-bottom" *ngFor="let item of cartData">
               <td class="pro_img pe-2" width="60px">
                 <img
-                  src="{{ item.product.variations[0].banner }}"
+                  src="{{ item.product.variations.banner }}"
                   alt=""
                   width="60"
                 />
@@ -305,7 +305,7 @@
                 ₹
                 {{
                   item.quantity *
-                    item.product.variations[0].price.price_in_india
+                    item.product.variations.price.price_in_india
                 }}
               </td>
             </tr>

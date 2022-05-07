@@ -21,6 +21,7 @@
   box-shadow: rgb(0 0 0 / 33%) 0px 0px 10px;
   background-color: rgb(255, 255, 255);
   display: none;
+  z-index: 10;
 }
 
 .slider-thumb-bottom {
@@ -185,6 +186,7 @@
 }
 .sold_Prime_Gadgets {
   color: black;
+  cursor: pointer;
 }
 .truck-delivery {
   display: flex;

@@ -29,27 +29,27 @@
                 <img src="/assets/images/location.png" alt="">
                 <input type="text" placeholder="Pincode">
             </div> -->
-            </div>    
+            </div>
         </div>
         <div class=" col-lg-auto col-md-2 col-2 p-0 header-right d-flex align-items-center justify-content-end">
             <div class="my-order me-3">
                 <a href="#" title="My Orders">
-                    <img src="/assets/images/head-right-icon1.png" alt="" class="mr-2"> 
+                    <img src="/assets/images/head-right-icon1.png" alt="" class="mr-2">
                     <span class="d-none"> My Order</span>
                 </a>
             </div>
             <div class="cart me-3">
                 <a [routerLink]="['/cart']" >
                     <img src="/assets/images/head-right-icon2.png" alt="" class="me-1">
-                    <span class="cart_badge bg-danger">10</span>
+                    <span class="cart_badge bg-danger">{{totalProducts}}</span>
                     <span class="d-none"> No Items</span>
                 </a>
             </div>
             <h1 *ngIf="checkLogin; then logout else login"></h1>
             <ng-template #login>
-            <div class="login"> 
+            <div class="login">
                 <a [routerLink]="['/login']" routerLinkActive="active" >
-                    <img src="/assets/images/head-right-icon3.png" alt="" class="me-1"> 
+                    <img src="/assets/images/head-right-icon3.png" alt="" class="me-1">
                     <span> Login / Sign Up</span>
                 </a>
             </div>
@@ -62,7 +62,7 @@
                     <i class="fa fa-user-circle ms-2 fs-3" aria-hidden="true"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile-dropdown" >
-                    
+
                     <li><a class="dropdown-item" href="#">My Account</a></li>
                     <li><a class="dropdown-item" [routerLink]="['/view-profile']">View Profile</a></li>
                     <li><a class="dropdown-item" [routerLink]="['/edit-profile']">Edit Profile</a></li>
@@ -78,7 +78,7 @@
             </div>
 
             <!-- <div class="login">
-                
+
             </div> -->
         </ng-template>
         </div>

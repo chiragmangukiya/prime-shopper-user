@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserDataService } from '../services/user-data.service';
 import { NgxImgZoomService } from 'ngx-img-zoom';
+import { ToastrService } from 'ngx-toastr';
 // import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -13,7 +14,8 @@ export class ProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private _http: UserDataService,
-    private ngxImgZoom: NgxImgZoomService
+    private ngxImgZoom: NgxImgZoomService,
+    private toastr: ToastrService
   ) {
     this.ngxImgZoom.setZoomBreakPoints([
       { w: 50, h: 50 },
@@ -63,8 +65,9 @@ export class ProductComponent implements OnInit {
             return this.var2val == el.variation2.value;
           });
         }
-        console.log('current variation::', checkItem);
+
         this.currentProduct = checkItem;
+
         if (checkItem.images.length) {
           this.previewImageSrc = checkItem.images[0];
           this.zoomImageSrc = checkItem.images[0];
@@ -274,5 +277,23 @@ export class ProductComponent implements OnInit {
   setImageActive(image: any) {
     this.previewImageSrc = image;
     this.zoomImageSrc = image;
+  }
+
+  addToCart() {
+    // console.log('Hello', this.productData);
+
+    let addProductData = {
+      product: this.productData.id,
+      variations: this.currentProduct._id,
+      increment: true,
+    };
+
+    this._http.updateCart(addProductData).subscribe((result: any) => {
+      this.toastr.success("Add to cart Successfull..");
+    },
+    (error) => {
+      this.toastr.error(error);
+    });
+    // console.log('Hello', addProductData);
   }
 }

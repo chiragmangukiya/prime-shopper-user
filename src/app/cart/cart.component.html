@@ -11,7 +11,7 @@
           <div class="row align-items-center">
             <div class="col-lg-2 col-md-2 col-sm-12 col-12">
               <div class="image">
-                <img src="{{ item.product.variations[0].banner }}" alt="" />
+                <img src="{{ item.product.variations.banner }}" alt="" />
               </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
@@ -21,9 +21,7 @@
                 </span>
                 <ul>
                   <li>
-                    <a href="javascript:void(0);"
-                      ><i class="fa fa-trash"></i> Delete</a
-                    >
+                    <a href="javascript:void(0);" (click)="deleteCartItem(item._id)"><i class="fa fa-trash"></i> Delete</a>
                   </li>
                   <li>
                     <a href="javascript:void(0);">Save for Later</a>
@@ -33,7 +31,7 @@
             </div>
             <div class="col-lg-2 col-md-2 col-sm-3 col-4 col-quantity">
               <div class="quantity">
-                <button class="plus-btn" type="button" name="button">
+                <button class="plus-btn" type="button" name="button" (click)="updateCart(item.product.id,item.variations, item.quantity - 1)">
                   <i class="fa fa-minus quantity_icon"></i>
                 </button>
                 <input
@@ -42,7 +40,7 @@
                   value="{{ item.quantity }}"
                   disabled
                 />
-                <button class="minus-btn" type="button" name="button">
+                <button class="minus-btn" type="button" name="button" (click)="updateCart(item.product.id,item.variations, item.quantity + 1)">
                   <i class="fa fa-plus quantity_icon"></i>
                 </button>
               </div>
@@ -52,7 +50,7 @@
                 ₹
                 {{
                   item.quantity *
-                    item.product.variations[0].price.price_in_india
+                    item.product.variations.price.price_in_india
                 }}
               </div>
             </div>
@@ -151,7 +149,7 @@
           checkout.
         </p>
         <h1>
-          Subtotal (2 items) : <b class="d-block py-2">₹ {{ totalPrice }}</b>
+          Subtotal ({{cartData.length}} items) : <b class="d-block py-2">₹ {{ totalPrice }}</b>
         </h1>
         <h2>Delivery Charge : <b class="d-block py-2">₹ 00.00</b></h2>
         <a [routerLink]="['/checkout']" class="proceedToBuy">

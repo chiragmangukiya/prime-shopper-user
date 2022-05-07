@@ -14,10 +14,14 @@
         <div class="row">
           <div class="col-lg-6 col-12">
             <div class="slider-zoom">
-							<lib-ngx-image-zoom [magnification]="1.1" [zoomMode]="'hover'"
-								[thumbImage]="zoomImageSrc" [fullImage]="previewImageSrc">
-							</lib-ngx-image-zoom>
-						</div>
+              <lib-ngx-image-zoom
+                [magnification]="1.1"
+                [zoomMode]="'hover'"
+                [thumbImage]="zoomImageSrc"
+                [fullImage]="previewImageSrc"
+              >
+              </lib-ngx-image-zoom>
+            </div>
             <div class="slider-thumb-bottom">
               <ul>
                 <li
@@ -36,11 +40,10 @@
             <div class="product-buy-main-details">
               <div class="product-main-text">
                 <h1>
-                  {{ currentProduct.title }}
+                  {{ productData.title }}
                   <br />
                   <span class="pointer" [routerLink]="['/stores']"
-                    >Visit the {{ productData.brand_name }}</span
-                  >
+                    >Visit the {{ productData.brand_name }}</span>
                 </h1>
                 <div class="star-listing">
                   <ul>
@@ -807,14 +810,13 @@
             <span>Know more</span>
           </div>
           <div class="button-section">
-            <button class="button-bag">ADD TO BAG</button>
+            <button class="button-bag" (click)="addToCart()">ADD TO BAG</button>
             <a href="#" [routerLink]="['/cart']" class="button-buy">BUY NOW</a>
             <!-- <button class="button-buy">BUY NOW</button> -->
             <div class="sold-by-delhi">
               <p>
                 sold by
-                <span class="sold_Prime_Gadgets">Prime Gadgets</span> , New
-                Delhi
+                <span class="sold_Prime_Gadgets" [routerLink]="['/stores']">{{ productData.brand_name }}</span>
               </p>
             </div>
           </div>
@@ -1204,5 +1206,3 @@
 		</div>
 	</div> -->
 </div>
-
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->

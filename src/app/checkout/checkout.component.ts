@@ -31,12 +31,22 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this._http.cart('').subscribe((result: any) => {
-      this.cartData = result.data;
+      let allVariationdata = result.data.cart;
+      let cartIdsdata = result.data.cartIds;
+      let copyData = [...allVariationdata];
+      copyData.map((el: any, index: number) => {
+        el.product.variations;
+        el.product.variations = el.product.variations.find((obj: any) => {
+          return obj._id == cartIdsdata[index].variations;
+        });
+      });
+
+      this.cartData = copyData;
       this.totalPrice = 0;
-      this.subTotal = 0;
       this.cartData.map((el: any) => {
-        this.totalPrice = this.totalPrice + el.quantity * el.product.variations[0].price.price_in_india;
-        this.subTotal = this.subTotal + el.quantity * el.product.variations[0].sellingPrice.selling_price_in_india;
+        this.totalPrice =
+          this.totalPrice +
+          el.quantity * el.product.variations.price.price_in_india;
       });
     });
 
@@ -99,11 +109,10 @@ export class CheckoutComponent implements OnInit {
     this.allFormData = setFormData;
 
     const paymentReq = (paymentToken: any) => {
-
       let paymentData = {
         token: paymentToken,
         total: this.totalPrice,
-        sellingTotal: this.subTotal
+        sellingTotal: this.subTotal,
       };
 
       let paymentObject = {
@@ -114,7 +123,7 @@ export class CheckoutComponent implements OnInit {
       this._http.makePayment(paymentObject).subscribe((data: any) => {
         console.log(data);
       });
-    }
+    };
 
     let options: any = {
       key: 'rzp_test_weS4smSu2KR8w3', // Enter the Key ID generated from the Dashboard
@@ -124,7 +133,7 @@ export class CheckoutComponent implements OnInit {
       description: 'Test Transaction',
       order_id: '', //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
       handler: function (response: any) {
-        paymentReq(response.razorpay_payment_id)
+        paymentReq(response.razorpay_payment_id);
       },
       prefill: {
         name: setFormData['first_name'] + ' ' + setFormData['last_name'],

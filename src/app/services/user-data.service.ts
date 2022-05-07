@@ -6,8 +6,8 @@ import { Options } from '@angular-slider/ngx-slider';
   providedIn: 'root'
 })
 export class UserDataService {
-  currentLiveUrl = "https://api.datavidhya.com"
-  // currentLiveUrl = "http://localhost:5000"
+  // currentLiveUrl = "https://api.datavidhya.com"
+  currentLiveUrl = "http://localhost:5000"
   Register_url = `${this.currentLiveUrl}/api/v1/user/register`;
   login_url = `${this.currentLiveUrl}/api/v1/user/login`;
   forgot_password_url = `${this.currentLiveUrl}/api/v1/user/forgot/password`;
@@ -16,6 +16,8 @@ export class UserDataService {
   getProduct = `${this.currentLiveUrl}/api/v1/products`;
   getsproduct = `${this.currentLiveUrl}/api/v1/product`;
   getCart = `${this.currentLiveUrl}/api/v1/cart`;
+  updateCartUrl = `${this.currentLiveUrl}/api/v1/add/cart`;
+  deleteCartItemUrl = `${this.currentLiveUrl}/api/v1/remove/cart`;
   startPayment = `${this.currentLiveUrl}/api/v1/create-payment`;
 
 
@@ -76,6 +78,18 @@ export class UserDataService {
   {
     let options : any = { headers: this._getHeaders() };
     return this.http.post(this.getCart,'', options);
+  }
+
+  updateCart(data:any)
+  {
+    let options : any = { headers: this._getHeaders() };
+      return this.http.post(this.updateCartUrl, data, options);
+  }
+
+  deleteCartItem(data:any)
+  {
+    let options : any = { headers: this._getHeaders() };
+      return this.http.post(this.deleteCartItemUrl, data, options);
   }
 
   makePayment(stripeToken: any){
