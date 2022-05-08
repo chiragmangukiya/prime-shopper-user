@@ -15,10 +15,11 @@
           <div class="col-lg-6 col-12">
             <div class="slider-zoom">
               <lib-ngx-image-zoom
-                [magnification]="1.1"
+                [magnification]="1.5"
                 [zoomMode]="'hover'"
                 [thumbImage]="zoomImageSrc"
                 [fullImage]="previewImageSrc"
+                [enableLens]="true"
               >
               </lib-ngx-image-zoom>
             </div>
@@ -88,17 +89,10 @@
                       >
                         <a
                           href="#"
-                          [routerLink]="[
-                            '/product/' +
-                              productData._id +
-                              '/' +
-                              product +
-                              '/' +
-                              var2val
-                          ]"
+                          [routerLink]="[setRouting1(productData._id, product, var2val)]"
                           routerLinkActive="active"
                           (click)="
-                            toggleModal(productData._id, product, var2val)
+                          toggleModal1(productData._id, product, var2val)
                           "
                         >
                           <div class="color_price">
@@ -130,19 +124,9 @@
                       >
                         <a
                           href="#"
-                          [routerLink]="[
-                            '/product/' +
-                              productData._id +
-                              '/' +
-                              var1val +
-                              '/' +
-                              product
-                          ]"
+                          [routerLink]="[setRouting2(productData._id, var1val, product)]"
                           routerLinkActive="active"
-                          (click)="
-                            toggleModal(productData._id, var1val, product)
-                          "
-                        >
+                          (click)="toggleModal2(productData._id, var1val, product)">
                           <div class="color_price">
                             <span class="price_txt">{{ product }}</span>
                           </div>

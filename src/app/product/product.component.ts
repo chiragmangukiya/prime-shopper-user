@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserDataService } from '../services/user-data.service';
 import { NgxImgZoomService } from 'ngx-img-zoom';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 // import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -15,7 +16,8 @@ export class ProductComponent implements OnInit {
     private route: ActivatedRoute,
     private _http: UserDataService,
     private ngxImgZoom: NgxImgZoomService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {
     this.ngxImgZoom.setZoomBreakPoints([
       { w: 50, h: 50 },
@@ -42,7 +44,6 @@ export class ProductComponent implements OnInit {
     this.var1val = var1 && var1 != 'null' ? var1 : null;
     var var2 = this.route.snapshot.paramMap.get('var2');
     this.var2val = var2 && var2 != 'null' ? var2 : null;
-
     this._http.product(product).subscribe((result: any) => {
       this.productData = result.data;
 
@@ -156,88 +157,8 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  // customOptions: OwlOptions = {
-  //   loop: true,
-  //   mouseDrag: false,
-  //   touchDrag: false,
-  //   pullDrag: false,
-  //   dots: false,
-  //   navSpeed: 700,
-  //   navText: [ '<img src="/assets/images/left-arrow.png">', '<img src="/assets/images/right-arrow.png">' ],
-  //   autoWidth: true,
-  //   responsive: {
-  //     0: {
-  //       items: 1
-  //     },
-  //     400: {
-  //       items: 1
-  //     },
-  //     740: {
-  //       items: 1
-  //     },
-  //     940: {
-  //       items: 1
-  //     }
-  //   },
-  //   nav: true
-  // }
-
-  // categorySliderOption: OwlOptions = {
-  //   loop: true,
-  //   mouseDrag: false,
-  //   touchDrag: false,
-  //   pullDrag: false,
-  //   dots: false,
-  //   navSpeed: 700,
-  //   navText: [ '<img src="/assets/images/left-arrow.png">', '<img src="/assets/images/right-arrow.png">' ],
-  //   autoWidth: true,
-  //   responsive: {
-  //     0: {
-  //       items: 1
-  //     },
-  //     400: {
-  //       items: 1
-  //     },
-  //     740: {
-  //       items: 1
-  //     },
-  //     940: {
-  //       items: 10
-  //     }
-  //   },
-  //   nav: true
-  // }
-
-  // flashProducts: OwlOptions = {
-  //   loop: true,
-  //   mouseDrag: false,
-  //   touchDrag: false,
-  //   pullDrag: false,
-  //   dots: false,
-  //   navSpeed: 700,
-  //   navText: [ '<img src="/assets/images/left-arrow.png">', '<img src="/assets/images/right-arrow.png">' ],
-  //   autoWidth: true,
-  //   responsive: {
-  //     0: {
-  //       items: 1
-  //     },
-  //     400: {
-  //       items: 1
-  //     },
-  //     740: {
-  //       items: 1
-  //     },
-  //     940: {
-  //       items: 6
-  //     }
-  //   },
-  //   nav: true
-  // }
-
-  // Product Zoom
-
-  toggleModal(id: string, var1: string, var2: string) {
-    // console.log("Hello");
+  toggleModal1(id: string, var1: string, var2: string) {
+    console.log("Click");
     if (this.var1val != var1 || this.var2val != var2) {
       this.var1val = var1 ? var1 : null;
       this.var2val = var2 ? var2 : null;
@@ -267,11 +188,171 @@ export class ProductComponent implements OnInit {
               }
             );
           }
-          console.log('current variation::', checkItem);
+          console.log(!checkItem, checkItem);
+
+          if (!checkItem) {
+            checkItem = this.productData.variations.find(
+              (el: any, i: number) => {
+                return var1 == el.variation1.value;
+              }
+            );
+          }
+          this.var1val = checkItem.variation1.value
+          this.var2val = checkItem.variation2.value
           this.currentProduct = checkItem;
+          if (checkItem.images.length) {
+            this.previewImageSrc = checkItem.images[0];
+            this.zoomImageSrc = checkItem.images[0];
+          } else {
+            this.previewImageSrc = checkItem.banner;
+            this.zoomImageSrc = checkItem.banner;
+          }
         }
       });
     }
+  }
+
+  toggleModal2(id: string, var1: string, var2: string) {
+    console.log("Click");
+    if (this.var1val != var1 || this.var2val != var2) {
+      this.var1val = var1 ? var1 : null;
+      this.var2val = var2 ? var2 : null;
+      this._http.product(id).subscribe((result: any) => {
+        this.productData = result.data;
+
+        if (this.productData && this.productData.variations.length) {
+          let checkItem;
+          if (var1 && var2) {
+            checkItem = this.productData.variations.find(
+              (el: any, i: number) => {
+                return (
+                  var1 == el.variation1.value && var2 == el.variation2.value
+                );
+              }
+            );
+          } else if (var1) {
+            checkItem = this.productData.variations.find(
+              (el: any, i: number) => {
+                return var1 == el.variation1.value;
+              }
+            );
+          } else if (var2) {
+            checkItem = this.productData.variations.find(
+              (el: any, i: number) => {
+                return var2 == el.variation2.value;
+              }
+            );
+          }
+          if (!checkItem) {
+            checkItem = this.productData.variations.find(
+              (el: any, i: number) => {
+                return var2 == el.variation2.value;
+              }
+            );
+          }
+          this.var1val = checkItem.variation1.value
+          this.var2val = checkItem.variation2.value
+          this.currentProduct = checkItem;
+          if (checkItem.images.length) {
+            this.previewImageSrc = checkItem.images[0];
+            this.zoomImageSrc = checkItem.images[0];
+          } else {
+            this.previewImageSrc = checkItem.banner;
+            this.zoomImageSrc = checkItem.banner;
+          }
+        }
+      });
+    }
+  }
+
+  setRouting1(id: any, var1: any, var2: any) {
+    let checkItem;
+    if (this.var1val && this.var2val) {
+      checkItem = this.productData.variations.find((el: any, i: number) => {
+        return (
+          this.var1val == el.variation1.value &&
+          this.var2val == el.variation2.value
+        );
+      });
+    } else if (this.var1val) {
+      checkItem = this.productData.variations.find((el: any, i: number) => {
+        return this.var1val == el.variation1.value;
+      });
+    } else if (this.var2val) {
+      checkItem = this.productData.variations.find((el: any, i: number) => {
+        return this.var2val == el.variation2.value;
+      });
+    }
+
+    if (var1 && var2) {
+      checkItem = this.productData.variations.find((el: any, i: number) => {
+        return var1 == el.variation1.value && var2 == el.variation2.value;
+      });
+    } else if (var1) {
+      checkItem = this.productData.variations.find((el: any, i: number) => {
+        return var1 == el.variation1.value;
+      });
+    } else if (var2) {
+      checkItem = this.productData.variations.find((el: any, i: number) => {
+        return var2 == el.variation2.value;
+      });
+    }
+
+    if (!checkItem) {
+      checkItem = this.productData.variations.find((el: any, i: number) => {
+        return var1 == el.variation1.value;
+      });
+    }
+
+    let var1Val = checkItem.variation1.value;
+    let var2Val = checkItem.variation2.value;
+
+    return '/product/' + id + '/' + var1Val + '/' + var2Val;
+  }
+
+  setRouting2(id: any, var1: any, var2: any) {
+    let checkItem;
+    if (this.var1val && this.var2val) {
+      checkItem = this.productData.variations.find((el: any, i: number) => {
+        return (
+          this.var1val == el.variation1.value &&
+          this.var2val == el.variation2.value
+        );
+      });
+    } else if (this.var1val) {
+      checkItem = this.productData.variations.find((el: any, i: number) => {
+        return this.var1val == el.variation1.value;
+      });
+    } else if (this.var2val) {
+      checkItem = this.productData.variations.find((el: any, i: number) => {
+        return this.var2val == el.variation2.value;
+      });
+    }
+
+    if (var1 && var2) {
+      checkItem = this.productData.variations.find((el: any, i: number) => {
+        return var1 == el.variation1.value && var2 == el.variation2.value;
+      });
+    } else if (var1) {
+      checkItem = this.productData.variations.find((el: any, i: number) => {
+        return var1 == el.variation1.value;
+      });
+    } else if (var2) {
+      checkItem = this.productData.variations.find((el: any, i: number) => {
+        return var2 == el.variation2.value;
+      });
+    }
+
+    if (!checkItem) {
+      checkItem = this.productData.variations.find((el: any, i: number) => {
+        return var2 == el.variation2.value;
+      });
+    }
+
+    let var1Val = checkItem.variation1.value;
+    let var2Val = checkItem.variation2.value;
+
+    return '/product/' + id + '/' + var1Val + '/' + var2Val;
   }
 
   setImageActive(image: any) {
@@ -280,20 +361,18 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart() {
-    // console.log('Hello', this.productData);
-
     let addProductData = {
       product: this.productData.id,
       variations: this.currentProduct._id,
       increment: true,
     };
-
-    this._http.updateCart(addProductData).subscribe((result: any) => {
-      this.toastr.success("Add to cart Successfull..");
-    },
-    (error) => {
-      this.toastr.error(error);
-    });
-    // console.log('Hello', addProductData);
+    this._http.updateCart(addProductData).subscribe(
+      (result: any) => {
+        this.toastr.success('Add to cart Successfull..');
+      },
+      (error) => {
+        this.toastr.error(error);
+      }
+    );
   }
 }

@@ -6,8 +6,8 @@ import { Options } from '@angular-slider/ngx-slider';
   providedIn: 'root'
 })
 export class UserDataService {
-  // currentLiveUrl = "https://api.datavidhya.com"
-  currentLiveUrl = "http://localhost:5000"
+  currentLiveUrl = "https://api.datavidhya.com"
+  // currentLiveUrl = "http://localhost:5000"
   Register_url = `${this.currentLiveUrl}/api/v1/user/register`;
   login_url = `${this.currentLiveUrl}/api/v1/user/login`;
   forgot_password_url = `${this.currentLiveUrl}/api/v1/user/forgot/password`;

@@ -6,6 +6,7 @@
 .slider-zoom {
   /* overflow: hidden; */
   margin: 25px;
+  max-width: 350px;
 }
 
 ::ng-deep .ngxImageZoomContainer {
@@ -22,6 +23,10 @@
   background-color: rgb(255, 255, 255);
   display: none;
   z-index: 10;
+}
+
+::ng-deep .ngxImageZoomLensEnabled{
+  border: none !important;
 }
 
 .slider-thumb-bottom {
@@ -50,6 +55,8 @@
   border: solid 1px #ccc;
   padding: 5px;
   max-width: 80px;
+  max-height: 80px;
+  overflow: hidden;
 }
 
 .slider-thumb-bottom ul li img {
