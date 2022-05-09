@@ -33,6 +33,7 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { NgxStripeModule } from 'ngx-stripe';
+import { ViewOrderComponent } from './view-order/view-order.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { NgxStripeModule } from 'ngx-stripe';
     SubCategoryComponent,
     ViewProfileComponent,
     EditProfileComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ViewOrderComponent
   ],
   imports: [
     BrowserModule,
