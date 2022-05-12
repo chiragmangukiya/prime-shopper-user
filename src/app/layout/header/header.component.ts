@@ -1,5 +1,7 @@
+import  { SharedService } from '../../shared.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { UserDataService } from '../../services/user-data.service';
 
 @Component({
@@ -7,14 +9,20 @@ import { UserDataService } from '../../services/user-data.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
+
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router, private _http: UserDataService) {}
+  clickEventSubscription: Subscription;
+  totalProducts: number = 0;
+  constructor(private router: Router, private _http: UserDataService, private sharedService: SharedService) {
+    this.clickEventSubscription = this.sharedService.getClickEvent().subscribe((data) => {
+      this.totalProducts = data;
+    })
+  }
 
   checkLogin: any;
   userProfile: any;
   cartData: any;
   totalPrice: any = 0;
-  totalProducts: number = 0;
 
   ngOnInit(): void {
     if (localStorage.getItem('X-Authentication-token') != null) {
@@ -25,7 +33,16 @@ export class HeaderComponent implements OnInit {
     });
 
     this._http.cart('').subscribe((result: any) => {
-      this.totalProducts = result.data.cartIds.length;
+      // console.log(result.data.cartIds);
+      if(result.data.cartIds.length){
+        let count = 0;
+        result.data.cartIds.map((el: any) => {
+          count = count + el.quantity;
+        })
+        this.totalProducts = count
+      } else {
+        this.totalProducts = 0;
+      }
     });
   }
 

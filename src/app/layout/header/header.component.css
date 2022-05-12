@@ -13,9 +13,18 @@
      color: #fff;
 }
 #category-dropdown,
-#category-dropdown.show, 
+#category-dropdown.show,
 #category-dropdown:hover{
     color: #000;
 
+}
+
+.logo a{
+  display: inline-block;
+}
+
+.logo a img{
+  max-width: 100%;
+  width: 100px;
 }
 

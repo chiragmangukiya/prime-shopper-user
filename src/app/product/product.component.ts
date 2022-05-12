@@ -5,6 +5,7 @@ import { NgxImgZoomService } from 'ngx-img-zoom';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 // import { OwlOptions } from 'ngx-owl-carousel-o';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-product',
@@ -17,7 +18,8 @@ export class ProductComponent implements OnInit {
     private _http: UserDataService,
     private ngxImgZoom: NgxImgZoomService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) {
     this.ngxImgZoom.setZoomBreakPoints([
       { w: 50, h: 50 },
@@ -368,6 +370,17 @@ export class ProductComponent implements OnInit {
     };
     this._http.updateCart(addProductData).subscribe(
       (result: any) => {
+        this._http.cart('').subscribe((result: any) => {
+          if(result.data.cartIds.length){
+            let count = 0;
+            result.data.cartIds.map((el: any) => {
+              count = count + el.quantity;
+            })
+            this.sharedService.sendCLickEvent(count);
+          } else {
+            this.sharedService.sendCLickEvent(0);
+          }
+        });
         this.toastr.success('Add to cart Successfull..');
       },
       (error) => {
