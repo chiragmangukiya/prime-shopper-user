@@ -18,6 +18,7 @@ import { SallerProductComponent } from './saller-product/saller-product.componen
 import { StoresImgComponent } from './stores-img/stores-img.component';
 import { StoresComponent } from './stores/stores.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
+import { ViewOrderComponent } from './view-order/view-order.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 const routes: Routes = [
@@ -92,6 +93,10 @@ const routes: Routes = [
       {
         path : 'checkout',
         component : CheckoutComponent
+      },
+      {
+        path : 'view-order',
+        component : ViewOrderComponent
       }
     ]
   },
