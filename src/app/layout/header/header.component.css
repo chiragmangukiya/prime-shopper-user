@@ -1,3 +1,6 @@
+.header{
+     background-color: #FEC32B;
+}
 .login.dropdown{
      padding: 25px 0;
 }
@@ -23,8 +26,9 @@
   display: inline-block;
 }
 
-.logo a img{
-  max-width: 100%;
-  width: 100px;
+.main_logo{
+     display: inline-block;
 }
-
+.main_logo img{
+     width: 125px;
+}
