@@ -30,5 +30,8 @@
      display: inline-block;
 }
 .main_logo img{
-     width: 125px;
+     width: 90px;
+}
+.head_icon{
+     font-size: 22px;
 }

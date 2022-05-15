@@ -11,7 +11,7 @@
 }
 
 body {
-    background: #f3f7f8;
+    /* background: #f3f7f8; */
     /* font-family: 'Montserrat', sans-serif; */
     /* font-family: 'Playfair Display', serif; */
     /* font-family: 'Poppins', sans-serif; */
@@ -94,6 +94,7 @@ ul{
     border: solid 1px #000;
     font-size: 12px;
     background-color: #FFF;
+    border-radius: 3px;
 }
 
 .categories-menu img {
@@ -138,7 +139,7 @@ ul{
     display: block;
     position: absolute;
     top: -10px;
-    right: 0;
+    right: -10px;
     text-align: center;
     line-height: 20px;
     margin: 0 0 0 14px;
@@ -148,12 +149,17 @@ ul{
 
 .login a {
     color: #000;
+    display: flex;
+    align-items: center;
+}
+.login a > span{
+    margin-left: 5px;
 }
 .login a > span:hover{
     text-decoration: underline;
 }
 .login{
-    padding: 25px 0;
+    padding: 18px 0;
 }
 /* .dropdown-toggle::after {
     display: none;
@@ -173,6 +179,7 @@ ul{
     font-size: 12px;
     color: #7e7e7e;
     font-weight: 600;
+    border-radius: 3px;
 }
 
 .searching img {
@@ -321,6 +328,7 @@ ul{
     width: 200px;
     height: 40px;
     padding: 0 5px;
+    border-radius: 3px;
 }
 
 .filter-drop select option {
@@ -441,6 +449,10 @@ font-family: 'Montserrat', sans-serif;
     .searching{
         margin: 0px 0  0 0;
         width: 100%;
+        padding: 0 15px; 
+    }
+    .searching img{
+        left: 15px;
     }
 
     .header-center{
