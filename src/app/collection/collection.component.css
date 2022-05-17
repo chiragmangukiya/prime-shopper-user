@@ -310,25 +310,30 @@
     position: absolute;
     bottom: 10px;
     right: 15px;
-    /* background-color: #fff; */
-    /* height: 50px;
-    width: 50px; */
+    background-color: #fff;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, .2); */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
     z-index: 2;
+    /* line-height: 20px; */
 
 }
 .add_wishlist a{
     display: block;
-    color: inherit;
-    margin-top: 5px;
-    color: #fff;
+    color: #000;
 }
 .add_wishlist:hover a{
-    color: red;
+    color: rgb(209, 0, 0);
+}
+.wish_fill, .add_wishlist:hover .wish_outline{
+    display: none;
+}
+.add_wishlist:hover .wish_fill, .wish_outline{
+    display: block;
 }
 .offer_pr{
     position: absolute;
