@@ -1,91 +1,91 @@
 <header>
-    <div class="row header align-items-center justify-content-between pt-0">
-        <div class="col-xl-1 col-lg-2 col-md-2 col-3 logo py-1 px-0">
-            <a [routerLink]="['']" class="main_logo">
-                <img src="../../../assets/images/just-cliq-white.svg" alt="">
-            </a>
-        </div>
-        <div class="col-xl-8 col-lg-7 col-md-8 col-sm-7 p-0  header-center">
-            <div class="row gx-2 justify-content-between">
-                <div class="col-xl-3 col-lg-4 col-md-4 d-none d-lg-block">
-                    <div class="categories-menu dropdown">
-                        <a class="nav-link dropdown-toggle d-flex align-items-center text-truncate" href="#" id="category-dropdown" data-bs-toggle="dropdown">
-                            <!-- <img src="/assets/images/menu.png" alt="">  -->
-                            <i class="fa fa-list px-2"></i>
-                            <span>Shop By Category</span>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="category-dropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-9 col-lg-8 col-md-12 col-12">
-                    <div class="searching d-flex">
-                        <img src="/assets/images/search.png" alt="" class="search_icon">
-                        <input type="text" placeholder="Search for a Products, Brand or Category">
-                    </div>
-                </div>
-                 <!-- <div class="col-3 searching d-flex pincode">
-                <img src="/assets/images/location.png" alt="">
-                <input type="text" placeholder="Pincode">
-            </div> -->
-            </div>
-        </div>
-        <div class="col-xl-2 col-lg-3 col-md-2 col-2 p-0 header-right d-flex align-items-center justify-content-end">
-            <div class="my-order me-3">
-                <a href="#" title="My Orders">
-                    <i class="fa fa-list-alt head_icon"></i>
-                    <!-- <img src="/assets/images/head-right-icon1.png" alt="" class="mr-2"> -->
-                    <span class="d-none"> My Order</span>
-                </a>
-            </div>
-            <div class="cart me-3">
-                <a [routerLink]="['/cart']" >
-                    <i class="fa fa-shopping-cart head_icon"></i>
-                    <!-- <img src="/assets/images/head-right-icon2.png" alt="" class="me-1"> -->
-                    <span class="cart_badge bg-danger">{{totalProducts}}</span>
-                    <span class="d-none"> No Items</span>
-                </a>
-            </div>
-            <h1 *ngIf="checkLogin; then logout else login"></h1>
-            <ng-template #login>
-            <div class="login">
-                <a [routerLink]="['/login']" routerLinkActive="active" >
-                    <i class="fa fa-user-circle-o head_icon"></i>
-                    <!-- <img src="/assets/images/head-right-icon3.png" alt="" class="me-1"> -->
-                    <span> Login / Sign Up</span>
-                </a>
-            </div>
-        </ng-template>
-        <ng-template #logout>
+  <div class="row header align-items-center justify-content-between pt-0">
+      <div class="col-xl-1 col-lg-2 col-md-2 col-3 logo py-1 px-0">
+          <a [routerLink]="['']" class="main_logo">
+              <img src="../../../assets/images/just-cliq-white.svg" alt="">
+          </a>
+      </div>
+      <div class="col-xl-8 col-lg-7 col-md-8 col-sm-7 p-0  header-center">
+          <div class="row gx-2 justify-content-between">
+              <div class="col-xl-3 col-lg-4 col-md-4 d-none d-lg-block">
+                  <div class="categories-menu dropdown">
+                      <a class="nav-link dropdown-toggle d-flex align-items-center text-truncate" href="#" id="category-dropdown" data-bs-toggle="dropdown">
+                          <!-- <img src="/assets/images/menu.png" alt="">  -->
+                          <i class="fa fa-list px-2"></i>
+                          <span>Shop By Category</span>
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="category-dropdown">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-xl-9 col-lg-8 col-md-12 col-12">
+                  <div class="searching d-flex">
+                      <img src="/assets/images/search.png" alt="" class="search_icon">
+                      <input type="text" placeholder="Search for a Products, Brand or Category">
+                  </div>
+              </div>
+               <!-- <div class="col-3 searching d-flex pincode">
+              <img src="/assets/images/location.png" alt="">
+              <input type="text" placeholder="Pincode">
+          </div> -->
+          </div>
+      </div>
+      <div class="col-xl-2 col-lg-3 col-md-2 col-2 p-0 header-right d-flex align-items-center justify-content-end">
+          <div class="my-order me-3">
+              <a href="#" title="My Orders">
+                  <i class="fa fa-list-alt head_icon"></i>
+                  <!-- <img src="/assets/images/head-right-icon1.png" alt="" class="mr-2"> -->
+                  <span class="d-none"> My Order</span>
+              </a>
+          </div>
+          <div class="cart me-3">
+              <a [routerLink]="['/cart']" >
+                  <i class="fa fa-shopping-cart head_icon"></i>
+                  <!-- <img src="/assets/images/head-right-icon2.png" alt="" class="me-1"> -->
+                  <span class="cart_badge bg-danger">{{totalProducts}}</span>
+                  <span class="d-none"> No Items</span>
+              </a>
+          </div>
+          <h1 *ngIf="checkLogin; then logout else login"></h1>
+          <ng-template #login>
+          <div class="login">
+              <a [routerLink]="['/login']" routerLinkActive="active" >
+                  <i class="fa fa-user-circle-o head_icon"></i>
+                  <!-- <img src="/assets/images/head-right-icon3.png" alt="" class="me-1"> -->
+                  <span> Login / Sign Up</span>
+              </a>
+          </div>
+      </ng-template>
+      <ng-template #logout>
 
-            <div class="login dropdown">
-                <a href="#" class="d-flex align-items-center dropdown-toggle" data-bs-toggle="dropdown" id="profile-dropdown" data-bs-offset="0,20">
-                    <span class="text-truncate" style="max-width: 100px;">{{userProfile.data.name}}</span>
-                    <i class="fa fa-user-circle ms-2 fs-3" aria-hidden="true"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile-dropdown" >
+          <div class="login dropdown">
+              <a href="#" class="d-flex align-items-center dropdown-toggle" data-bs-toggle="dropdown" id="profile-dropdown" data-bs-offset="0,20">
+                  <span class="text-truncate" style="max-width: 100px;">{{userProfile.data.name}}</span>
+                  <i class="fa fa-user-circle ms-2 fs-3" aria-hidden="true"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile-dropdown" >
 
-                    <li><a class="dropdown-item" href="#">My Account</a></li>
-                    <li><a class="dropdown-item" [routerLink]="['/view-profile']">View Profile</a></li>
-                    <li><a class="dropdown-item" [routerLink]="['/edit-profile']">Edit Profile</a></li>
-                    <li><a class="dropdown-item" [routerLink]="['/myorders']">My Orders</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li>
-                        <a href="javascript:void(0);" class="d-flex align-items-center dropdown-item" (click)="logout_user()">
-                            <i class="fa fa-power-off me-2 fs-5" aria-hidden="true"></i>
-                            <span> Logout</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                  <li><a class="dropdown-item" href="#">My Account</a></li>
+                  <li><a class="dropdown-item" [routerLink]="['/view-profile']">View Profile</a></li>
+                  <li><a class="dropdown-item" [routerLink]="['/edit-profile']">Edit Profile</a></li>
+                  <li><a class="dropdown-item" [routerLink]="['/myorders']">My Orders</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                      <a href="javascript:void(0);" class="d-flex align-items-center dropdown-item" (click)="logout_user()">
+                          <i class="fa fa-power-off me-2 fs-5" aria-hidden="true"></i>
+                          <span> Logout</span>
+                      </a>
+                  </li>
+              </ul>
+          </div>
 
-            <!-- <div class="login">
+          <!-- <div class="login">
 
-            </div> -->
-        </ng-template>
-        </div>
-    </div>
+          </div> -->
+      </ng-template>
+      </div>
+  </div>
 </header>

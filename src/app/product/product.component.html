@@ -44,7 +44,8 @@
                   {{ productData.title }}
                   <br />
                   <span class="pointer" [routerLink]="['/stores']"
-                    >Visit the {{ productData.brand_name }}</span>
+                    >Visit the {{ productData.brand_name }}</span
+                  >
                 </h1>
                 <div class="star-listing">
                   <ul>
@@ -89,10 +90,12 @@
                       >
                         <a
                           href="#"
-                          [routerLink]="[setRouting1(productData._id, product, var2val)]"
+                          [routerLink]="[
+                            setRouting1(productData._id, product, var2val)
+                          ]"
                           routerLinkActive="active"
                           (click)="
-                          toggleModal1(productData._id, product, var2val)
+                            toggleModal1(productData._id, product, var2val)
                           "
                         >
                           <div class="color_price">
@@ -124,9 +127,14 @@
                       >
                         <a
                           href="#"
-                          [routerLink]="[setRouting2(productData._id, var1val, product)]"
+                          [routerLink]="[
+                            setRouting2(productData._id, var1val, product)
+                          ]"
                           routerLinkActive="active"
-                          (click)="toggleModal2(productData._id, var1val, product)">
+                          (click)="
+                            toggleModal2(productData._id, var1val, product)
+                          "
+                        >
                           <div class="color_price">
                             <span class="price_txt">{{ product }}</span>
                           </div>
@@ -800,7 +808,9 @@
             <div class="sold-by-delhi">
               <p>
                 sold by
-                <span class="sold_Prime_Gadgets" [routerLink]="['/stores']">{{ productData.brand_name }}</span>
+                <span class="sold_Prime_Gadgets" [routerLink]="['/stores']">{{
+                  productData.brand_name
+                }}</span>
               </p>
             </div>
           </div>
