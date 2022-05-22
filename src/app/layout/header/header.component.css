@@ -35,3 +35,6 @@
 .head_icon{
      font-size: 22px;
 }
+.dropdown-toggle::after{
+     display: none !important;
+}

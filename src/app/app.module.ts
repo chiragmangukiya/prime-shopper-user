@@ -35,6 +35,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { NgxStripeModule } from 'ngx-stripe';
 import { ViewOrderComponent } from './view-order/view-order.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,7 @@ import { ViewOrderComponent } from './view-order/view-order.component';
     ViewProfileComponent,
     EditProfileComponent,
     CheckoutComponent,
-    ViewOrderComponent
+    ViewOrderComponent,
   ],
   imports: [
     BrowserModule,

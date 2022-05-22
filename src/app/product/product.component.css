@@ -303,12 +303,12 @@
   display: block;
   clear: both;
   overflow: hidden;
-  border-bottom: solid 1px #ccc;
+  /* border-bottom: solid 1px #ccc; */
 }
 
-.sold-product-details ul:last-child {
+/* .sold-product-details ul:last-child {
   border: none;
-}
+} */
 
 .sold-product-details ul li {
   list-style-type: none;

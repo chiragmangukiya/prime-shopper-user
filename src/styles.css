@@ -325,9 +325,8 @@ ul{
     float: right;
     margin: 22px 25px 0 0;
     border: solid 1px #CCC;
-    width: 200px;
-    height: 40px;
-    padding: 0 5px;
+    width: 150px;
+    padding: 5px;
     border-radius: 3px;
 }
 
@@ -406,9 +405,9 @@ font-family: 'Montserrat', sans-serif;
         /* display: block; */
         font-size: 12px;
     }
-    .header-right{
+    /* .header-right{
         justify-content: space-evenly !important;
-    }
+    } */
 
 }
 @media (max-width: 991px){

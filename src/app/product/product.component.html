@@ -9,29 +9,21 @@
 </div>
 <div class="container-main nobg">
   <div class="row">
-    <div class="col-xl-9 col-lg-10 col-md-7 col-12">
+    <div class="col-xl-9 col-lg-8 col-md-7 col-12">
       <div class="product-left">
         <div class="row">
           <div class="col-lg-6 col-12">
             <div class="slider-zoom">
-              <lib-ngx-image-zoom
-                [magnification]="1.5"
-                [zoomMode]="'hover'"
-                [thumbImage]="zoomImageSrc"
-                [fullImage]="previewImageSrc"
-                [enableLens]="true"
-              >
+              <lib-ngx-image-zoom [magnification]="1.5" [zoomMode]="'hover'" [thumbImage]="zoomImageSrc"
+                [fullImage]="previewImageSrc" [enableLens]="true">
               </lib-ngx-image-zoom>
             </div>
             <div class="slider-thumb-bottom">
               <ul>
-                <li
-                  *ngFor="
+                <li *ngFor="
                     let in of counter(currentProduct.images.length);
                     let i = index
-                  "
-                  (click)="setImageActive(currentProduct.images[i])"
-                >
+                  " (click)="setImageActive(currentProduct.images[i])">
                   <img src="{{ currentProduct.images[i] }}" alt="" />
                 </li>
               </ul>
@@ -43,9 +35,7 @@
                 <h1>
                   {{ productData.title }}
                   <br />
-                  <span class="pointer" [routerLink]="['/stores']"
-                    >Visit the {{ productData.brand_name }}</span
-                  >
+                  <span class="pointer" [routerLink]="['/stores']">Visit the {{ productData.brand_name }}</span>
                 </h1>
                 <div class="star-listing">
                   <ul>
@@ -69,12 +59,10 @@
                 </div>
 
                 <div class="color_variation my-3">
-                  <div
-                    *ngIf="
+                  <div *ngIf="
                       currentProduct.variation1.var_title &&
                       currentProduct.variation1.value
-                    "
-                  >
+                    ">
                     <h6 class="fw-bold">
                       {{ currentProduct.variation1.var_title }} :
                       <span class="text-muted fw-normal">{{
@@ -82,22 +70,14 @@
                       }}</span>
                     </h6>
                     <ul class="color_item_list">
-                      <li
-                        *ngFor="let product of productData.variations1.data"
-                        [ngClass]="{
+                      <li *ngFor="let product of productData.variations1.data" [ngClass]="{
                           active: product == currentProduct.variation1.value
-                        }"
-                      >
-                        <a
-                          href="#"
-                          [routerLink]="[
+                        }">
+                        <a href="#" [routerLink]="[
                             setRouting1(productData._id, product, var2val)
-                          ]"
-                          routerLinkActive="active"
-                          (click)="
+                          ]" routerLinkActive="active" (click)="
                             toggleModal1(productData._id, product, var2val)
-                          "
-                        >
+                          ">
                           <div class="color_price">
                             <span class="price_txt">{{ product }}</span>
                           </div>
@@ -106,12 +86,10 @@
                     </ul>
                   </div>
                   <div class="mt-3"></div>
-                  <div
-                    *ngIf="
+                  <div *ngIf="
                       currentProduct.variation2.var_title &&
                       currentProduct.variation2.value
-                    "
-                  >
+                    ">
                     <h6 class="fw-bold">
                       {{ currentProduct.variation2.var_title }} :
                       <span class="text-muted fw-normal">{{
@@ -119,22 +97,14 @@
                       }}</span>
                     </h6>
                     <ul class="color_item_list">
-                      <li
-                        *ngFor="let product of productData.variations2.data"
-                        [ngClass]="{
+                      <li *ngFor="let product of productData.variations2.data" [ngClass]="{
                           active: product == currentProduct.variation2.value
-                        }"
-                      >
-                        <a
-                          href="#"
-                          [routerLink]="[
+                        }">
+                        <a href="#" [routerLink]="[
                             setRouting2(productData._id, var1val, product)
-                          ]"
-                          routerLinkActive="active"
-                          (click)="
+                          ]" routerLinkActive="active" (click)="
                             toggleModal2(productData._id, var1val, product)
-                          "
-                        >
+                          ">
                           <div class="color_price">
                             <span class="price_txt">{{ product }}</span>
                           </div>
@@ -145,11 +115,9 @@
                 </div>
 
                 <h2 class="price my-3 mb-0">
-                  <span class="new_price"
-                    >₹{{
+                  <span class="new_price">₹{{
                       currentProduct.sellingPrice.selling_price_in_india
-                    }}</span
-                  >
+                    }}</span>
                   <span class="old_price">
                     ₹{{ currentProduct.price.price_in_india }}
                   </span>
@@ -211,53 +179,28 @@
       <div class="product-description">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item">
-            <button
-              class="nav-link active"
-              data-bs-toggle="pill"
-              data-bs-target="#pills-home"
-              type="button"
-            >
+            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#pills-home" type="button">
               Overview
             </button>
           </li>
           <li class="nav-item">
-            <button
-              class="nav-link"
-              data-bs-toggle="pill"
-              data-bs-target="#pills-profile"
-              type="button"
-            >
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button">
               Description
             </button>
           </li>
           <li class="nav-item">
-            <button
-              class="nav-link"
-              data-bs-toggle="pill"
-              data-bs-target="#pills-contact"
-              type="button"
-            >
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button">
               Mfg. Info
             </button>
           </li>
           <li class="nav-item">
-            <button
-              class="nav-link"
-              data-bs-toggle="pill"
-              data-bs-target="#pills-Return"
-              type="button"
-            >
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-Return" type="button">
               Return Policy
             </button>
           </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
-          <div
-            class="tab-pane fade show active"
-            id="pills-home"
-            role="tabpanel"
-            aria-labelledby="pills-home-tab"
-          >
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <div class="sold-by">
               <div class="sold-shop">
                 <h1>{{ productData.seller.name }}</h1>
@@ -320,9 +263,7 @@
               <ul>
                 <li>Material Type</li>
                 <li>
-                  <ng-container
-                    *ngFor="let material of productData.material_type_free"
-                  >
+                  <ng-container *ngFor="let material of productData.material_type_free">
                     {{ material }},
                   </ng-container>
                 </li>
@@ -390,22 +331,12 @@
 							</ul> -->
             </div>
           </div>
-          <div
-            class="tab-pane fade"
-            id="pills-profile"
-            role="tabpanel"
-            aria-labelledby="pills-profile-tab"
-          >
+          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
             <p class="dis-page-main">
               {{ productData.description }}
             </p>
           </div>
-          <div
-            class="tab-pane fade"
-            id="pills-contact"
-            role="tabpanel"
-            aria-labelledby="pills-contact-tab"
-          >
+          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
             <div class="sold-product-details">
               <ul>
                 <li>Country Of Origin</li>
@@ -421,12 +352,7 @@
               </ul>
             </div>
           </div>
-          <div
-            class="tab-pane fade"
-            id="pills-Return"
-            role="tabpanel"
-            aria-labelledby="pills-return-tab"
-          >
+          <div class="tab-pane fade" id="pills-Return" role="tabpanel" aria-labelledby="pills-return-tab">
             <div class="sold-product-details">
               <ul>
                 <li>Return Policy</li>
@@ -768,7 +694,7 @@
 			</div> -->
     </div>
 
-    <div class="col-xl-3 col-lg-2 col-md-5 col-12">
+    <div class="col-xl-3 col-lg-4 col-md-5 col-12">
       <div class="product-detail-right pb-5">
         <div class="right-top-pincode">
           <div class="right-box-main-title truck-delivery buy-from">
@@ -927,6 +853,94 @@
       </div>
     </div>
   </div>
+
+  <!-- <div class="col-md-4 ">
+    <div class="main-review">
+      <div class="rating_review">
+        <h1 class="review_h1">Customer reviews</h1>
+        <div class="rating_start">
+          <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
+          <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
+          <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
+          <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
+          <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
+          <div class="rating_review_customer">
+            <span>4.4 out of 5</span>
+          </div>
+        </div>
+        <div class="golbal_review">
+          <p>5,826 global rating</p>
+        </div>
+
+        <div class="calculated">
+          <i class="fa mr-2 fa-angle-down" aria-hidden="true"></i>
+          <span>How are ratings calculated?</span>
+        </div>
+      </div>
+      <div class="sold-by-review">
+        <h1 class=review_h1>By feature</h1>
+      </div>
+      <div>
+        <div class="start_durability">
+          <p class="start_durability_p">Durability</p>
+          <div class="rating_start">
+            <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
+            <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
+            <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
+            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
+            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
+            <div class="rate_rea">
+              <span class="ml-1">4.2</span>
+            </div>
+          </div>
+        </div>
+        <div class="start_durability">
+          <p class="start_durability_p">Sturdiness</p>
+          <div class="rating_start">
+            <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
+            <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
+            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
+            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
+            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
+            <div class="rate_rea">
+              <span class="ml-1">3.2</span>
+            </div>
+          </div>
+        </div>
+        <div class="start_durability">
+          <p class="start_durability_p">Value for money</p>
+          <div class="rating_start">
+            <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
+            <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
+            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
+            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
+            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
+            <div class="rate_rea">
+              <span class="ml-1">3.2</span>
+            </div>
+          </div>
+        </div>
+        <div class="calculated m-0">
+          <i class="fa mr-2 fa-angle-down" aria-hidden="true"></i>
+          <span>See more</span>
+        </div>
+      </div>
+      <div>
+        <h1 class="review_h1 mt-2">Reviews this product</h1>
+        <div class="write">
+          <span>Share Your thoughts with other customers</span>
+		<div class="mb-3">
+			<label for="exampleFormControlTextarea1" class="form-label"></label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Write a review" rows="3"></textarea>
+			<button type="submit" class="button-buy w-50 mt-2">BUY NOW</button>
+		</div>
+          <div class="review_button">
+            <button class="product_review_button">Write a product review</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
 
   <!-- <div class="row flash">
 
