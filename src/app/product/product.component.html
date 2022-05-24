@@ -21,9 +21,9 @@
             <div class="slider-thumb-bottom">
               <ul>
                 <li *ngFor="
-                    let in of counter(currentProduct.images.length);
-                    let i = index
-                  " (click)="setImageActive(currentProduct.images[i])">
+							let in of counter(currentProduct.images.length);
+							let i = index
+						" (click)="setImageActive(currentProduct.images[i])">
                   <img src="{{ currentProduct.images[i] }}" alt="" />
                 </li>
               </ul>
@@ -60,24 +60,24 @@
 
                 <div class="color_variation my-3">
                   <div *ngIf="
-                      currentProduct.variation1.var_title &&
-                      currentProduct.variation1.value
-                    ">
+							currentProduct.variation1.var_title &&
+							currentProduct.variation1.value
+							">
                     <h6 class="fw-bold">
                       {{ currentProduct.variation1.var_title }} :
                       <span class="text-muted fw-normal">{{
-                        currentProduct.variation1.value
-                      }}</span>
+							currentProduct.variation1.value
+							}}</span>
                     </h6>
                     <ul class="color_item_list">
                       <li *ngFor="let product of productData.variations1.data" [ngClass]="{
-                          active: product == currentProduct.variation1.value
-                        }">
+								active: product == currentProduct.variation1.value
+							}">
                         <a href="#" [routerLink]="[
-                            setRouting1(productData._id, product, var2val)
-                          ]" routerLinkActive="active" (click)="
-                            toggleModal1(productData._id, product, var2val)
-                          ">
+								setRouting1(productData._id, product, var2val)
+								]" routerLinkActive="active" (click)="
+								toggleModal1(productData._id, product, var2val)
+								">
                           <div class="color_price">
                             <span class="price_txt">{{ product }}</span>
                           </div>
@@ -87,24 +87,24 @@
                   </div>
                   <div class="mt-3"></div>
                   <div *ngIf="
-                      currentProduct.variation2.var_title &&
-                      currentProduct.variation2.value
-                    ">
+							currentProduct.variation2.var_title &&
+							currentProduct.variation2.value
+							">
                     <h6 class="fw-bold">
                       {{ currentProduct.variation2.var_title }} :
                       <span class="text-muted fw-normal">{{
-                        currentProduct.variation2.value
-                      }}</span>
+							currentProduct.variation2.value
+							}}</span>
                     </h6>
                     <ul class="color_item_list">
                       <li *ngFor="let product of productData.variations2.data" [ngClass]="{
-                          active: product == currentProduct.variation2.value
-                        }">
+								active: product == currentProduct.variation2.value
+							}">
                         <a href="#" [routerLink]="[
-                            setRouting2(productData._id, var1val, product)
-                          ]" routerLinkActive="active" (click)="
-                            toggleModal2(productData._id, var1val, product)
-                          ">
+								setRouting2(productData._id, var1val, product)
+								]" routerLinkActive="active" (click)="
+								toggleModal2(productData._id, var1val, product)
+								">
                           <div class="color_price">
                             <span class="price_txt">{{ product }}</span>
                           </div>
@@ -116,8 +116,8 @@
 
                 <h2 class="price my-3 mb-0">
                   <span class="new_price">₹{{
-                      currentProduct.sellingPrice.selling_price_in_india
-                    }}</span>
+							currentProduct.sellingPrice.selling_price_in_india
+							}}</span>
                   <span class="old_price">
                     ₹{{ currentProduct.price.price_in_india }}
                   </span>
@@ -128,42 +128,42 @@
                 <p>Inclusive of all Taxes</p>
               </div>
               <!-- <div class="buy-from">
-								<p>Apply this promo on cart</p>
-								<div class="product_offer my-2">
-									<a href="#" class="link d-flex align-items-center">
-										<i class="fa fa-gift promo_icon"></i>
-										<span>Offers</span>
-									</a>
-								</div>
-								<div class="product_offer my-2 d-flex">
-									<a href="#" class="link d-flex align-items-center">
-										<i class="fa fa-money promo_icon"></i>
-										<span>Select Low Cost EMI</span>
-									</a>
-									<div class="emi-promo">
-										<a href="#">Select EMI</a>
-									</div>
-								</div>
+											<p>Apply this promo on cart</p>
+											<div class="product_offer my-2">
+												<a href="#" class="link d-flex align-items-center">
+													<i class="fa fa-gift promo_icon"></i>
+													<span>Offers</span>
+												</a>
+											</div>
+											<div class="product_offer my-2 d-flex">
+												<a href="#" class="link d-flex align-items-center">
+													<i class="fa fa-money promo_icon"></i>
+													<span>Select Low Cost EMI</span>
+												</a>
+												<div class="emi-promo">
+													<a href="#">Select EMI</a>
+												</div>
+											</div>
 
-								<div class="from-promo-code">
-									<div class="buy-text">
-										<span>Discount worth ₹500</span>
-										<label>Promocode: ICICIE10</label>
-										<p>Get Flat 10% Cashback Upto Rs.4,000. No Minimum Order Value. Conditions Apply! <a href="">Terms
-												and Conditions</a></p>
-									</div>
-									<div class="mt-2 more_offers">
-										<span>
-											View 5 more offers
-											<i class="fa fa-chevron-right" aria-hidden="true"></i>
-										</span>
-									</div>
-								</div>
-							</div> -->
+											<div class="from-promo-code">
+												<div class="buy-text">
+													<span>Discount worth ₹500</span>
+													<label>Promocode: ICICIE10</label>
+													<p>Get Flat 10% Cashback Upto Rs.4,000. No Minimum Order Value. Conditions Apply! <a href="">Terms
+															and Conditions</a></p>
+												</div>
+												<div class="mt-2 more_offers">
+													<span>
+														View 5 more offers
+														<i class="fa fa-chevron-right" aria-hidden="true"></i>
+													</span>
+												</div>
+											</div>
+										</div> -->
 
               <!-- <div class="button-main">
-                                <a href="#">Buy Now</a>
-                            </div> -->
+									<a href="#">Buy Now</a>
+								</div> -->
             </div>
             <div class="product-high">
               <h2>Product Highlights</h2>
@@ -212,9 +212,9 @@
             <div class="sold-product-details">
               <h5 class="pt-4 fw-bold">Basic Information</h5>
               <!-- <ul>
-                <li>Product Type</li>
-                <li>{{ productData.features }}</li>
-              </ul> -->
+						<li>Product Type</li>
+						<li>{{ productData.features }}</li>
+					</ul> -->
               <ul>
                 <li>Item Name</li>
                 <li>{{ productData.title }}</li>
@@ -297,38 +297,38 @@
                 <li>{{ productData.legal_disclaimer }}</li>
               </ul>
               <!-- <h5 class="pt-4 fw-bold">Product Variation</h5>
-							<ul>
-								<li>Parantage</li>
-								<li>Wired Headphones & Headsets</li>
-							</ul>
-							<ul>
-								<li>Parent SKU</li>
-								<li>boAt</li>
-							</ul>
-							<ul>
-								<li>Relationship Type</li>
-								<li>MOBBOAT-BASSHEAELEC803402992F031F</li>
-							</ul>
-							<ul>
-								<li>Variation Theme 1</li>
-								<li>GTIN</li>
-							</ul>
-							<ul>
-								<li>Variation Value 1</li>
-								<li>Watch Flash</li>
-							</ul>
-							<ul>
-								<li>Relationship Type</li>
-								<li>Blackli</li>
-							</ul>
-							<ul>
-								<li>Variation Theme 1</li>
-								<li>GTIN</li>
-							</ul>
-							<ul>
-								<li>Variation Value 1</li>
-								<li>Watch Flash</li>
-							</ul> -->
+										<ul>
+											<li>Parantage</li>
+											<li>Wired Headphones & Headsets</li>
+										</ul>
+										<ul>
+											<li>Parent SKU</li>
+											<li>boAt</li>
+										</ul>
+										<ul>
+											<li>Relationship Type</li>
+											<li>MOBBOAT-BASSHEAELEC803402992F031F</li>
+										</ul>
+										<ul>
+											<li>Variation Theme 1</li>
+											<li>GTIN</li>
+										</ul>
+										<ul>
+											<li>Variation Value 1</li>
+											<li>Watch Flash</li>
+										</ul>
+										<ul>
+											<li>Relationship Type</li>
+											<li>Blackli</li>
+										</ul>
+										<ul>
+											<li>Variation Theme 1</li>
+											<li>GTIN</li>
+										</ul>
+										<ul>
+											<li>Variation Value 1</li>
+											<li>Watch Flash</li>
+										</ul> -->
             </div>
           </div>
           <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -369,331 +369,398 @@
             </div>
           </div>
         </div>
+        <div class="py-5">
+          <span class="heading">User Rating</span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <p>4.1 average based on 254 reviews.</p>
+          <hr style="border:2px solid #f1f1f1">
+
+          <div class="row">
+            <div class="side">
+              <div>5 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-5"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>150</div>
+            </div>
+            <div class="side">
+              <div>4 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-4"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>63</div>
+            </div>
+            <div class="side">
+              <div>3 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-3"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>15</div>
+            </div>
+            <div class="side">
+              <div>2 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-2"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>6</div>
+            </div>
+            <div class="side">
+              <div>1 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-1"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>20</div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- <div class="product-description mt-3 mb-5">
-				<div class="row border-row">
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								In the Box
-							</h2>
+						<div class="row border-row">
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										In the Box
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">Handset , USB-C to Lightning Cable , Documentation ,
+										Warranty Card
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Color Family
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">White
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										SIM Type
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">Dual SIM
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Operating System
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">ios 13
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Processor
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">A13 Bionic Chip Processor
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Color
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">White
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Sim Size
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">Nano SIM and eSIM
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Series Name
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">iphone 11
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Categories
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">Smart Phones
+									</p>
+								</div>
+							</div>
 						</div>
-						<div>
-							<p class="warranty-description">Handset , USB-C to Lightning Cable , Documentation ,
-								Warranty Card
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Color Family
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">White
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								SIM Type
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">Dual SIM
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Operating System
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">ios 13
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Processor
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">A13 Bionic Chip Processor
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Color
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">White
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Sim Size
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">Nano SIM and eSIM
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Series Name
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">iphone 11
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Categories
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">Smart Phones
-							</p>
-						</div>
-					</div>
-				</div>
 
 
 
-				<div class="row border-row">
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								In the Box
-							</h2>
+						<div class="row border-row">
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										In the Box
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">Handset , USB-C to Lightning Cable , Documentation ,
+										Warranty Card
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Color Family
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">White
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										SIM Type
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">Dual SIM
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Operating System
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">ios 13
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Processor
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">A13 Bionic Chip Processor
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Color
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">White
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Sim Size
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">Nano SIM and eSIM
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Series Name
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">iphone 11
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Categories
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">Smart Phones
+									</p>
+								</div>
+							</div>
 						</div>
-						<div>
-							<p class="warranty-description">Handset , USB-C to Lightning Cable , Documentation ,
-								Warranty Card
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Color Family
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">White
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								SIM Type
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">Dual SIM
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Operating System
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">ios 13
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Processor
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">A13 Bionic Chip Processor
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Color
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">White
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Sim Size
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">Nano SIM and eSIM
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Series Name
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">iphone 11
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Categories
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">Smart Phones
-							</p>
-						</div>
-					</div>
-				</div>
 
 
 
-				<div class="row border-row">
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								In the Box
-							</h2>
+						<div class="row border-row">
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										In the Box
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">Handset , USB-C to Lightning Cable , Documentation ,
+										Warranty Card
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Color Family
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">White
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										SIM Type
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">Dual SIM
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Operating System
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">ios 13
+									</p>
+								</div>
+							</div>
 						</div>
-						<div>
-							<p class="warranty-description">Handset , USB-C to Lightning Cable , Documentation ,
-								Warranty Card
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Color Family
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">White
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								SIM Type
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">Dual SIM
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Operating System
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">ios 13
-							</p>
-						</div>
-					</div>
-				</div>
 
-				<div class="row border-row">
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								In the Box
-							</h2>
+						<div class="row border-row">
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										In the Box
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">Handset , USB-C to Lightning Cable , Documentation ,
+										Warranty Card
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Color Family
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">White
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										SIM Type
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">Dual SIM
+									</p>
+								</div>
+							</div>
 						</div>
-						<div>
-							<p class="warranty-description">Handset , USB-C to Lightning Cable , Documentation ,
-								Warranty Card
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Color Family
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">White
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								SIM Type
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">Dual SIM
-							</p>
-						</div>
-					</div>
-				</div>
 
-				<div class="row border-row">
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								In the Box
-							</h2>
+						<div class="row border-row">
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										In the Box
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">Handset , USB-C to Lightning Cable , Documentation ,
+										Warranty Card
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4 padding-box">
+								<div class="box-heading">
+									<h2 class="the_box">
+										Color Family
+									</h2>
+								</div>
+								<div>
+									<p class="warranty-description">White
+									</p>
+								</div>
+							</div>
 						</div>
-						<div>
-							<p class="warranty-description">Handset , USB-C to Lightning Cable , Documentation ,
-								Warranty Card
-							</p>
-						</div>
-					</div>
-					<div class="col-md-4 padding-box">
-						<div class="box-heading">
-							<h2 class="the_box">
-								Color Family
-							</h2>
-						</div>
-						<div>
-							<p class="warranty-description">White
-							</p>
-						</div>
-					</div>
-				</div>
-			</div> -->
+				</div> -->
     </div>
-
     <div class="col-xl-3 col-lg-4 col-md-5 col-12">
       <div class="product-detail-right pb-5">
         <div class="right-top-pincode">
@@ -735,213 +802,121 @@
               <p>
                 sold by
                 <span class="sold_Prime_Gadgets" [routerLink]="['/stores']">{{
-                  productData.brand_name
-                }}</span>
+					productData.brand_name
+					}}</span>
               </p>
             </div>
           </div>
         </div>
-        <div class="offer">
-          <!-- <div class="right-box-main-title">
-						Offers
-					</div> -->
-          <h1>
-            <i class="fa fa-apple" aria-hidden="true"></i>
-            Warranty
-          </h1>
-          <p>
-            1 year manufacturer warranty for phone and 6 months for in the box
-            accessories
-          </p>
-        </div>
+        <!-- <div class="offer">
+				<h1>
+				<i class="fa fa-apple" aria-hidden="true"></i>
+				Warranty
+				</h1>
+				<p>
+				1 year manufacturer warranty for phone and 6 months for in the box
+				accessories
+				</p>
+			</div> -->
         <!-- <div class="sold-by">
-					<p>Sold by</p>
-					<span> <b>Electrop Store,</b> New Delhi</span>
-				</div> -->
+							<p>Sold by</p>
+							<span> <b>Electrop Store,</b> New Delhi</span>
+						</div> -->
         <!-- <div class="details-listing">
-					<ul>
-						<li>Top Selling Wired Headphones & Headsets on boAt</li>
-						<li>More Wired Headphones & Headsets</li>
-						<li>Best sellers & Top Offers on boAt</li>
-					</ul>
-				</div> -->
+							<ul>
+								<li>Top Selling Wired Headphones & Headsets on boAt</li>
+								<li>More Wired Headphones & Headsets</li>
+								<li>Best sellers & Top Offers on boAt</li>
+							</ul>
+						</div> -->
         <!-- <div class="right-reviews">
-					<div class="right-box-main-title">
-						Offers
-					</div>
-					<div class="ratings-main">
-						<div class="main-rate-left">
-							<h1>4.2/5</h1>
-							<div class="left-starts">
-								<i class="fa fa-start"></i>
-								<i class="fa fa-start"></i>
-								<i class="fa fa-start"></i>
-								<i class="fa fa-start"></i>
-								<i class="fa fa-start"></i>
+							<div class="right-box-main-title">
+								Offers
 							</div>
-							<p>
-								<b>151</b> Ratings <br />
-								<b>29</b> Reviews
-							</p>
-						</div>
-						<div class="main-rate-right">
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+							<div class="ratings-main">
+								<div class="main-rate-left">
+									<h1>4.2/5</h1>
+									<div class="left-starts">
+										<i class="fa fa-start"></i>
+										<i class="fa fa-start"></i>
+										<i class="fa fa-start"></i>
+										<i class="fa fa-start"></i>
+										<i class="fa fa-start"></i>
+									</div>
+									<p>
+										<b>151</b> Ratings <br />
+										<b>29</b> Reviews
+									</p>
+								</div>
+								<div class="main-rate-right">
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+										</div>
+									</div>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
 								</div>
 							</div>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-									aria-valuemax="100"></div>
-							</div>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-									aria-valuemax="100"></div>
-							</div>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
-									aria-valuemax="100"></div>
-							</div>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
-									aria-valuemax="100"></div>
-							</div>
-						</div>
-					</div>
-					<div class="revies-main">
-						<div class="review-box">
-							<div class="review-title">
-								<div class="title-start">
-									<i class="fa fa-start"></i> 5
+							<div class="revies-main">
+								<div class="review-box">
+									<div class="review-title">
+										<div class="title-start">
+											<i class="fa fa-start"></i> 5
+										</div>
+										good product
+									</div>
+									<div class="review-des">
+										<p>clear and very reliable to ear definitely suggest to purchase </p>
+									</div>
+									<div class="date-report">
+										<h3>Sj Js 01-SEP-2021</h3>
+										<p>
+											Report
+										</p>
+									</div>
 								</div>
-								good product
 							</div>
-							<div class="review-des">
-								<p>clear and very reliable to ear definitely suggest to purchase </p>
-							</div>
-							<div class="date-report">
-								<h3>Sj Js 01-SEP-2021</h3>
-								<p>
-									Report
-								</p>
-							</div>
-						</div>
-					</div>
-				</div> -->
+						</div> -->
 
-        <div class="details-listing p-0 details-listing-border">
-          <ul>
-            <li class="pointer">
-              <a class="padding-tag">
-                Top Selling Smart Phones on
-                <i class="fa fa-angle-right fa-lg" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li class="pointer">
-              <a class="padding-tag">
-                More Smart Phones
-                <i class="fa fa-angle-right fa-lg" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li class="pointer border_seller">
-              <a class="padding-tag">
-                Best Sellers & Top Offers on Apple
-                <i class="fa fa-angle-right fa-lg" aria-hidden="true"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
+        <!-- <div class="details-listing p-0 details-listing-border">
+				<ul>
+				<li class="pointer">
+				<a class="padding-tag">
+					Top Selling Smart Phones on
+					<i class="fa fa-angle-right fa-lg" aria-hidden="true"></i>
+				</a>
+				</li>
+				<li class="pointer">
+				<a class="padding-tag">
+					More Smart Phones
+					<i class="fa fa-angle-right fa-lg" aria-hidden="true"></i>
+				</a>
+				</li>
+				<li class="pointer border_seller">
+				<a class="padding-tag">
+					Best Sellers & Top Offers on Apple
+					<i class="fa fa-angle-right fa-lg" aria-hidden="true"></i>
+				</a>
+				</li>
+				</ul>
+			</div> -->
       </div>
     </div>
   </div>
-
-  <!-- <div class="col-md-4 ">
-    <div class="main-review">
-      <div class="rating_review">
-        <h1 class="review_h1">Customer reviews</h1>
-        <div class="rating_start">
-          <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
-          <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
-          <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
-          <div class="rating_review_customer">
-            <span>4.4 out of 5</span>
-          </div>
-        </div>
-        <div class="golbal_review">
-          <p>5,826 global rating</p>
-        </div>
-
-        <div class="calculated">
-          <i class="fa mr-2 fa-angle-down" aria-hidden="true"></i>
-          <span>How are ratings calculated?</span>
-        </div>
-      </div>
-      <div class="sold-by-review">
-        <h1 class=review_h1>By feature</h1>
-      </div>
-      <div>
-        <div class="start_durability">
-          <p class="start_durability_p">Durability</p>
-          <div class="rating_start">
-            <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
-            <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
-            <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
-            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
-            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
-            <div class="rate_rea">
-              <span class="ml-1">4.2</span>
-            </div>
-          </div>
-        </div>
-        <div class="start_durability">
-          <p class="start_durability_p">Sturdiness</p>
-          <div class="rating_start">
-            <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
-            <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
-            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
-            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
-            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
-            <div class="rate_rea">
-              <span class="ml-1">3.2</span>
-            </div>
-          </div>
-        </div>
-        <div class="start_durability">
-          <p class="start_durability_p">Value for money</p>
-          <div class="rating_start">
-            <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
-            <i class="fa fa-star fa-xl start" aria-hidden="true"></i>
-            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
-            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
-            <i class="fa fa-star-o fa-xl start" aria-hidden="true"></i>
-            <div class="rate_rea">
-              <span class="ml-1">3.2</span>
-            </div>
-          </div>
-        </div>
-        <div class="calculated m-0">
-          <i class="fa mr-2 fa-angle-down" aria-hidden="true"></i>
-          <span>See more</span>
-        </div>
-      </div>
-      <div>
-        <h1 class="review_h1 mt-2">Reviews this product</h1>
-        <div class="write">
-          <span>Share Your thoughts with other customers</span>
-		<div class="mb-3">
-			<label for="exampleFormControlTextarea1" class="form-label"></label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Write a review" rows="3"></textarea>
-			<button type="submit" class="button-buy w-50 mt-2">BUY NOW</button>
-		</div>
-          <div class="review_button">
-            <button class="product_review_button">Write a product review</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
   <!-- <div class="row flash">
 
 		<div class="col-md-12">

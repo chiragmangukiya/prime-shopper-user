@@ -2,7 +2,8 @@
      background-color: #FEC32B;
 }
 .login.dropdown{
-     padding: 25px 0;
+     padding: 20px 0;
+     cursor: pointer;
 }
 [aria-labelledby="profile-dropdown"]{
      right: 0;
@@ -37,4 +38,61 @@
 }
 .dropdown-toggle::after{
      display: none !important;
+}
+.search_cate_drop{
+     background-color: #fff !important;
+     color: #000 !important;
+}
+.search_cate_drop:focus{
+     box-shadow: none;
+}
+
+
+.search_cate{
+     position: absolute;
+     top: 6px;
+     left: 0;
+     width: auto;
+     z-index: 5;
+     border: none;
+     outline: none;
+     box-shadow: none;
+     height: 26px;
+     border-right: 1px #ccc solid;
+     padding: 0px 15px;
+     font-size: 14px;
+}
+.top_search{
+     border: 1px #000 solid;
+     border-radius: 5px !important;
+     padding-left: 135px;
+     padding-right: 40px;
+}
+.search_cate option{
+    padding: 10px !important;
+    display: block;
+}
+.top_search_btn{
+     position: absolute;
+     right: 0;
+     top: 0;
+     z-index: 6;
+}
+.sign_title{
+     font-size: x-small;
+     display: block;
+     text-align: center;
+}
+
+.before_login:before{
+     content: '';
+     position: absolute;
+     top: -10px;
+     right: 10px;
+     border-right: 10px transparent solid;
+     border-left: 10px transparent solid;
+     border-bottom: 10px #fff solid;
+}
+.login:hover .before_login{
+     display: block;
 }

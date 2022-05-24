@@ -281,7 +281,7 @@ ul{
 
 .breadcrumbs {
     /* width: 1860px; */
-    margin: 20px auto 20px;
+    margin: 10px 15px 10px;
 }
 
 .breadcrumbs ul {
@@ -391,13 +391,13 @@ font-family: 'Montserrat', sans-serif;
 
 @media (min-width: 992px) and (max-width: 1199px){
 
-    .my-order > a,
+    /* .my-order > a,
     .cart > a,
     .login > a
     {
         display: block;
         text-align: center;
-    }
+    } */
     .my-order > a > span,
     .cart > a > span,
     .login > a > span
@@ -413,12 +413,6 @@ font-family: 'Montserrat', sans-serif;
 @media (max-width: 991px){
     .logo img{
         width: 100%;
-    }
-    .my-order > a > span,
-    .cart > a > span,
-    .login > a > span
-    {
-        display: none;
     }
     .categories-menu{
         max-width: 165px;
@@ -437,10 +431,15 @@ font-family: 'Montserrat', sans-serif;
     .container-main{
         padding: 0 10px;
     }
-    .header {
+    /* .header {
         padding: 15px 0;
+    } */
+    .my-order > a > span,
+    .cart > a > span,
+    .login > a > span
+    {
+        display: block;
     }
-
 
 }
 @media (max-width: 575px){
@@ -456,6 +455,8 @@ font-family: 'Montserrat', sans-serif;
 
     .header-center{
         order: 3;
+        margin: 5px 0 10px;
+        padding: 0 !important;
     }
     .header-right{
         order: 2;
