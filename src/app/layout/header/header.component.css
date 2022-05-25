@@ -96,3 +96,13 @@
 .login:hover .before_login{
      display: block;
 }
+
+.dropdown-menu{
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 300px;
+}
+
+.dropdown-menu .dropdown-item{
+  white-space: normal;
+}

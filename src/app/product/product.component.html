@@ -14,16 +14,24 @@
         <div class="row">
           <div class="col-lg-6 col-12">
             <div class="slider-zoom">
-              <lib-ngx-image-zoom [magnification]="1.5" [zoomMode]="'hover'" [thumbImage]="zoomImageSrc"
-                [fullImage]="previewImageSrc" [enableLens]="true">
+              <lib-ngx-image-zoom
+                [magnification]="1.5"
+                [zoomMode]="'hover'"
+                [thumbImage]="zoomImageSrc"
+                [fullImage]="previewImageSrc"
+                [enableLens]="true"
+              >
               </lib-ngx-image-zoom>
             </div>
             <div class="slider-thumb-bottom">
               <ul>
-                <li *ngFor="
-							let in of counter(currentProduct.images.length);
-							let i = index
-						" (click)="setImageActive(currentProduct.images[i])">
+                <li
+                  *ngFor="
+                    let in of counter(currentProduct.images.length);
+                    let i = index
+                  "
+                  (click)="setImageActive(currentProduct.images[i])"
+                >
                   <img src="{{ currentProduct.images[i] }}" alt="" />
                 </li>
               </ul>
@@ -33,9 +41,11 @@
             <div class="product-buy-main-details">
               <div class="product-main-text">
                 <h1>
-                  {{ productData.title }}
+                  {{ currentProduct.title }}
                   <br />
-                  <span class="pointer" [routerLink]="['/stores']">Visit the {{ productData.brand_name }}</span>
+                  <span class="pointer" [routerLink]="['/stores']"
+                    >Visit the {{ productData.brand_name }}</span
+                  >
                 </h1>
                 <div class="star-listing">
                   <ul>
@@ -59,10 +69,13 @@
                 </div>
 
                 <div class="color_variation my-3">
-                  <div *ngIf="
-							currentProduct.variation1.var_title &&
-							currentProduct.variation1.value
-							">
+                  <div
+                    *ngIf="
+                      currentProduct.variation1 &&
+                      currentProduct.variation1.var_title &&
+                      currentProduct.variation1.value
+                    "
+                  >
                     <h6 class="fw-bold">
                       {{ currentProduct.variation1.var_title }} :
                       <span class="text-muted fw-normal">{{
@@ -70,14 +83,22 @@
 							}}</span>
                     </h6>
                     <ul class="color_item_list">
-                      <li *ngFor="let product of productData.variations1.data" [ngClass]="{
-								active: product == currentProduct.variation1.value
-							}">
-                        <a href="#" [routerLink]="[
-								setRouting1(productData._id, product, var2val)
-								]" routerLinkActive="active" (click)="
-								toggleModal1(productData._id, product, var2val)
-								">
+                      <li
+                        *ngFor="let product of productData.variations1.data"
+                        [ngClass]="{
+                          active: product == currentProduct.variation1.value
+                        }"
+                      >
+                        <a
+                          href="#"
+                          [routerLink]="[
+                            setRouting1(productData._id, product, var2val)
+                          ]"
+                          routerLinkActive="active"
+                          (click)="
+                            toggleModal1(productData._id, product, var2val)
+                          "
+                        >
                           <div class="color_price">
                             <span class="price_txt">{{ product }}</span>
                           </div>
@@ -86,10 +107,13 @@
                     </ul>
                   </div>
                   <div class="mt-3"></div>
-                  <div *ngIf="
-							currentProduct.variation2.var_title &&
-							currentProduct.variation2.value
-							">
+                  <div
+                    *ngIf="
+                      currentProduct.variation2 &&
+                      currentProduct.variation2.var_title &&
+                      currentProduct.variation2.value
+                    "
+                  >
                     <h6 class="fw-bold">
                       {{ currentProduct.variation2.var_title }} :
                       <span class="text-muted fw-normal">{{
@@ -97,14 +121,22 @@
 							}}</span>
                     </h6>
                     <ul class="color_item_list">
-                      <li *ngFor="let product of productData.variations2.data" [ngClass]="{
-								active: product == currentProduct.variation2.value
-							}">
-                        <a href="#" [routerLink]="[
-								setRouting2(productData._id, var1val, product)
-								]" routerLinkActive="active" (click)="
-								toggleModal2(productData._id, var1val, product)
-								">
+                      <li
+                        *ngFor="let product of productData.variations2.data"
+                        [ngClass]="{
+                          active: product == currentProduct.variation2.value
+                        }"
+                      >
+                        <a
+                          href="#"
+                          [routerLink]="[
+                            setRouting2(productData._id, var1val, product)
+                          ]"
+                          routerLinkActive="active"
+                          (click)="
+                            toggleModal2(productData._id, var1val, product)
+                          "
+                        >
                           <div class="color_price">
                             <span class="price_txt">{{ product }}</span>
                           </div>
@@ -115,9 +147,11 @@
                 </div>
 
                 <h2 class="price my-3 mb-0">
-                  <span class="new_price">₹{{
-							currentProduct.sellingPrice.selling_price_in_india
-							}}</span>
+                  <span class="new_price"
+                    >₹{{
+                      currentProduct.sellingPrice.selling_price_in_india
+                    }}</span
+                  >
                   <span class="old_price">
                     ₹{{ currentProduct.price.price_in_india }}
                   </span>
@@ -167,8 +201,14 @@
             </div>
             <div class="product-high">
               <h2>Product Highlights</h2>
-              <ul>
-                <li *ngFor="let point of productData.bullet_point">
+              <ul
+                *ngIf="
+                  currentProduct &&
+                  currentProduct.bullet_point &&
+                  currentProduct.bullet_point.length
+                "
+              >
+                <li *ngFor="let point of currentProduct.bullet_point">
                   {{ point }}
                 </li>
               </ul>
@@ -179,45 +219,65 @@
       <div class="product-description">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item">
-            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#pills-home" type="button">
+            <button
+              class="nav-link active"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-home"
+              type="button"
+            >
               Overview
             </button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button">
+            <button
+              class="nav-link"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-profile"
+              type="button"
+            >
               Description
             </button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button">
+            <button
+              class="nav-link"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-contact"
+              type="button"
+            >
               Mfg. Info
             </button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-Return" type="button">
+            <button
+              class="nav-link"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-Return"
+              type="button"
+            >
               Return Policy
             </button>
           </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
-          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+          <div
+            class="tab-pane fade show active"
+            id="pills-home"
+            role="tabpanel"
+            aria-labelledby="pills-home-tab"
+          >
             <div class="sold-by">
               <div class="sold-shop">
                 <h1>{{ productData.seller.name }}</h1>
-                <!-- <label for="">Electrop Store</label> -->
               </div>
               <p>{{ currentProduct.features }}</p>
               <p>Customer Care: 01204606060</p>
             </div>
             <div class="sold-product-details">
               <h5 class="pt-4 fw-bold">Basic Information</h5>
-              <!-- <ul>
-						<li>Product Type</li>
-						<li>{{ productData.features }}</li>
-					</ul> -->
               <ul>
                 <li>Item Name</li>
-                <li>{{ productData.title }}</li>
+                <li>{{ currentProduct.title }}</li>
               </ul>
               <ul>
                 <li>Brand</li>
@@ -225,23 +285,23 @@
               </ul>
               <ul>
                 <li>Product ID</li>
-                <li>{{ productData.external_product_id }}</li>
+                <li>{{ currentProduct.external_product_id }}</li>
               </ul>
               <ul>
                 <li>Product ID Type</li>
-                <li>{{ productData.external_product_id_type }}</li>
+                <li>{{ currentProduct.external_product_id_type }}</li>
               </ul>
               <ul>
                 <li>Fullfillment Latency</li>
-                <li>{{ productData.fulfillment_latency }}</li>
+                <li>{{ currentProduct.fulfillment_latency }}</li>
               </ul>
               <ul>
                 <li>Mfg. Part No.</li>
-                <li>{{ productData.part_number }}</li>
+                <li>{{ currentProduct.part_number }}</li>
               </ul>
               <ul>
                 <li>Packer Details</li>
-                <li>{{ productData.packer_details }}</li>
+                <li>{{ currentProduct.packer_details }}</li>
               </ul>
               <ul>
                 <li>Quantity</li>
@@ -249,52 +309,54 @@
               </ul>
               <ul>
                 <li>Maximum Order Quantity</li>
-                <li>{{ productData.max_order_quantity }}</li>
+                <li>{{ currentProduct.max_order_quantity }}</li>
               </ul>
               <ul>
                 <li>Number of Boxes</li>
-                <li>{{ productData.number_of_boxes }}</li>
+                <li>{{ currentProduct.number_of_boxes }}</li>
               </ul>
               <ul>
                 <li>Maximum Shelf Life</li>
-                <li>{{ productData.max_shelf_life }}</li>
+                <li>{{ currentProduct.max_shelf_life }}</li>
               </ul>
               <h5 class="pt-4 fw-bold">Discovery</h5>
               <ul>
                 <li>Material Type</li>
                 <li>
-                  <ng-container *ngFor="let material of productData.material_type_free">
+                  <ng-container
+                    *ngFor="let material of currentProduct.material_type_free"
+                  >
                     {{ material }},
                   </ng-container>
                 </li>
               </ul>
               <ul>
                 <li>Material Composition</li>
-                <li>{{ productData.material_composition }}</li>
+                <li>{{ currentProduct.material_composition }}</li>
               </ul>
               <ul>
                 <li>Is Waterproof</li>
-                <li>{{ productData.is_waterproof }}</li>
+                <li>{{ currentProduct.is_waterproof }}</li>
               </ul>
               <ul>
                 <li>Directions</li>
-                <li>{{ productData.directions }}</li>
+                <li>{{ currentProduct.directions }}</li>
               </ul>
               <ul>
                 <li>Indications</li>
-                <li>{{ productData.indications }}</li>
+                <li>{{ currentProduct.indications }}</li>
               </ul>
               <ul>
                 <li>Product Information</li>
-                <li>{{ productData.product_information }}</li>
+                <li>{{ currentProduct.product_information }}</li>
               </ul>
               <ul>
                 <li>Indications</li>
-                <li>{{ productData.indications }}</li>
+                <li>{{ currentProduct.indications }}</li>
               </ul>
               <ul>
                 <li>Legal Disclaimer</li>
-                <li>{{ productData.legal_disclaimer }}</li>
+                <li>{{ currentProduct.legal_disclaimer }}</li>
               </ul>
               <!-- <h5 class="pt-4 fw-bold">Product Variation</h5>
 										<ul>
@@ -331,28 +393,43 @@
 										</ul> -->
             </div>
           </div>
-          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <div
+            class="tab-pane fade"
+            id="pills-profile"
+            role="tabpanel"
+            aria-labelledby="pills-profile-tab"
+          >
             <p class="dis-page-main">
-              {{ productData.description }}
+              {{ currentProduct.description }}
             </p>
           </div>
-          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <div
+            class="tab-pane fade"
+            id="pills-contact"
+            role="tabpanel"
+            aria-labelledby="pills-contact-tab"
+          >
             <div class="sold-product-details">
               <ul>
                 <li>Country Of Origin</li>
-                <li>{{ productData.country_of_origin }}</li>
+                <li>{{ currentProduct.country_of_origin }}</li>
               </ul>
               <ul>
                 <li>Imported By</li>
-                <li>{{ productData.importer_details }}</li>
+                <li>{{ currentProduct.importer_details }}</li>
               </ul>
               <ul>
                 <li>Manufacturer</li>
-                <li>{{ productData.manufacturer }}</li>
+                <li>{{ currentProduct.manufacturer }}</li>
               </ul>
             </div>
           </div>
-          <div class="tab-pane fade" id="pills-Return" role="tabpanel" aria-labelledby="pills-return-tab">
+          <div
+            class="tab-pane fade"
+            id="pills-Return"
+            role="tabpanel"
+            aria-labelledby="pills-return-tab"
+          >
             <div class="sold-product-details">
               <ul>
                 <li>Return Policy</li>
@@ -797,7 +874,6 @@
           <div class="button-section">
             <button class="button-bag" (click)="addToCart()">ADD TO BAG</button>
             <a href="#" [routerLink]="['/cart']" class="button-buy">BUY NOW</a>
-            <!-- <button class="button-buy">BUY NOW</button> -->
             <div class="sold-by-delhi">
               <p>
                 sold by
@@ -808,16 +884,16 @@
             </div>
           </div>
         </div>
-        <!-- <div class="offer">
-				<h1>
-				<i class="fa fa-apple" aria-hidden="true"></i>
-				Warranty
-				</h1>
-				<p>
-				1 year manufacturer warranty for phone and 6 months for in the box
-				accessories
-				</p>
-			</div> -->
+        <div class="offer">
+          <h1>
+            <i class="fa fa-apple" aria-hidden="true"></i>
+            Warranty
+          </h1>
+          <p>
+            1 year manufacturer warranty for phone and 6 months for in the box
+            accessories
+          </p>
+        </div>
         <!-- <div class="sold-by">
 							<p>Sold by</p>
 							<span> <b>Electrop Store,</b> New Delhi</span>

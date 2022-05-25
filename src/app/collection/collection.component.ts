@@ -26,8 +26,10 @@ export class CollectionComponent implements OnInit {
   }
 
   productVariationPath(id: String, var1: any, var2: any) {
-    let setVar1 = var1 ? (var1.value ? var1.value : null) : null;
-    let setVar2 = var2 ? (var2.value ? var2.value : null) : null;
+    console.log("check:: ", var1, var2);
+
+    let setVar1 = var1 && var1.value ? var1.value : null;
+    let setVar2 = var2 && var2.value ? var2.value : null;
     return '/product/' + id + '/' + setVar1 + '/' + setVar2;
   }
 }

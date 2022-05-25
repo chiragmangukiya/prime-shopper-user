@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
   userProfile: any;
   cartData: any;
   totalPrice: any = 0;
+  allCategories: any = [];
 
   ngOnInit(): void {
     if (localStorage.getItem('X-Authentication-token') != null) {
@@ -44,6 +45,11 @@ export class HeaderComponent implements OnInit {
         this.totalProducts = 0;
       }
     });
+
+    this._http.allCategories('').subscribe((result: any) => {
+      this.allCategories = result.data
+    });
+
   }
 
   logout_user() {

@@ -75,6 +75,8 @@
 .section-products .pro_img .pro_offer_txt a{color: inherit;}
 .best_selling{
   border-radius: 0 0 10px 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 .best_selling .pro_img{
   border-radius: 10px 10px 0 0;
@@ -171,4 +173,8 @@
 
 .best_selling {
   position: relative;
+}
+
+.bestSellingProducts .owl-item{
+  padding-bottom: 15px;
 }

@@ -13,12 +13,15 @@ export class UserDataService {
   forgot_password_url = `${this.currentLiveUrl}/api/v1/user/forgot/password`;
   userProfile = `${this.currentLiveUrl}/api/v1/user/profile`;
   profileupdate = `${this.currentLiveUrl}/api/v1/user/profile/update`;
-  getProduct = `${this.currentLiveUrl}/api/v1/products`;
-  getsproduct = `${this.currentLiveUrl}/api/v1/product`;
+  getProducts = `${this.currentLiveUrl}/api/v1/products`;
+  getproduct = `${this.currentLiveUrl}/api/v1/product`;
   getCart = `${this.currentLiveUrl}/api/v1/cart`;
   updateCartUrl = `${this.currentLiveUrl}/api/v1/add/cart`;
   deleteCartItemUrl = `${this.currentLiveUrl}/api/v1/remove/cart`;
   startPayment = `${this.currentLiveUrl}/api/v1/create-payment`;
+  getCategories = `${this.currentLiveUrl}/api/v1/categories`;
+  getCategory = `${this.currentLiveUrl}/api/v1/category`;
+  getAllHomeSliders = `${this.currentLiveUrl}/api/v1/homepagesliders`;
 
 
   constructor(private http:HttpClient) {}
@@ -65,13 +68,13 @@ export class UserDataService {
 
   get_product()
   {
-    return this.http.post(this.getProduct,"");
+    return this.http.post(this.getProducts,"");
   }
 
   product(data:any)
   {
     this.product_id = ({ 'product': (data ? data : 'unAuth') })
-      return this.http.post(this.getsproduct,this.product_id);
+      return this.http.post(this.getproduct,this.product_id);
   }
 
   cart(data:any)
@@ -96,6 +99,18 @@ export class UserDataService {
     // console.log(stripeToken);
     let options : any = { headers: this._getHeaders() };
     return this.http.post(this.startPayment, stripeToken, options);
+  }
+
+  allCategories(data:any)
+  {
+    let options : any = { headers: this._getHeaders() };
+    return this.http.post(this.getCategories,'', options);
+  }
+
+  allHomeSliders()
+  {
+    let options : any = { headers: this._getHeaders() };
+    return this.http.get(this.getAllHomeSliders);
   }
 
 }

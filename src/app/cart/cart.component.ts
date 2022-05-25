@@ -33,6 +33,7 @@ export class CartComponent implements OnInit {
       });
 
       this.cartData = copyData;
+      localStorage.setItem('cartData', JSON.stringify(copyData));
       this.totalPrice = 0;
       this.cartData.map((el: any) => {
         this.totalPrice =
@@ -62,6 +63,7 @@ export class CartComponent implements OnInit {
           });
 
           this.cartData = copyData;
+          localStorage.setItem('cartData', JSON.stringify(copyData));
           this.totalPrice = 0;
           this.cartData.map((el: any) => {
             this.totalPrice =
@@ -83,7 +85,7 @@ export class CartComponent implements OnInit {
         this.toastr.success('Cart Update Successfull');
       },
       (error) => {
-        this.toastr.error(error);
+        this.toastr.error(error.error.message);
       }
     );
   }
@@ -102,8 +104,8 @@ export class CartComponent implements OnInit {
             });
           });
 
-
           this.cartData = copyData;
+          localStorage.setItem('cartData', JSON.stringify(copyData));
           this.totalPrice = 0;
           this.cartData.map((el: any) => {
             this.totalPrice =
@@ -123,7 +125,7 @@ export class CartComponent implements OnInit {
         this.toastr.success('Delete Item Successfull');
       },
       (error) => {
-        this.toastr.error(error);
+        this.toastr.error(error.error.message);
       }
     );
   }

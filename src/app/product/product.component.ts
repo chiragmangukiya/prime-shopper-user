@@ -46,6 +46,7 @@ export class ProductComponent implements OnInit {
     this.var1val = var1 && var1 != 'null' ? var1 : null;
     var var2 = this.route.snapshot.paramMap.get('var2');
     this.var2val = var2 && var2 != 'null' ? var2 : null;
+
     this._http.product(product).subscribe((result: any) => {
       this.productData = result.data;
 
@@ -69,14 +70,27 @@ export class ProductComponent implements OnInit {
           });
         }
 
+        if (!checkItem) {
+          checkItem = this.productData.variations.find((el: any, i: number) => {
+            return var1 == el.variation1.value;
+          });
+        }
+
         this.currentProduct = checkItem;
+        console.log('checkItem ::', checkItem);
 
         if (checkItem.images.length) {
-          this.previewImageSrc = checkItem.images[0];
-          this.zoomImageSrc = checkItem.images[0];
+          this.previewImageSrc =
+            checkItem.images && checkItem.images.length
+              ? checkItem.images[0]
+              : '';
+          this.zoomImageSrc =
+            checkItem.images && checkItem.images.length
+              ? checkItem.images[0]
+              : '';
         } else {
-          this.previewImageSrc = checkItem.banner;
-          this.zoomImageSrc = checkItem.banner;
+          this.previewImageSrc = checkItem.banner ? checkItem.banner : '';
+          this.zoomImageSrc = checkItem.banner ? checkItem.banner : '';
         }
       }
     });
@@ -160,7 +174,6 @@ export class ProductComponent implements OnInit {
   }
 
   toggleModal1(id: string, var1: string, var2: string) {
-    console.log("Click");
     if (this.var1val != var1 || this.var2val != var2) {
       this.var1val = var1 ? var1 : null;
       this.var2val = var2 ? var2 : null;
@@ -190,7 +203,6 @@ export class ProductComponent implements OnInit {
               }
             );
           }
-          console.log(!checkItem, checkItem);
 
           if (!checkItem) {
             checkItem = this.productData.variations.find(
@@ -199,9 +211,17 @@ export class ProductComponent implements OnInit {
               }
             );
           }
-          this.var1val = checkItem.variation1.value
-          this.var2val = checkItem.variation2.value
+          this.var1val =
+            checkItem.variation1 && checkItem.variation1.value
+              ? checkItem.variation1.value
+              : null;
+          this.var2val =
+            checkItem.variation2 && checkItem.variation2.value
+              ? checkItem.variation2.value
+              : null;
           this.currentProduct = checkItem;
+          console.log(checkItem);
+
           if (checkItem.images.length) {
             this.previewImageSrc = checkItem.images[0];
             this.zoomImageSrc = checkItem.images[0];
@@ -215,7 +235,6 @@ export class ProductComponent implements OnInit {
   }
 
   toggleModal2(id: string, var1: string, var2: string) {
-    console.log("Click");
     if (this.var1val != var1 || this.var2val != var2) {
       this.var1val = var1 ? var1 : null;
       this.var2val = var2 ? var2 : null;
@@ -252,8 +271,8 @@ export class ProductComponent implements OnInit {
               }
             );
           }
-          this.var1val = checkItem.variation1.value
-          this.var2val = checkItem.variation2.value
+          this.var1val = checkItem.variation1.value;
+          this.var2val = checkItem.variation2.value;
           this.currentProduct = checkItem;
           if (checkItem.images.length) {
             this.previewImageSrc = checkItem.images[0];
@@ -269,6 +288,7 @@ export class ProductComponent implements OnInit {
 
   setRouting1(id: any, var1: any, var2: any) {
     let checkItem;
+
     if (this.var1val && this.var2val) {
       checkItem = this.productData.variations.find((el: any, i: number) => {
         return (
@@ -306,8 +326,14 @@ export class ProductComponent implements OnInit {
       });
     }
 
-    let var1Val = checkItem.variation1.value;
-    let var2Val = checkItem.variation2.value;
+    let var1Val =
+      checkItem.variation1 && checkItem.variation1.value
+        ? checkItem.variation1.value
+        : null;
+    let var2Val =
+      checkItem.variation2 && checkItem.variation2.value
+        ? checkItem.variation2.value
+        : null;
 
     return '/product/' + id + '/' + var1Val + '/' + var2Val;
   }
@@ -371,11 +397,11 @@ export class ProductComponent implements OnInit {
     this._http.updateCart(addProductData).subscribe(
       (result: any) => {
         this._http.cart('').subscribe((result: any) => {
-          if(result.data.cartIds.length){
+          if (result.data.cartIds.length) {
             let count = 0;
             result.data.cartIds.map((el: any) => {
               count = count + el.quantity;
-            })
+            });
             this.sharedService.sendCLickEvent(count);
           } else {
             this.sharedService.sendCLickEvent(0);
@@ -384,7 +410,7 @@ export class ProductComponent implements OnInit {
         this.toastr.success('Add to cart Successfull..');
       },
       (error) => {
-        this.toastr.error(error);
+        this.toastr.error(error.error.message);
       }
     );
   }

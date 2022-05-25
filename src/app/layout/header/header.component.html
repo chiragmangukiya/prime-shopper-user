@@ -1,22 +1,33 @@
 <header>
   <div class="row header align-items-center justify-content-between pt-0">
-      <div class="col-md-2 col-2 logo py-1 px-0">
-          <a [routerLink]="['']" class="main_logo">
-              <img src="../../../assets/images/just-cliq-white.svg" alt="">
-          </a>
+    <div class="col-md-2 col-2 logo py-1 px-0">
+      <a [routerLink]="['']" class="main_logo">
+        <img src="../../../assets/images/just-cliq-white.svg" alt="" />
+      </a>
+    </div>
+    <div class="col-md-8 col-sm-8 p-0 px-3 header-center">
+      <div class="input-group position-relative">
+        <ng-container *ngIf="allCategories && allCategories.length">
+          <select class="search_cate">
+            <option
+              *ngFor="let category of allCategories"
+              value=""
+              [routerLink]="['/sub-category/' + category.id]"
+            >
+              {{ category.data.name }}
+            </option>
+          </select>
+        </ng-container>
+        <input
+          type="text"
+          class="form-control top_search"
+          placeholder="Search for products, brands and more"
+        />
+        <button class="btn top_search_btn" type="button">
+          <i class="fa fa-search"></i>
+        </button>
       </div>
-      <div class="col-md-8 col-sm-8 p-0 px-3 header-center">
-        <div class="input-group position-relative">
-            <select class="search_cate">
-                <option value="">All</option>
-                <option value="">Category 1</option>
-                <option value="">Category 2</option>
-                <option value="">Category 3</option>
-            </select>
-            <input type="text" class="form-control top_search" placeholder="Search for products, brands and more">
-            <button class="btn top_search_btn" type="button"><i class="fa fa-search"></i></button>
-        </div> 
-        <!-- <div class="row gx-2 justify-content-between">
+      <!-- <div class="row gx-2 justify-content-between">
               <div class="col-xxl-2 col-xl-3 col-lg-4 col-md-4 d-none d-lg-block">
                   <div class="categories-menu dropdown">
                       <a class="nav-link dropdown-toggle d-flex align-items-center text-truncate" href="#" id="category-dropdown" data-bs-toggle="dropdown">
@@ -37,67 +48,84 @@
                   </div>
               </div>
           </div> -->
-      </div>
-      <div class="col-sm-2 col-2 p-0 header-right d-flex align-items-center justify-content-end">
-          <!-- <div class="my-order me-2">
+    </div>
+    <div
+      class="col-sm-2 col-2 p-0 header-right d-flex align-items-center justify-content-end"
+    >
+      <!-- <div class="my-order me-2">
               <a href="#" title="My Orders">
                   <i class="fa fa-list-alt head_icon"></i>
                   <span class="d-none"> My Order</span>
               </a>
           </div> -->
-          <div class="cart me-3">
-              <a [routerLink]="['/cart']" >
-                  <i class="fa fa-shopping-cart head_icon"></i>
-                  <span class="cart_badge bg-danger">{{totalProducts}}</span>
-                  <span class="d-none"> No Items</span>
-              </a>
-          </div>
-          <h1 *ngIf="checkLogin; then logout else login"></h1>
-          <ng-template #login>
-          <div class="login dropdown">
-              <a class="user_drop dropdown-toggle" data-bs-toggle="dropdown">
-                  <span class="me-2">Sign In</span>
-                  <i class="fa fa-user-circle-o head_icon"></i>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end before_login" aria-labelledby="profile-dropdown" >
-                <li><a class="dropdown-item" href="#"><i class="fa fa-user me-2"></i>My Account</a></li>
-                <li><a class="dropdown-item" href="#"><i class="fa fa-dropbox me-2"></i>Your Orders</a></li>
-                <li><a class="dropdown-item" href="#"><i class="fa fa-heart me-2"></i>Wishlist</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li class="text-center">
-                    <span class="sign_title text-muted">If you are a new user</span>
-                    <a class="dropdown-item d-block bg-transparent" [routerLink]="['/login']" routerLinkActive="active">Register</a>
-                    <a class="btn btn-dark btn-sm mx-3 my-2 d-block text-center text-white" [routerLink]="['/login']" routerLinkActive="active">Login</a>
-                </li>
-            </ul>
-          </div>
-      </ng-template>
-      <ng-template #logout>
-          <div class="login dropdown">
-              <a href="#" class="d-flex align-items-center dropdown-toggle" data-bs-toggle="dropdown" id="profile-dropdown" data-bs-offset="0,20">
-                  <span class="text-truncate" style="max-width: 100px;">{{userProfile.data.name}}</span>
-                  <i class="fa fa-user-circle ms-2 fs-3" aria-hidden="true"></i>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end before_login" aria-labelledby="profile-dropdown" >
-
-                  <li><a class="dropdown-item" href="#">My Account</a></li>
-                  <li><a class="dropdown-item" [routerLink]="['/view-profile']">View Profile</a></li>
-                  <li><a class="dropdown-item" [routerLink]="['/edit-profile']">Edit Profile</a></li>
-                  <li><a class="dropdown-item" [routerLink]="['/myorders']">My Orders</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li>
-                      <a href="javascript:void(0);" class="d-flex align-items-center dropdown-item" (click)="logout_user()">
-                          <i class="fa fa-power-off me-2 fs-5" aria-hidden="true"></i>
-                          <span> Logout</span>
-                      </a>
-                  </li>
-              </ul>
-          </div>
-
-          <!-- <div class="login">
-
-          </div> -->
-      </ng-template>
+      <div class="cart me-3">
+        <a [routerLink]="['/cart']">
+          <i class="fa fa-shopping-cart head_icon"></i>
+          <span class="cart_badge bg-danger">{{ totalProducts }}</span>
+          <span class="d-none"> No Items</span>
+        </a>
       </div>
+      <h1 *ngIf="checkLogin; then logout; else login"></h1>
+      <ng-template #login>
+        <div class="login dropdown">
+          <a class="user_drop dropdown-toggle" data-bs-toggle="dropdown">
+            <span class="me-2">Sign In</span>
+            <i class="fa fa-user-circle-o head_icon"></i>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end before_login"
+            aria-labelledby="profile-dropdown"
+          >
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fa fa-user me-2"></i>My Account</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fa fa-dropbox me-2"></i>Your Orders</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fa fa-heart me-2"></i>Wishlist</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li class="text-center">
+              <span class="sign_title text-muted">If you are a new user</span>
+              <a
+                class="dropdown-item d-block bg-transparent"
+                [routerLink]="['/login']"
+                routerLinkActive="active"
+                >Register</a
+              >
+              <a
+                class="btn btn-dark btn-sm mx-3 my-2 d-block text-center text-white"
+                [routerLink]="['/login']"
+                routerLinkActive="active"
+                >Login</a
+              >
+            </li>
+          </ul>
+        </div>
+      </ng-template>
+    </div>
+    <ng-template #logout>
+      <div class="login dropdown">
+        <a
+          href="#"
+          class="d-flex align-items-center dropdown-toggle"
+          data-bs-toggle="dropdown"
+          id="profile-dropdown"
+          data-bs-offset="0,20"
+        >
+          <span class="text-truncate" style="max-width: 100px">{{
+            userProfile.data.name
+          }}</span>
+          <i class="fa fa-user-circle ms-2 fs-3" aria-hidden="true"></i>
+        </a>
+      </div>
+    </ng-template>
   </div>
 </header>

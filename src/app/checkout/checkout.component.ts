@@ -42,6 +42,7 @@ export class CheckoutComponent implements OnInit {
       });
 
       this.cartData = copyData;
+      localStorage.setItem('cartData', JSON.stringify(copyData));
       this.totalPrice = 0;
       this.cartData.map((el: any) => {
         this.totalPrice =
@@ -67,7 +68,6 @@ export class CheckoutComponent implements OnInit {
   // }
 
   pay(checkoutForm: any) {
-    // console.log(checkoutForm);
     let setFormData: any = {};
     let billingAddress: any = {
       address_city: checkoutForm.address_city ? checkoutForm.address_city : '',
@@ -104,7 +104,6 @@ export class CheckoutComponent implements OnInit {
       ? checkoutForm.contact_email
       : '';
     setFormData['cartData'] = this.cartData;
-    // console.log(setFormData);
 
     this.allFormData = setFormData;
 

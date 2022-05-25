@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { UserDataService } from '../services/user-data.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _http: UserDataService) { }
 
   customOptions: OwlOptions = {
     loop: true,
@@ -42,7 +43,7 @@ export class HomeComponent implements OnInit {
         items: 1
       }
     }
-    
+
   }
 
   categorySliderOption: OwlOptions = {
@@ -120,7 +121,7 @@ export class HomeComponent implements OnInit {
       }
 
     }
-    
+
   }
 
   top_brands_banner: OwlOptions = {
@@ -157,7 +158,7 @@ export class HomeComponent implements OnInit {
       }
 
     }
-    
+
   }
 
   flashProducts: OwlOptions = {
@@ -186,7 +187,47 @@ export class HomeComponent implements OnInit {
     nav: true
   }
 
+  allCategories: any = [];
+
+  welcomeOffersData: any = [];
+  bigOfferSliderData: any = [];
+  topSelectedBrandSliderData: any = [];
+  bestSellerSliderData: any = [];
+  bestSellingProductSliderData: any = [];
+  newArrivalSliderData: any = [];
+
   ngOnInit(): void {
+    this._http.allCategories('').subscribe((result: any) => {
+      this.allCategories = result.data
+    });
+
+    this._http.allHomeSliders().subscribe((result: any) => {
+      let alldata = result.data
+
+      if(alldata.welcomeOffersData && alldata.welcomeOffersData.length){
+        this.welcomeOffersData = alldata.welcomeOffersData;
+      }
+
+      if(alldata.bigOfferSliderData && alldata.bigOfferSliderData.length){
+        this.bigOfferSliderData = alldata.bigOfferSliderData;
+      }
+
+      if(alldata.topSelectedBrandSliderData && alldata.topSelectedBrandSliderData.length){
+        this.topSelectedBrandSliderData = alldata.topSelectedBrandSliderData;
+      }
+
+      if(alldata.bestSellerSliderData && alldata.bestSellerSliderData.length){
+        this.bestSellerSliderData = alldata.bestSellerSliderData;
+      }
+
+      if(alldata.bestSellingProductSliderData && alldata.bestSellingProductSliderData.length){
+        this.bestSellingProductSliderData = alldata.bestSellingProductSliderData;
+      }
+
+      if(alldata.newArrivalSliderData && alldata.newArrivalSliderData.length){
+        this.newArrivalSliderData = alldata.newArrivalSliderData;
+      }
+    });
   }
 
 }
