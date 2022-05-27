@@ -203,33 +203,81 @@
                 <a
                   href="javascript:void(0)"
                   class="product_list"
-                  [routerLink]="[productVariationPath(products._id, product.variation1, product.variation2)]"
                   routerLinkActive="active"
                 >
                   <div class="product">
                     <div class="main-pro-img">
-                      <img src="{{ product.banner }}" alt="" />
-                      <div class="offer_pr">
-                        <span
-                          >{{ product.discount.discount_price_in_india }}%</span
-                        >
+                      <img
+                        src="{{ product.banner }}"
+                        alt=""
+                        [routerLink]="[
+                          productVariationPath(
+                            products._id,
+                            product.variation1,
+                            product.variation2
+                          )
+                        ]"
+                      />
+                      <div
+                        class="offer_pr"
+                        [routerLink]="[
+                          productVariationPath(
+                            products._id,
+                            product.variation1,
+                            product.variation2
+                          )
+                        ]"
+                      >
+                        <span>
+                          {{ product.discount.discount_price_in_india }}%
+                        </span>
                         Off
                       </div>
-                      <div class="add_wishlist">
-                        <a href="javascript:void(0)" title="Add To Wishlist"
-                        ><i class="fa fa-heart-o wish_outline"></i
-                          ><i class="fa fa-heart wish_fill"></i
-                        ></a>
+                      <div class="add_wishlist" (click)="addToWishList(products._id, product._id)">
+                        <ng-container *ngIf="product.isFavorite; else noFavourite">
+                          <a
+                            href="javascript:void(0)"
+                            title="Add To Wishlist"
+                            class="active"
+                          >
+                            <i class="fa fa-heart wish_fill"></i>
+                          </a>
+                        </ng-container>
+                        <ng-template #noFavourite>
+                          <a
+                            href="javascript:void(0)"
+                            title="Add To Wishlist"
+                          >
+                            <i class="fa fa-heart-o wish_outline"></i>
+                            <i class="fa fa-heart wish_fill"></i>
+                          </a>
+                        </ng-template>
                       </div>
                     </div>
-                    <div class="collection-pro-det">
+                    <div
+                      class="collection-pro-det"
+                      [routerLink]="[
+                        productVariationPath(
+                          products._id,
+                          product.variation1,
+                          product.variation2
+                        )
+                      ]"
+                    >
                       <p class="h1">
                         <a
-                            href="#"
-                            class="stretched-link"
-                            [routerLink]="[productVariationPath(products._id, product.variation1, product.variation2)]"
-                            routerLinkActive="active"
-                            >{{ product.title }}</a>
+                          href="#"
+                          class="stretched-link"
+                          [routerLink]="[
+                            productVariationPath(
+                              products._id,
+                              product.variation1,
+                              product.variation2
+                            )
+                          ]"
+                          routerLinkActive="active"
+                          >{{ product.title }}</a
+                        >
                       </p>
                       <h2 class="fs-5">
                         {{ product.sellingPrice.selling_price_in_india }}
@@ -247,7 +295,7 @@
           </div>
         </div>
       </div>
-      <div class="pagination">
+      <!-- <div class="pagination">
         <a href="javascript:void(0)">&laquo;</a>
         <a href="javascript:void(0)">1</a>
         <a href="javascript:void(0)" class="active">2</a>
@@ -256,7 +304,7 @@
         <a href="javascript:void(0)">5</a>
         <a href="javascript:void(0)">6</a>
         <a href="javascript:void(0)">&raquo;</a>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

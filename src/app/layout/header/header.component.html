@@ -110,22 +110,42 @@
           </ul>
         </div>
       </ng-template>
+      <ng-template #logout>
+        <div class="login dropdown">
+          <a
+            href="#"
+            class="d-flex align-items-center dropdown-toggle"
+            data-bs-toggle="dropdown"
+            id="profile-dropdown"
+            data-bs-offset="0,20"
+          >
+            <span class="text-truncate" style="max-width: 100px">{{
+              userProfile.data.name
+            }}</span>
+            <i class="fa fa-user-circle ms-2 fs-3" aria-hidden="true"></i>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end before_login"
+            aria-labelledby="profile-dropdown"
+          >
+            <li>
+              <a class="dropdown-item" href="#" [routerLink]="['/login']"
+                ><i class="fa fa-user me-2"></i>My Account</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fa fa-dropbox me-2"></i>Your Orders</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fa fa-heart me-2"></i>Wishlist</a
+              >
+            </li>
+          </ul>
+        </div>
+      </ng-template>
     </div>
-    <ng-template #logout>
-      <div class="login dropdown">
-        <a
-          href="#"
-          class="d-flex align-items-center dropdown-toggle"
-          data-bs-toggle="dropdown"
-          id="profile-dropdown"
-          data-bs-offset="0,20"
-        >
-          <span class="text-truncate" style="max-width: 100px">{{
-            userProfile.data.name
-          }}</span>
-          <i class="fa fa-user-circle ms-2 fs-3" aria-hidden="true"></i>
-        </a>
-      </div>
-    </ng-template>
   </div>
 </header>

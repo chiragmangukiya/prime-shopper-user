@@ -18,12 +18,30 @@ export class CartComponent implements OnInit {
   ) {}
   cartData: any;
   totalPrice: any = 0;
+  favouritesData: any = []
+
+  getAllFavourites(){
+    this._http.getFavourites().subscribe((result: any) => {
+      if (result.data && result.data.length) {
+        let allFavouritesData = result.data;
+        let copyData = [...allFavouritesData];
+        copyData.map((el: any) => {
+          el.product.variations;
+          el.product.variations = el.product.variations.find((obj: any) => {
+            return obj._id == el.variation;
+          });
+        });
+        console.log("copyData", copyData);
+
+        this.favouritesData = copyData;
+      }
+    });
+  }
 
   ngOnInit(): void {
     this._http.cart('').subscribe((result: any) => {
       let allVariationdata = result.data.cart;
       let cartIdsdata = result.data.cartIds;
-      // console.log(allVariationdata, cartIdsdata);
       let copyData = [...allVariationdata];
       copyData.map((el: any, index: number) => {
         el.product.variations;
@@ -41,6 +59,8 @@ export class CartComponent implements OnInit {
           el.quantity * el.product.variations.price.price_in_india;
       });
     });
+
+    this.getAllFavourites()
   }
 
   updateCart(product: string, variations: string, quantity: number) {
@@ -80,7 +100,6 @@ export class CartComponent implements OnInit {
           } else {
             this.sharedService.sendCLickEvent(0);
           }
-
         });
         this.toastr.success('Cart Update Successfull');
       },
@@ -128,5 +147,13 @@ export class CartComponent implements OnInit {
         this.toastr.error(error.error.message);
       }
     );
+  }
+
+  addToWishList(id: any, varId: any) {
+    let favObj = {product: id, variations: varId}
+
+    this._http.addFavourite(favObj).subscribe((result: any) => {
+      this.getAllFavourites()
+    });
   }
 }

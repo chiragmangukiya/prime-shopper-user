@@ -329,8 +329,15 @@
 .add_wishlist:hover a{
     color: rgb(209, 0, 0);
 }
+
+.add_wishlist a.active{
+  color: rgb(209, 0, 0);
+}
 .wish_fill, .add_wishlist:hover .wish_outline{
     display: none;
+}
+.add_wishlist a.active .wish_fill{
+  display: block;
 }
 .add_wishlist:hover .wish_fill, .wish_outline{
     display: block;

@@ -22,6 +22,8 @@ export class UserDataService {
   getCategories = `${this.currentLiveUrl}/api/v1/categories`;
   getCategory = `${this.currentLiveUrl}/api/v1/category`;
   getAllHomeSliders = `${this.currentLiveUrl}/api/v1/homepagesliders`;
+  addFavouriteUrl = `${this.currentLiveUrl}/api/v1/add/favorite`;
+  allFaourites = `${this.currentLiveUrl}/api/v1/favorites`;
 
 
   constructor(private http:HttpClient) {}
@@ -105,6 +107,18 @@ export class UserDataService {
   {
     let options : any = { headers: this._getHeaders() };
     return this.http.post(this.getCategories,'', options);
+  }
+
+  addFavourite(data:any)
+  {
+    let options : any = { headers: this._getHeaders() };
+    return this.http.post(this.addFavouriteUrl, data, options);
+  }
+
+  getFavourites()
+  {
+    let options : any = { headers: this._getHeaders() };
+    return this.http.post(this.allFaourites, '', options);
   }
 
   allHomeSliders()

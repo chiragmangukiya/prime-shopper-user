@@ -19,17 +19,29 @@ export class CollectionComponent implements OnInit {
 
   constructor(private _http: UserDataService) {}
 
-  ngOnInit(): void {
+  getAllProducts (){
     this._http.get_product().subscribe((result: any) => {
       this.productData = result.data;
     });
   }
 
-  productVariationPath(id: String, var1: any, var2: any) {
-    console.log("check:: ", var1, var2);
+  ngOnInit(): void {
+    this.getAllProducts()
+  }
 
+  productVariationPath(id: String, var1: any, var2: any) {
     let setVar1 = var1 && var1.value ? var1.value : null;
     let setVar2 = var2 && var2.value ? var2.value : null;
     return '/product/' + id + '/' + setVar1 + '/' + setVar2;
+  }
+
+  addToWishList(id: any, varId: any) {
+    // console.log("Check::", id, varId);
+    let favObj = {product: id, variations: varId}
+    console.log(favObj);
+
+    this._http.addFavourite(favObj).subscribe((result: any) => {
+      this.getAllProducts()
+    });
   }
 }
