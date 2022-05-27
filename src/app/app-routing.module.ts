@@ -79,7 +79,7 @@ const routes: Routes = [
         component : SallerProductComponent
       },
       {
-        path : 'sub-category/:id?',
+        path : 'sub-category/:id',
         component : SubCategoryComponent
       },
       {

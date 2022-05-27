@@ -37,83 +37,19 @@
           </div>
       </div>
     </div>
-    
+
     <div class="col-lg-10 col-md-9 col-12 mt-0 clearfix">
       <!-- Start Top Brands Banner -->
-      <div class="container-main">
-        <div class="page-section py-5">
+      <div class="container-main" *ngIf="currentCategory && currentCategory.children && currentCategory.children.length">
+        <div class="page-section pt-5">
           <div class="section-products sub_category">
             <owl-carousel-o [options]="subCategorySlider">
-              <ng-template carouselSlide>
-                <div class="single_subcategory">
-                  <a href="#"  [routerLink]="['/collections']" class="d-block category_img">
-                    <img src="../../assets/images/mens-fashion-shirt.jpg" alt="" class="img-cover" />
+              <ng-template carouselSlide *ngFor="let subCat of currentCategory.children">
+                <div class="single_subcategory" [routerLink]="['../../collections']">
+                  <a href="javascript:void(0);" class="d-block category_img">
+                    <img src="https://api.admincliq.com/temp/{{subCat.data.banner}}" alt="" class="img-cover" />
                   </a>
-                  <p class="cate_name">Mens</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="single_subcategory">
-                  <a href="#"  [routerLink]="['/collections']" class="d-block category_img">
-                    <img src="../../assets/images/mens-fashion-shirt.jpg" alt="" class="img-cover" />
-                  </a>
-                  <p class="cate_name">Mens</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="single_subcategory">
-                  <a href="#"  [routerLink]="['/collections']" class="d-block category_img">
-                    <img src="../../assets/images/mens-fashion-shirt.jpg" alt="" class="img-cover" />
-                  </a>
-                  <p class="cate_name">Mens</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="single_subcategory">
-                  <a href="#"  [routerLink]="['/collections']" class="d-block category_img">
-                    <img src="../../assets/images/mens-fashion-shirt.jpg" alt="" class="img-cover" />
-                  </a>
-                  <p class="cate_name">Mens</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="single_subcategory">
-                  <a href="#"  [routerLink]="['/collections']" class="d-block category_img">
-                    <img src="../../assets/images/mens-fashion-shirt.jpg" alt="" class="img-cover" />
-                  </a>
-                  <p class="cate_name">Mens</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="single_subcategory">
-                  <a href="#"  [routerLink]="['/collections']" class="d-block category_img">
-                    <img src="../../assets/images/mens-fashion-shirt.jpg" alt="" class="img-cover" />
-                  </a>
-                  <p class="cate_name">Mens</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="single_subcategory">
-                  <a href="#"  [routerLink]="['/collections']" class="d-block category_img">
-                    <img src="../../assets/images/mens-fashion-shirt.jpg" alt="" class="img-cover" />
-                  </a>
-                  <p class="cate_name">Mens</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="single_subcategory">
-                  <a href="#"  [routerLink]="['/collections']" class="d-block category_img">
-                    <img src="../../assets/images/mens-fashion-shirt.jpg" alt="" class="img-cover" />
-                  </a>
-                  <p class="cate_name">Mens</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="single_subcategory">
-                  <a href="#"  [routerLink]="['/collections']" class="d-block category_img">
-                    <img src="../../assets/images/mens-fashion-shirt.jpg" alt="" class="img-cover" />
-                  </a>
-                  <p class="cate_name">Mens</p>
+                  <p class="cate_name">{{subCat.data.name}}</p>
                 </div>
               </ng-template>
             </owl-carousel-o>
@@ -123,17 +59,11 @@
       <!-- End Top Brands Banner -->
 
       <!-- Start Banner -->
-      <div class="container-main nobg px-3">
+      <div class="container-main nobg px-3 mt-5" *ngIf="newArrivalOffersData && newArrivalOffersData.length">
         <div class="page-hero">
           <owl-carousel-o [options]="customOptions">
-            <ng-template carouselSlide>
-              <img src="../../assets/images/offer_banner/Header-PC-new._SX3000_QL85_.jpg" alt="">
-            </ng-template>
-            <ng-template carouselSlide>
-              <img src="../../assets/images/offer_banner/Header-PC-01._SX3000_QL85_.jpg" alt="">
-            </ng-template>
-            <ng-template carouselSlide>
-              <img src="../../assets/images/offer_banner/Header-PC._SX3000_QL85_.jpg" alt="">
+            <ng-template carouselSlide *ngFor="let slider of newArrivalOffersData">
+              <img src="https://api.admincliq.com/temp/{{ slider.image }}" alt="" [routerLink]="['../../'+slider.redirectLink]">
             </ng-template>
           </owl-carousel-o>
         </div>
@@ -141,36 +71,34 @@
       <!-- End Banner -->
 
       <!-- Start Top Brands Banner -->
-      <div class="container-main">
+      <div class="container-main" *ngIf="bestSeller1Data && bestSeller1Data.length">
         <div class="page-section spacerY">
-          <h1 class="fw-bold text-capitalize">In the spotlight</h1>
+          <h1 class="fw-bold text-capitalize">Best Offers</h1>
           <div class="section-products brands_banner">
             <owl-carousel-o [options]="top_brands_banner">
-              <ng-template carouselSlide>
+              <ng-template carouselSlide *ngFor="let slider of bestSeller1Data">
                 <div class="banner_img">
-                  <a href="#" class="d-block">
-                    <img src="../../assets/images/banner31.jpg" alt="" class="img-cover" />
+                  <a href="javascript:void(0)" class="d-block" [routerLink]="['../../'+slider.redirectLink]">
+                    <img src="https://api.admincliq.com/temp/{{ slider.image }}" alt="" class="img-cover" />
                   </a>
                 </div>
               </ng-template>
-              <ng-template carouselSlide>
+            </owl-carousel-o>
+          </div>
+        </div>
+      </div>
+      <!-- End Top Brands Banner -->
+
+      <!-- Start Top Brands Banner -->
+      <div class="container-main" *ngIf="bestSeller2Data && bestSeller2Data.length">
+        <div class="page-section spacerY">
+          <h1 class="fw-bold text-capitalize">Best Offers</h1>
+          <div class="section-products brands_banner">
+            <owl-carousel-o [options]="top_brands_banner">
+              <ng-template carouselSlide *ngFor="let slider of bestSeller2Data">
                 <div class="banner_img">
-                  <a href="#" class="d-block">
-                    <img src="../../assets/images/banner32.jpg" alt="" class="img-cover" />
-                  </a>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="banner_img">
-                  <a href="#" class="d-block">
-                    <img src="../../assets/images/banner33.jpg" alt="" class="img-cover" />
-                  </a>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="banner_img">
-                  <a href="#" class="d-block">
-                    <img src="../../assets/images/banner34.jpg" alt="" class="img-cover" />
+                  <a href="javascript:void(0)" class="d-block" [routerLink]="['../../'+slider.redirectLink]">
+                    <img src="https://api.admincliq.com/temp/{{ slider.image }}" alt="" class="img-cover" />
                   </a>
                 </div>
               </ng-template>
@@ -181,157 +109,36 @@
       <!-- End Top Brands Banner -->
 
       <!-- Start Best Selling Small -->
-      <div class="container px-md-4 px-2 bg-theme">
+      <div class="container px-md-4 px-2 bg-theme" *ngIf="childSubChat1Data && childSubChat1Data.length">
         <div class="page-section py-3">
           <div class="section-laptop shadow-sm subCategorySmall bg-white p-4 my-3">
-            <h5 class="fw-bold text-capitalize w-50 section_title pb-2">Skin care</h5>
+            <h5 class="fw-bold text-capitalize w-50 section_title pb-2">Sub Categories</h5>
             <owl-carousel-o [options]="subCategorySmall">
-              <ng-template carouselSlide>
-                <div class="best_selling shadow-sm mb-1">
+              <ng-template carouselSlide *ngFor="let slider of childSubChat1Data">
+                <div class="best_selling shadow-sm mb-1" [routerLink]="['../../collections']">
                   <div class="sub_cate_pro_img">
-                    <a href="#">
-                      <img src="../../assets/images/product/skin1.jpg" alt="" class="img-cover">
+                    <a href="javascript:void(0)">
+                      <img src="https://api.admincliq.com/temp/{{ slider.data.banner }}" alt="" class="img-cover">
                     </a>
                   </div>
-                  <p class="text-center py-2 m-0 fw-bold">Shop Now</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="best_selling shadow-sm mb-1">
-                  <div class="sub_cate_pro_img">
-                    <a href="#">
-                      <img src="../../assets/images/product/skin2.jpg" alt="" class="img-cover">
-                    </a>
-                  </div>
-                  <p class="text-center py-2 m-0 fw-bold">Shop Now</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="best_selling shadow-sm mb-1">
-                  <div class="sub_cate_pro_img">
-                    <a href="#">
-                      <img src="../../assets/images/product/skin3.jpg" alt="" class="img-cover">
-                    </a>
-                  </div>
-                  <p class="text-center py-2 m-0 fw-bold">Shop Now</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="best_selling shadow-sm mb-1">
-                  <div class="sub_cate_pro_img">
-                    <a href="#">
-                      <img src="../../assets/images/product/skin4.jpg" alt="" class="img-cover">
-                    </a>
-                  </div>
-                  <p class="text-center py-2 m-0 fw-bold">Shop Now</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="best_selling shadow-sm mb-1">
-                  <div class="sub_cate_pro_img">
-                    <a href="#">
-                      <img src="../../assets/images/product/skin5.jpg" alt="" class="img-cover">
-                    </a>
-                  </div>
-                  <p class="text-center py-2 m-0 fw-bold">Shop Now</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="best_selling shadow-sm mb-1">
-                  <div class="sub_cate_pro_img">
-                    <a href="#">
-                      <img src="../../assets/images/product/skin6.jpg" alt="" class="img-cover">
-                    </a>
-                  </div>
-                  <p class="text-center py-2 m-0 fw-bold">Shop Now</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="best_selling shadow-sm mb-1">
-                  <div class="sub_cate_pro_img">
-                    <a href="#">
-                      <img src="../../assets/images/product/skin7.jpg" alt="" class="img-cover">
-                    </a>
-                  </div>
-                  <p class="text-center py-2 m-0 fw-bold">Shop Now</p>
+                  <p class="text-center py-2 m-0 fw-bold">{{ slider.data.name }}</p>
                 </div>
               </ng-template>
             </owl-carousel-o>
           </div>
-          <div class="section-laptop shadow-sm subCategorySmall bg-white p-4 my-3">
-            <h5 class="fw-bold text-capitalize w-50 section_title pb-2">Hair care</h5>
+          <div class="section-laptop shadow-sm subCategorySmall bg-white p-4 my-3" *ngIf="childSubChat2Data && childSubChat2Data.length">
+            <h5 class="fw-bold text-capitalize w-50 section_title pb-2">Sub Categories</h5>
             <owl-carousel-o [options]="subCategorySmall">
-              <ng-template carouselSlide>
-                <div class="best_selling shadow-sm mb-1">
+              <ng-template carouselSlide *ngFor="let slider of childSubChat2Data">
+                <div class="best_selling shadow-sm mb-1" [routerLink]="['../../collections']">
                   <div class="sub_cate_pro_img">
-                    <a href="#">
-                      <img src="../../assets/images/product/skin1.jpg" alt="" class="img-cover">
+                    <a href="javascript:void(0)">
+                      <img src="https://api.admincliq.com/temp/{{ slider.data.banner }}" alt="" class="img-cover">
                     </a>
                   </div>
-                  <p class="text-center py-2 m-0 fw-bold">Shop Now</p>
+                  <p class="text-center py-2 m-0 fw-bold">{{ slider.data.name }}</p>
                 </div>
               </ng-template>
-              <ng-template carouselSlide>
-                <div class="best_selling shadow-sm mb-1">
-                  <div class="sub_cate_pro_img">
-                    <a href="#">
-                      <img src="../../assets/images/product/skin2.jpg" alt="" class="img-cover">
-                    </a>
-                  </div>
-                  <p class="text-center py-2 m-0 fw-bold">Shop Now</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="best_selling shadow-sm mb-1">
-                  <div class="sub_cate_pro_img">
-                    <a href="#">
-                      <img src="../../assets/images/product/skin3.jpg" alt="" class="img-cover">
-                    </a>
-                  </div>
-                  <p class="text-center py-2 m-0 fw-bold">Shop Now</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="best_selling shadow-sm mb-1">
-                  <div class="sub_cate_pro_img">
-                    <a href="#">
-                      <img src="../../assets/images/product/skin4.jpg" alt="" class="img-cover">
-                    </a>
-                  </div>
-                  <p class="text-center py-2 m-0 fw-bold">Shop Now</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="best_selling shadow-sm mb-1">
-                  <div class="sub_cate_pro_img">
-                    <a href="#">
-                      <img src="../../assets/images/product/skin5.jpg" alt="" class="img-cover">
-                    </a>
-                  </div>
-                  <p class="text-center py-2 m-0 fw-bold">Shop Now</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="best_selling shadow-sm mb-1">
-                  <div class="sub_cate_pro_img">
-                    <a href="#">
-                      <img src="../../assets/images/product/skin6.jpg" alt="" class="img-cover">
-                    </a>
-                  </div>
-                  <p class="text-center py-2 m-0 fw-bold">Shop Now</p>
-                </div>
-              </ng-template>
-              <ng-template carouselSlide>
-                <div class="best_selling shadow-sm mb-1">
-                  <div class="sub_cate_pro_img">
-                    <a href="#">
-                      <img src="../../assets/images/product/skin7.jpg" alt="" class="img-cover">
-                    </a>
-                  </div>
-                  <p class="text-center py-2 m-0 fw-bold">Shop Now</p>
-                </div>
-              </ng-template>
-
             </owl-carousel-o>
           </div>
         </div>

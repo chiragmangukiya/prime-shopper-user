@@ -22,6 +22,7 @@ export class UserDataService {
   getCategories = `${this.currentLiveUrl}/api/v1/categories`;
   getCategory = `${this.currentLiveUrl}/api/v1/category`;
   getAllHomeSliders = `${this.currentLiveUrl}/api/v1/homepagesliders`;
+  getAllSubSliders = `${this.currentLiveUrl}/api/v1/subpagesliders`;
   addFavouriteUrl = `${this.currentLiveUrl}/api/v1/add/favorite`;
   allFaourites = `${this.currentLiveUrl}/api/v1/favorites`;
 
@@ -32,8 +33,6 @@ export class UserDataService {
 
   _getHeaders() {
     var token = this.getToken();
-    console.log("token", token);
-
     return new HttpHeaders({ 'X-Authentication-token': (token ? token : 'unAuth') })
   }
 
@@ -125,6 +124,12 @@ export class UserDataService {
   {
     let options : any = { headers: this._getHeaders() };
     return this.http.get(this.getAllHomeSliders);
+  }
+
+  allSubSliders()
+  {
+    let options : any = { headers: this._getHeaders() };
+    return this.http.get(this.getAllSubSliders);
   }
 
 }
