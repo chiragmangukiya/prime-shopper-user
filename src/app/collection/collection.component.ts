@@ -8,25 +8,64 @@ import { UserDataService } from '../services/user-data.service';
   styleUrls: ['./collection.component.css'],
 })
 export class CollectionComponent implements OnInit {
-  value: number = 40;
-  highValue: number = 60;
+  value: number = 0;
+  highValue: number = 0;
   options: Options = {
     floor: 0,
     ceil: 100,
   };
 
-  productData: any;
+  allProductData: any = [];
+  totalProductsLength: any = 0;
+  totalBrands: any = [];
+
+  // filters
+  productData: any = [];
+  minPriceValue: any = 0;
+  maxPriceValue: any = 0;
+  filterBrands: any = [];
 
   constructor(private _http: UserDataService) {}
 
-  getAllProducts (){
+  getAllProducts() {
     this._http.get_product().subscribe((result: any) => {
-      this.productData = result.data;
+      let allProducts = result.data;
+      console.log("allProducts", allProducts);
+
+      if (allProducts && allProducts.length) {
+        this.productData = allProducts;
+        this.allProductData = allProducts;
+
+        let totalLength = 0;
+        let maxRange = 0;
+
+        allProducts.map((el: any) => {
+          if (el && el.variations && el.variations.length) {
+            totalLength = totalLength + el.variations.length;
+            el.variations.map((item: any) => {
+              if (item.price && item.price.price_in_india) {
+                if (maxRange < item.price.price_in_india) {
+                  maxRange = item.price.price_in_india;
+                }
+              }
+            });
+          }
+          if(el.brand_name && !this.totalBrands.includes(el.brand_name)){
+            this.totalBrands.push(el.brand_name)
+          }
+        });
+        this.totalProductsLength = totalLength;
+        this.highValue = maxRange;
+        this.options = {
+          floor: 0,
+          ceil: maxRange,
+        };
+      }
     });
   }
 
   ngOnInit(): void {
-    this.getAllProducts()
+    this.getAllProducts();
   }
 
   productVariationPath(id: String, var1: any, var2: any) {
@@ -36,12 +75,44 @@ export class CollectionComponent implements OnInit {
   }
 
   addToWishList(id: any, varId: any) {
-    // console.log("Check::", id, varId);
-    let favObj = {product: id, variations: varId}
-    console.log(favObj);
+    let favObj = { product: id, variations: varId };
 
     this._http.addFavourite(favObj).subscribe((result: any) => {
-      this.getAllProducts()
+      this.getAllProducts();
     });
+  }
+
+  filterProducts() {
+    let filterData = this.allProductData.filter((el: any) => {
+      let checkFilter = false;
+      if (el && el.variations && el.variations.length) {
+        el.variations.map((item: any) => {
+          if (item.price && item.price.price_in_india) {
+            return (checkFilter =
+              item.price.price_in_india >= this.minPriceValue &&
+              item.price.price_in_india <= this.maxPriceValue);
+          }
+          return (checkFilter = false);
+        });
+      }
+
+      return checkFilter;
+    });
+
+    this.productData = filterData;
+    let totalLength = 0;
+    filterData.map((el: any) => {
+      if (el && el.variations && el.variations.length) {
+        totalLength = totalLength + el.variations.length;
+      }
+    });
+    this.totalProductsLength = totalLength;
+  }
+
+  priceRangeChange(event: any) {
+    this.minPriceValue = event.value;
+    this.maxPriceValue = event.highValue;
+
+    this.filterProducts();
   }
 }

@@ -1,7 +1,7 @@
 <div class="container-main">
   <div class="row py-3 justify-content-between align-items-center">
     <div class="col-auto right-main-title">
-      T-Shirts For Men - <span>20,000 Products</span>
+      T-Shirts For Men - <span>{{totalProductsLength}} Products</span>
     </div>
     <div class="col-auto breadcrumbs align-items-end">
       <ul>
@@ -23,6 +23,7 @@
             [(value)]="value"
             [(highValue)]="highValue"
             [options]="options"
+            (userChangeEnd)="priceRangeChange($event)"
           ></ngx-slider>
         </div>
         <div class="accordion" id="accordionExample">
@@ -37,7 +38,7 @@
                   aria-expanded="true"
                   aria-controls="collapseOne"
                 >
-                  Price <span>+</span>
+                  Brand <span>+</span>
                 </button>
               </h2>
             </div>
@@ -50,27 +51,11 @@
             >
               <div class="card-body">
                 <div class="left-pro-main-con">
-                  <input type="text" name="a" placeholder="search" />
+                  <!-- <input type="text" name="a" placeholder="search" /> -->
                   <ul>
-                    <li>
-                      <input type="checkbox" id="1" />
-                      <label for="1">text here</label> <span>200</span>
-                    </li>
-                    <li>
-                      <input type="checkbox" id="2" />
-                      <label for="2">text here</label> <span>200</span>
-                    </li>
-                    <li>
-                      <input type="checkbox" id="3" />
-                      <label for="3">text here</label> <span>200</span>
-                    </li>
-                    <li>
-                      <input type="checkbox" id="4" />
-                      <label for="4">text here</label> <span>200</span>
-                    </li>
-                    <li>
-                      <input type="checkbox" id="5" />
-                      <label for="5">text here</label> <span>200</span>
+                    <li *ngFor="let brand of totalBrands">
+                      <input type="checkbox" name="brandFilter" value="{{brand}}" />
+                      <label>{{brand}}</label>
                     </li>
                   </ul>
                 </div>
@@ -291,6 +276,9 @@
                   </div>
                 </a>
               </div>
+            </ng-container>
+            <ng-container *ngIf="!productData || !productData.length">
+              <h5 class="text-center">No Product Found</h5>
             </ng-container>
           </div>
         </div>
