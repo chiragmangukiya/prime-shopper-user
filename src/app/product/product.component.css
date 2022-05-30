@@ -6,7 +6,7 @@
 .slider-zoom {
   /* overflow: hidden; */
   margin: 25px;
-  max-width: 350px;
+  /* max-width: 350px; */
 }
 
 ::ng-deep .ngxImageZoomContainer {
@@ -814,6 +814,9 @@
   .border-row {
     padding: 0;
   }
+  .ngxImageZoomContainer{
+    height: auto;
+  }
 }
 
 .heading {
@@ -875,4 +878,5 @@
   .right {
     display: none;
   }
+  
 }

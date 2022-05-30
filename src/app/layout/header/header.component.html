@@ -6,13 +6,14 @@
       </a>
     </div>
     <div class="col-md-8 col-sm-8 p-0 px-3 header-center">
-      <div class="input-group position-relative">
+      <div class="input-group position-relative search_bar">
         <ng-container *ngIf="allCategories && allCategories.length">
-          <select class="search_cate">
+          <select class="search_cate text-truncate">
             <option
               *ngFor="let category of allCategories"
               value=""
               [routerLink]="['/sub-category/' + category.id]"
+              class="text-truncate"
             >
               {{ category.data.name }}
             </option>
@@ -58,6 +59,13 @@
                   <span class="d-none"> My Order</span>
               </a>
           </div> -->
+      <div class="cart me-3">
+        <a href="#">
+          <i class="fa fa-heart head_icon"></i>
+          <span class="cart_badge bg-danger">{{ totalProducts }}</span>
+          <span class="d-none"> No Items</span>
+        </a>
+      </div>
       <div class="cart me-3">
         <a [routerLink]="['/cart']">
           <i class="fa fa-shopping-cart head_icon"></i>

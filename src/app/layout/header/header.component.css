@@ -39,6 +39,11 @@
 .dropdown-toggle::after{
      display: none !important;
 }
+.search_bar{
+     background-color: #fff;
+     border-radius: 3px;
+     border: 1px #000 solid;
+}
 .search_cate_drop{
      background-color: #fff !important;
      color: #000 !important;
@@ -49,8 +54,8 @@
 
 
 .search_cate{
-     position: absolute;
-     top: 6px;
+     position: relative;
+     top: 5px;
      left: 0;
      width: auto;
      z-index: 5;
@@ -63,10 +68,14 @@
      font-size: 14px;
 }
 .top_search{
-     border: 1px #000 solid;
+     border: none;
      border-radius: 5px !important;
-     padding-left: 135px;
+     padding-left: 15px;
      padding-right: 40px;
+}
+.search_cate{
+     max-width: 150px;
+
 }
 .search_cate option{
     padding: 10px !important;
@@ -75,7 +84,7 @@
 .top_search_btn{
      position: absolute;
      right: 0;
-     top: 0;
+     top: -1px;
      z-index: 6;
 }
 .sign_title{
@@ -105,4 +114,11 @@
 
 .dropdown-menu .dropdown-item{
   white-space: normal;
+}
+
+
+@media screen and (max-width: 991px){
+     .search_cate{
+          max-width: 100px;  
+     }
 }
