@@ -103,7 +103,7 @@
     justify-content: space-between;
     padding: 5px;
     border: solid 1px #CCC;
-    border-radius: 25px;
+    border-radius: 3px;
 }
 .quantity_icon{
     color: #777;
