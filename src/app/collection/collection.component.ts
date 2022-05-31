@@ -30,7 +30,7 @@ export class CollectionComponent implements OnInit {
   getAllProducts() {
     this._http.get_product().subscribe((result: any) => {
       let allProducts = result.data;
-      console.log("allProducts", allProducts);
+      console.log('allProducts', allProducts);
 
       if (allProducts && allProducts.length) {
         this.productData = allProducts;
@@ -50,8 +50,8 @@ export class CollectionComponent implements OnInit {
               }
             });
           }
-          if(el.brand_name && !this.totalBrands.includes(el.brand_name)){
-            this.totalBrands.push(el.brand_name)
+          if (el.brand_name && !this.totalBrands.includes(el.brand_name)) {
+            this.totalBrands.push(el.brand_name);
           }
         });
         this.totalProductsLength = totalLength;
@@ -84,22 +84,45 @@ export class CollectionComponent implements OnInit {
 
   filterProducts() {
     let filterData = this.allProductData.filter((el: any) => {
-      let checkFilter = false;
-      if (el && el.variations && el.variations.length) {
-        el.variations.map((item: any) => {
-          if (item.price && item.price.price_in_india) {
-            return (checkFilter =
-              item.price.price_in_india >= this.minPriceValue &&
-              item.price.price_in_india <= this.maxPriceValue);
-          }
-          return (checkFilter = false);
-        });
+      let checkBrandFilter = false;
+      if (this.filterBrands && this.filterBrands.length) {
+        if (this.filterBrands.includes(el.brand_name)) {
+          return (checkBrandFilter = true);
+        } else {
+          return (checkBrandFilter = false);
+        }
+      } else {
+        checkBrandFilter = true;
       }
 
-      return checkFilter;
+      return checkBrandFilter;
     });
 
     this.productData = filterData;
+
+    if(filterData){
+      let checkPriceFilter = false;
+      filterData = filterData.map((el: any) => {
+        if (el && el.variations && el.variations.length) {
+          let allVariations: any = [...el.variations]
+          let filterPrice = allVariations.filter((item: any) => {
+            if (item.sellingPrice && item.sellingPrice.selling_price_in_india) {
+              return (checkPriceFilter =
+                item.sellingPrice.selling_price_in_india >= this.minPriceValue &&
+                item.sellingPrice.selling_price_in_india <= this.maxPriceValue);
+            } else {
+              return false
+            }
+          });
+
+          allVariations.variations = filterPrice
+          console.log("allVariations", allVariations);
+          // return filterPrice
+        }
+      })
+    }
+    console.log("filterData", filterData);
+
     let totalLength = 0;
     filterData.map((el: any) => {
       if (el && el.variations && el.variations.length) {
@@ -113,6 +136,18 @@ export class CollectionComponent implements OnInit {
     this.minPriceValue = event.value;
     this.maxPriceValue = event.highValue;
 
+    this.filterProducts();
+  }
+
+  onBrandCheckboxChange(event: any, value: any) {
+    if (event.target.checked) {
+      this.filterBrands.push(value);
+    } else {
+      const index = this.filterBrands.indexOf(value);
+      if (index > -1) {
+        this.filterBrands.splice(index, 1);
+      }
+    }
     this.filterProducts();
   }
 }
