@@ -48,6 +48,7 @@ export class HomeComponent implements OnInit {
 
   categorySliderOption: OwlOptions = {
     loop: true,
+    margin:20,
     mouseDrag: false,
     touchDrag: false,
     pullDrag: false,
@@ -56,7 +57,7 @@ export class HomeComponent implements OnInit {
     navText: [ '<img src="/assets/images/left-arrow.png">', '<img src="/assets/images/right-arrow.png">' ],
     autoWidth: true,
     autoplay: true,
-    autoplayTimeout: 2000,
+    autoplayTimeout: 3500,
     autoplayHoverPause:true,
     responsive: {
       0: {
@@ -80,7 +81,7 @@ export class HomeComponent implements OnInit {
         touchDrag: true
       },
       1000: {
-        items: 10
+        items: 9
       }
 
     },

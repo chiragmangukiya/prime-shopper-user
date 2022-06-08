@@ -53,10 +53,11 @@
 .slider-thumb-bottom ul li {
   list-style-type: none;
   border: solid 1px #ccc;
-  padding: 5px;
+  padding: 2px;
   max-width: 80px;
   max-height: 80px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .slider-thumb-bottom ul li img {
@@ -358,7 +359,7 @@
 
 .product-detail-right {
   position: sticky;
-  top: 0px;
+  top: 12px;
 }
 .right-top-pincode,
 .offer,
