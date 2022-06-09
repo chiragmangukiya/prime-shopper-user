@@ -166,7 +166,6 @@ export class CheckoutComponent implements OnInit {
           },
         });
       };
-
       window.document.body.appendChild(script);
     }
   }
