@@ -45,6 +45,12 @@ a.link:hover{
     padding-top: 70px;
     padding-bottom: 70px;
 }
+.spacerT{
+    padding-top: 70px;
+}
+.spacerB{
+    padding-bottom: 70px;
+}
 ul{
     list-style: none;
     margin: 0;

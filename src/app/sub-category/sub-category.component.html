@@ -72,11 +72,30 @@
 
       <!-- Start Top Brands Banner -->
       <div class="container-main" *ngIf="bestSeller1Data && bestSeller1Data.length">
-        <div class="page-section spacerY">
+        <div class="page-section spacerT">
           <h1 class="fw-bold text-capitalize">Best Offers</h1>
           <div class="section-products brands_banner">
             <owl-carousel-o [options]="top_brands_banner">
               <ng-template carouselSlide *ngFor="let slider of bestSeller1Data">
+                <div class="banner_img">
+                  <a href="javascript:void(0)" class="d-block" [routerLink]="['../../'+slider.redirectLink]">
+                    <img src="https://api.admincliq.com/temp/{{ slider.image }}" alt="" class="img-cover" />
+                  </a>
+                </div>
+              </ng-template>
+            </owl-carousel-o>
+          </div>
+        </div>
+      </div>
+      <!-- End Top Brands Banner -->
+
+      <!-- Start Top Brands Banner -->
+      <div class="container-main" *ngIf="bestSeller2Data && bestSeller2Data.length">
+        <div class="page-section spacerT">
+          <h1 class="fw-bold text-capitalize">Best Offers</h1>
+          <div class="section-products brands_banner">
+            <owl-carousel-o [options]="top_brands_banner">
+              <ng-template carouselSlide *ngFor="let slider of bestSeller2Data">
                 <div class="banner_img">
                   <a href="javascript:void(0)" class="d-block" [routerLink]="['../../'+slider.redirectLink]">
                     <img src="https://api.admincliq.com/temp/{{ slider.image }}" alt="" class="img-cover" />
@@ -115,6 +134,21 @@
             <h5 class="fw-bold text-capitalize w-50 section_title pb-2">Sub Categories</h5>
             <owl-carousel-o [options]="subCategorySmall">
               <ng-template carouselSlide *ngFor="let slider of childSubChat1Data">
+                <div class="best_selling shadow-sm mb-1" [routerLink]="['../../collections']">
+                  <div class="sub_cate_pro_img">
+                    <a href="javascript:void(0)">
+                      <img src="https://api.admincliq.com/temp/{{ slider.data.banner }}" alt="" class="img-cover">
+                    </a>
+                  </div>
+                  <p class="text-center py-2 m-0 fw-bold">{{ slider.data.name }}</p>
+                </div>
+              </ng-template>
+            </owl-carousel-o>
+          </div>
+          <div class="section-laptop shadow-sm subCategorySmall bg-white p-4 my-3" *ngIf="childSubChat2Data && childSubChat2Data.length">
+            <h5 class="fw-bold text-capitalize w-50 section_title pb-2">Sub Categories</h5>
+            <owl-carousel-o [options]="subCategorySmall">
+              <ng-template carouselSlide *ngFor="let slider of childSubChat2Data">
                 <div class="best_selling shadow-sm mb-1" [routerLink]="['../../collections']">
                   <div class="sub_cate_pro_img">
                     <a href="javascript:void(0)">
