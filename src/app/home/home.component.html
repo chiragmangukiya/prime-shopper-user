@@ -4,7 +4,7 @@
     <div class="categories first">
       <owl-carousel-o [options]="categorySliderOption">
         <ng-template carouselSlide *ngFor="let category of allCategories">
-          <div class="pointer" [routerLink]="['/sub-category/' + category.id]">
+          <div class="pointer " [routerLink]="['/sub-category/' + category.id]">
             <img
               src="https://api.admincliq.com/temp/{{ category.data.banner }}"
               alt=""
@@ -84,12 +84,15 @@
   >
     <div class="page-hero">
       <owl-carousel-o [options]="customOptions">
-        <ng-template carouselSlide *ngFor="let slider of welcomeOffersData">
-          <img
-            src="https://api.admincliq.com/temp/{{ slider.image }}"
-            alt=""
-            [routerLink]="[slider.redirectLink]"
-          />
+        <ng-template  carouselSlide *ngFor="let slider of welcomeOffersData">
+          <div>
+            <img
+              src="https://api.admincliq.com/temp/{{ slider.image }}"
+              alt=""
+              [routerLink]="[slider.redirectLink]"
+              class="banner_img"
+            />            
+          </div>
         </ng-template>
       </owl-carousel-o>
     </div>
@@ -101,10 +104,10 @@
     class="container-main px-md-4 px-2 nobg"
     *ngIf="bigOfferSliderData && bigOfferSliderData.length"
   >
-    <div class="page-section spacerY">
+    <div class="page-section spacerT">
       <h1 class="fw-light text-uppercase">Best Offers</h1>
       <div class="section-products top_brands_offer">
-        <owl-carousel-o [options]="top_brands">
+        <owl-carousel-o [options]="best_offer">
           <ng-template carouselSlide *ngFor="let slider of bigOfferSliderData">
             <div class="pro_img" [routerLink]="[slider.redirectLink]">
               <img
@@ -130,7 +133,7 @@
     class="container-main"
     *ngIf="topSelectedBrandSliderData && topSelectedBrandSliderData.length"
   >
-    <div class="page-section spacerY">
+    <div class="page-section spacerT">
       <h1 class="fw-bold text-uppercase">Top Brands</h1>
       <div class="section-products brands_banner">
         <owl-carousel-o [options]="top_brands_banner">
@@ -159,7 +162,7 @@
     class="container-main px-md-4 px-2 nobg bestSellingProducts"
     *ngIf="bestSellerSliderData && bestSellerSliderData.length"
   >
-    <div class="page-section spacerY">
+    <div class="page-section spacerT">
       <h1 class="fw-bold text-uppercase w-50 mx-auto section_title">
         Best Seller Products
       </h1>
