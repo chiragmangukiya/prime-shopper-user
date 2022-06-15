@@ -1,7 +1,7 @@
 <div class="container-main">
   <div class="row py-3 justify-content-between align-items-center">
     <div class="col-auto right-main-title">
-      T-Shirts For Men - <span>{{ totalProductsLength }} Products</span>
+      General - <span>{{ totalProductsLength }} Products</span>
     </div>
     <div class="col-auto breadcrumbs align-items-end">
       <ul>
@@ -70,49 +70,41 @@
             </div>
           </div>
           <div class="card">
-            <div class="card-header" id="headingTwo">
+            <div class="card-header" id="headingOne">
               <h2 class="mb-0">
                 <button
-                  class="btn btn-link collapsed"
+                  class="btn btn-link"
                   type="button"
                   data-toggle="collapse"
-                  data-target="#collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="collapseTwo"
+                  data-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
                 >
-                  Ideal For <span>+</span>
+                  Seller <span>+</span>
                 </button>
               </h2>
             </div>
+
             <div
-              id="collapseTwo"
-              class="collapse"
-              aria-labelledby="headingTwo"
+              id="collapseOne"
+              class="collapse show"
+              aria-labelledby="headingOne"
               data-parent="#accordionExample"
             >
               <div class="card-body">
                 <div class="left-pro-main-con">
-                  <input type="text" name="a" placeholder="search" />
+                  <!-- <input type="text" name="a" placeholder="search" /> -->
                   <ul>
-                    <li>
-                      <input type="checkbox" id="1" />
-                      <label for="1">text here</label> <span>200</span>
-                    </li>
-                    <li>
-                      <input type="checkbox" id="2" />
-                      <label for="2">text here</label> <span>200</span>
-                    </li>
-                    <li>
-                      <input type="checkbox" id="3" />
-                      <label for="3">text here</label> <span>200</span>
-                    </li>
-                    <li>
-                      <input type="checkbox" id="4" />
-                      <label for="4">text here</label> <span>200</span>
-                    </li>
-                    <li>
-                      <input type="checkbox" id="5" />
-                      <label for="5">text here</label> <span>200</span>
+                    <li *ngFor="let seller of totalSellers">
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="sellerFilter"
+                          [value]="seller"
+                          (change)="onsellerCheckboxChange($event, seller)"
+                        />
+                        {{ seller }}
+                      </label>
                     </li>
                   </ul>
                 </div>
@@ -120,49 +112,171 @@
             </div>
           </div>
           <div class="card">
-            <div class="card-header" id="headingThree">
+            <div class="card-header" id="headingOne">
               <h2 class="mb-0">
                 <button
-                  class="btn btn-link collapsed"
+                  class="btn btn-link"
                   type="button"
                   data-toggle="collapse"
-                  data-target="#collapseThree"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
+                  data-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
                 >
-                  Color <span>+</span>
+                  Discount <span>+</span>
                 </button>
               </h2>
             </div>
+
             <div
-              id="collapseThree"
-              class="collapse"
-              aria-labelledby="headingThree"
+              id="collapseOne"
+              class="collapse show"
+              aria-labelledby="headingOne"
               data-parent="#accordionExample"
             >
               <div class="card-body">
                 <div class="left-pro-main-con">
-                  <input type="text" name="a" placeholder="search" />
                   <ul>
                     <li>
-                      <input type="checkbox" id="1" />
-                      <label for="1">text here</label> <span>200</span>
+                      <label>
+                        <input
+                          type="radio"
+                          name="discount"
+                          value="0"
+                          checked
+                          (change)="onDiscountRadioChange($event, 0)"
+                        />
+                        All Discount
+                      </label>
                     </li>
                     <li>
-                      <input type="checkbox" id="2" />
-                      <label for="2">text here</label> <span>200</span>
+                      <label>
+                        <input
+                          type="radio"
+                          name="discount"
+                          value="10"
+                          (change)="onDiscountRadioChange($event, 10)"
+                        />
+                        10% Off or more
+                      </label>
                     </li>
                     <li>
-                      <input type="checkbox" id="3" />
-                      <label for="3">text here</label> <span>200</span>
+                      <label>
+                        <input
+                          type="radio"
+                          name="discount"
+                          value="25"
+                          (change)="onDiscountRadioChange($event, 25)"
+                        />
+                        25% Off or more
+                      </label>
                     </li>
                     <li>
-                      <input type="checkbox" id="4" />
-                      <label for="4">text here</label> <span>200</span>
+                      <label>
+                        <input
+                          type="radio"
+                          name="discount"
+                          value="35"
+                          (change)="onDiscountRadioChange($event, 35)"
+                        />
+                        35% Off or more
+                      </label>
                     </li>
                     <li>
-                      <input type="checkbox" id="5" />
-                      <label for="5">text here</label> <span>200</span>
+                      <label>
+                        <input
+                          type="radio"
+                          name="discount"
+                          value="50"
+                          (change)="onDiscountRadioChange($event, 50)"
+                        />
+                        50% Off or more
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="radio"
+                          name="discount"
+                          value="60"
+                          (change)="onDiscountRadioChange($event, 60)"
+                        />
+                        60% Off or more
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="radio"
+                          name="discount"
+                          value="70"
+                          (change)="onDiscountRadioChange($event, 70)"
+                        />
+                        70% Off or more
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button
+                  class="btn btn-link"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  New Arrivals <span>+</span>
+                </button>
+              </h2>
+            </div>
+
+            <div
+              id="collapseOne"
+              class="collapse show"
+              aria-labelledby="headingOne"
+              data-parent="#accordionExample"
+            >
+              <div class="card-body">
+                <div class="left-pro-main-con">
+                  <ul>
+                    <li>
+                      <label>
+                        <input
+                          type="radio"
+                          name="arrival"
+                          value="0"
+                          checked
+                          (change)="onNewArrivalRadioChange($event, 0)"
+                        />
+                        All Products
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="radio"
+                          name="arrival"
+                          value="30"
+                          (change)="onNewArrivalRadioChange($event, 30)"
+                        />
+                        Last 30 days
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="radio"
+                          name="arrival"
+                          value="90"
+                          (change)="onNewArrivalRadioChange($event, 90)"
+                        />
+                        Last 90 days
+                      </label>
                     </li>
                   </ul>
                 </div>
@@ -221,7 +335,11 @@
                         ]"
                       >
                         <span>
-                          {{ product.discount.discount_price_in_india }}%
+                          {{
+                            roundFigure(
+                              product.discount.discount_price_in_india
+                            )
+                          }}%
                         </span>
                         Off
                       </div>
@@ -274,10 +392,10 @@
                         >
                       </p>
                       <h2 class="fs-5">
-                        {{ product.sellingPrice.selling_price_in_india }}
-                        <s>${{ product.price.price_in_india }}</s>
+                        ₹{{ product.sellingPrice.selling_price_in_india }}
+                        <s>₹{{ product.price.price_in_india }}</s>
                         <span class="off_pr"
-                          >{{ product.discount.discount_price_in_india }}%
+                          >{{ roundFigure(product.discount.discount_price_in_india) }}%
                           Off</span
                         >
                       </h2>

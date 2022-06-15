@@ -34,6 +34,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { NgxStripeModule } from 'ngx-stripe';
 import { ViewOrderComponent } from './view-order/view-order.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { ViewOrderComponent } from './view-order/view-order.component';
     EditProfileComponent,
     CheckoutComponent,
     ViewOrderComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,

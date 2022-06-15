@@ -20,6 +20,7 @@ import { StoresComponent } from './stores/stores.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
 
@@ -57,6 +58,10 @@ const routes: Routes = [
       {
         path : 'cart',
         component : CartComponent
+      },
+      {
+        path : 'wishlist',
+        component : WishlistComponent
       },
       {
         path : 'faq',

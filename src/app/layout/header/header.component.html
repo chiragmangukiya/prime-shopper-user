@@ -51,7 +51,8 @@
               </div>
           </div> -->
     </div>
-    <div class="col-sm-2 col-2 p-0 header-right d-flex align-items-center justify-content-end"
+    <div
+      class="col-sm-2 col-2 p-0 header-right d-flex align-items-center justify-content-end"
     >
       <!-- <div class="my-order me-2">
               <a href="#" title="My Orders">
@@ -60,9 +61,9 @@
               </a>
           </div> -->
       <div class="cart me-3">
-        <a href="#">
-          <i class="fa fa-heart head_icon"></i>
-          <span class="cart_badge bg-danger">{{ totalProducts }}</span>
+        <a href="#" [routerLink]="['/wishlist']">
+          <i class="fa fa-heart head_icon" ></i>
+          <!-- <span class="cart_badge bg-danger">{{ totalProducts }}</span> -->
           <span class="d-none"> No Items</span>
         </a>
       </div>
@@ -84,13 +85,13 @@
             class="dropdown-menu dropdown-menu-end before_login"
             aria-labelledby="profile-dropdown"
           >
-            <li>
+            <!-- <li>
               <a class="dropdown-item" href="#"
                 ><i class="fa fa-user me-2"></i>My Account</a
               >
             </li>
             <li>
-              <a class="dropdown-item" href="#"
+              <a class="dropdown-item" href="#" [routerLink]="['/view-order']"
                 ><i class="fa fa-dropbox me-2"></i>Your Orders</a
               >
             </li>
@@ -99,12 +100,12 @@
                 ><i class="fa fa-heart me-2"></i>Wishlist</a
               >
             </li>
-            <li><hr class="dropdown-divider" /></li>
+            <li><hr class="dropdown-divider" /></li> -->
             <li class="text-center">
               <span class="sign_title text-muted">If you are a new user</span>
               <a
                 class="dropdown-item d-block bg-transparent"
-                [routerLink]="['/login']"
+                [routerLink]="['/register']"
                 routerLinkActive="active"
                 >Register</a
               >
@@ -137,19 +138,27 @@
             aria-labelledby="profile-dropdown"
           >
             <li>
-              <a class="dropdown-item" href="#" [routerLink]="['/login']"
+              <a class="dropdown-item" href="#" [routerLink]="['/view-profile']"
                 ><i class="fa fa-user me-2"></i>My Account</a
               >
             </li>
             <li>
-              <a class="dropdown-item" href="#"
+              <a class="dropdown-item" href="#" [routerLink]="['/view-order']"
                 ><i class="fa fa-dropbox me-2"></i>Your Orders</a
               >
             </li>
             <li>
-              <a class="dropdown-item" href="#"
+              <a class="dropdown-item" href="#" [routerLink]="['/wishlist']"
                 ><i class="fa fa-heart me-2"></i>Wishlist</a
               >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li class="text-center">
+              <a
+                class="btn btn-dark btn-sm mx-3 my-2 d-block text-center text-white"
+                href="#"
+                (click)="logout_user()"
+                >Log Out</a>
             </li>
           </ul>
         </div>

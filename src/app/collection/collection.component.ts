@@ -18,23 +18,26 @@ export class CollectionComponent implements OnInit {
   allProductData: any = [];
   totalProductsLength: any = 0;
   totalBrands: any = [];
+  totalSellers: any = [];
 
   // filters
   productData: any = [];
   minPriceValue: any = 0;
   maxPriceValue: any = 0;
   filterBrands: any = [];
+  filteSellers: any = [];
+  discount: any = 0;
+  arrivalTime: any = 0;
 
   constructor(private _http: UserDataService) {}
 
   getAllProducts() {
     this._http.get_product().subscribe((result: any) => {
       let allProducts = result.data;
-      console.log('allProducts', allProducts);
 
       if (allProducts && allProducts.length) {
-        this.productData = allProducts;
-        this.allProductData = allProducts;
+        this.productData = allProducts.slice();
+        this.allProductData = allProducts.slice();
 
         let totalLength = 0;
         let maxRange = 0;
@@ -52,6 +55,14 @@ export class CollectionComponent implements OnInit {
           }
           if (el.brand_name && !this.totalBrands.includes(el.brand_name)) {
             this.totalBrands.push(el.brand_name);
+          }
+
+          if (
+            el.seller &&
+            el.seller.name &&
+            !this.totalSellers.includes(el.seller.name)
+          ) {
+            this.totalSellers.push(el.seller.name);
           }
         });
         this.totalProductsLength = totalLength;
@@ -83,53 +94,76 @@ export class CollectionComponent implements OnInit {
   }
 
   filterProducts() {
-    let filterData = this.allProductData.filter((el: any) => {
-      let checkBrandFilter = false;
-      if (this.filterBrands && this.filterBrands.length) {
-        if (this.filterBrands.includes(el.brand_name)) {
-          return (checkBrandFilter = true);
-        } else {
-          return (checkBrandFilter = false);
-        }
-      } else {
-        checkBrandFilter = true;
-      }
+    // this._http.get_product().subscribe((result: any) => {
+    //   if (result.data && result.data.length) {
+    //     let filterData = [...result.data];
+    //     filterData.forEach((el: any) => {
+    //       if (el && el.variations && el.variations.length) {
+    //         el.variations = [...el.variations].filter((item: any) => {
+    //           if (
+    //             item.sellingPrice &&
+    //             item.sellingPrice.selling_price_in_india
+    //           ) {
+    //             return (
+    //               item.sellingPrice.selling_price_in_india >=
+    //                 this.minPriceValue &&
+    //               item.sellingPrice.selling_price_in_india <= this.maxPriceValue
+    //             );
+    //           } else {
+    //             return false;
+    //           }
+    //         });
+    //       }
+    //     });
 
-      return checkBrandFilter;
-    });
+    //     // if (
+    //     //   filterData &&
+    //     //   filterData.length &&
+    //     //   this.filterBrands &&
+    //     //   this.filterBrands.length
+    //     // ) {
+    //     //   filterData = filterData.filter((el: any) => {
+    //     //     return this.filterBrands.includes(el.brand_name);
+    //     //   });
+    //     // }
+    //     // if (
+    //     //   filterData &&
+    //     //   filterData.length &&
+    //     //   this.filteSellers &&
+    //     //   this.filteSellers.length
+    //     // ) {
+    //     //   filterData = filterData.filter((el: any) => {
+    //     //     if (
+    //     //       el.seller &&
+    //     //       el.seller.name &&
+    //     //       this.filteSellers.includes(el.seller.name)
+    //     //     ) {
+    //     //       return true;
+    //     //     } else {
+    //     //       return false;
+    //     //     }
+    //     //   });
+    //     // }
 
-    this.productData = filterData;
+    //     if (filterData && filterData.length) {
+    //       this.productData = filterData;
 
-    if(filterData){
-      let checkPriceFilter = false;
-      filterData = filterData.map((el: any) => {
-        if (el && el.variations && el.variations.length) {
-          let allVariations: any = [...el.variations]
-          let filterPrice = allVariations.filter((item: any) => {
-            if (item.sellingPrice && item.sellingPrice.selling_price_in_india) {
-              return (checkPriceFilter =
-                item.sellingPrice.selling_price_in_india >= this.minPriceValue &&
-                item.sellingPrice.selling_price_in_india <= this.maxPriceValue);
-            } else {
-              return false
-            }
-          });
-
-          allVariations.variations = filterPrice
-          console.log("allVariations", allVariations);
-          // return filterPrice
-        }
-      })
-    }
-    console.log("filterData", filterData);
-
-    let totalLength = 0;
-    filterData.map((el: any) => {
-      if (el && el.variations && el.variations.length) {
-        totalLength = totalLength + el.variations.length;
-      }
-    });
-    this.totalProductsLength = totalLength;
+    //       let totalLength = 0;
+    //       filterData.map((el: any) => {
+    //         if (el && el.variations && el.variations.length) {
+    //           totalLength = totalLength + el.variations.length;
+    //         }
+    //       });
+    //       this.totalProductsLength = totalLength;
+    //     } else {
+    //       this.productData = [];
+    //       this.totalProductsLength = 0;
+    //     }
+    //   } else {
+    //     this.productData = [];
+    //     this.totalProductsLength = 0;
+    //   }
+    // });
   }
 
   priceRangeChange(event: any) {
@@ -149,5 +183,31 @@ export class CollectionComponent implements OnInit {
       }
     }
     this.filterProducts();
+  }
+
+  onsellerCheckboxChange(event: any, value: any) {
+    if (event.target.checked) {
+      this.filteSellers.push(value);
+    } else {
+      const index = this.filteSellers.indexOf(value);
+      if (index > -1) {
+        this.filteSellers.splice(index, 1);
+      }
+    }
+    this.filterProducts();
+  }
+
+  onDiscountRadioChange(event: any, value: any) {
+    this.discount = value;
+    this.filterProducts();
+  }
+
+  onNewArrivalRadioChange(event: any, value: any) {
+    this.arrivalTime = value;
+    this.filterProducts();
+  }
+
+  roundFigure(value: number) {
+    return Math.round(value);
   }
 }

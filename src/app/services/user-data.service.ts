@@ -6,8 +6,8 @@ import { Options } from '@angular-slider/ngx-slider';
   providedIn: 'root'
 })
 export class UserDataService {
-  currentLiveUrl = "https://api.admincliq.com"
-  // currentLiveUrl = "http://localhost:5000"
+  // currentLiveUrl = "https://api.admincliq.com"
+  currentLiveUrl = "http://localhost:5000"
   Register_url = `${this.currentLiveUrl}/api/v1/user/register`;
   login_url = `${this.currentLiveUrl}/api/v1/user/login`;
   forgot_password_url = `${this.currentLiveUrl}/api/v1/user/forgot/password`;
@@ -91,6 +91,24 @@ export class UserDataService {
   }
 
   deleteCartItem(data:any)
+  {
+    let options : any = { headers: this._getHeaders() };
+      return this.http.post(this.deleteCartItemUrl, data, options);
+  }
+
+  wishlist(data:any)
+  {
+    let options : any = { headers: this._getHeaders() };
+    return this.http.post(this.getCart,'', options);
+  }
+
+  updatewishlist(data:any)
+  {
+    let options : any = { headers: this._getHeaders() };
+      return this.http.post(this.updateCartUrl, data, options);
+  }
+
+  deletewishlistItem(data:any)
   {
     let options : any = { headers: this._getHeaders() };
       return this.http.post(this.deleteCartItemUrl, data, options);

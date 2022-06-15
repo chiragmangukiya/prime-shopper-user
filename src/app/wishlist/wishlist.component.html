@@ -1,0 +1,47 @@
+<div class="shopping-cart-main container">
+  <!-- Save for later -->
+  <div class="row mb-4">
+    <div class="col-lg-9 col-12">
+      <div class="shopping-cart bg-white">
+        <!-- Title -->
+
+        <div class="title">Wish Lists</div>
+
+        <!-- Product #1 -->
+        <div class="item" *ngFor="let item of favouritesData">
+          <div class="row align-items-center">
+            <div class="col-lg-2 col-md-2 col-sm-12 col-12">
+              <div class="image">
+                <img
+                  src="{{ item.product.variations.banner }}"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="description">
+                <span class="w-100 text-truncate">
+                  {{ item.product.variations.title }}
+                </span>
+                <ul>
+                  <li>
+                    <a href="javascript:void(0)" (click)="addToWishList(item.product._id, item.product.variations._id)">Delete</a>
+                  </li>
+                  <!-- <li>
+                    <a href="#">Move to Cart</a>
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-3 col-8 p-0 col-price">
+              <div class="total-price">₹
+                {{
+                    item.product.variations.price.price_in_india
+                }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
