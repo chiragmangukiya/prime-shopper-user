@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
     navText: [ '<img src="/assets/images/left-arrow.png">', '<img src="/assets/images/right-arrow.png">' ],
     autoWidth: true,
     nav: true,
-    // autoplay: true,
-    // autoplayTimeout: 3000,
+    autoplay: true,
+    autoplayTimeout: 3000,
     autoplayHoverPause:true,
     stagePadding:50,
     responsive: {
@@ -31,15 +31,7 @@ export class HomeComponent implements OnInit {
         nav: false,
         touchDrag: true
       },
-      425: {
-        items: 1,
-        touchDrag: true
-      },
-      740: {
-        items: 1,
-        touchDrag: true
-      },
-      940: {
+      992: {
         items: 1
       }
     }
@@ -61,12 +53,12 @@ export class HomeComponent implements OnInit {
     autoplayHoverPause:true,
     responsive: {
       0: {
-        items: 2,
+        items: 3,
         nav:false,
         touchDrag: true
       },
-      375: {
-        items: 3,
+      320: {
+        items: 4,
         nav:false,
         touchDrag: true
       },
@@ -81,10 +73,12 @@ export class HomeComponent implements OnInit {
         touchDrag: true
       },
       1000: {
-        items: 9
+        items: 9,
+        nav:true
       },
       1400: {
-        items: 11
+        items: 11,
+        nav:true
       }
 
     },
@@ -101,7 +95,6 @@ export class HomeComponent implements OnInit {
     nav: true,
     navSpeed: 1000,
     navText: [ '<img src="/assets/images/left-arrow.png">', '<img src="/assets/images/right-arrow.png">' ],
-    autoWidth: true,
     autoplay: true,
     autoplayHoverPause:true,
     responsive: {
@@ -165,7 +158,7 @@ export class HomeComponent implements OnInit {
         items: 5
       },
       1366: {
-        items: 6
+        items: 5
       }
 
     }

@@ -85,12 +85,12 @@
     <div class="page-hero">
       <owl-carousel-o [options]="customOptions">
         <ng-template  carouselSlide *ngFor="let slider of welcomeOffersData">
-          <div>
+          <div class="banner_img">
             <img
               src="https://api.admincliq.com/temp/{{ slider.image }}"
               alt=""
               [routerLink]="[slider.redirectLink]"
-              class="banner_img"
+              class=""
             />            
           </div>
         </ng-template>
@@ -109,10 +109,26 @@
       <div class="section-products top_brands_offer">
         <owl-carousel-o [options]="best_offer">
           <ng-template carouselSlide *ngFor="let slider of bigOfferSliderData">
-            <div class="pro_img" [routerLink]="[slider.redirectLink]">
+            <div class="pro_img best_offer_img" [routerLink]="[slider.redirectLink]">
               <img
                 src="https://api.admincliq.com/temp/{{ slider.image }}"
                 alt=""
+                class=""
+              />
+              <div class="pro_offer_txt">
+                <a href="#" class="stretched-link">
+                  <span class="fw-bold">Lets Save</span>
+                  <p class="fw-light m-0">Upto {{ slider.uptoOff }}% Off</p>
+                </a>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide *ngFor="let slider of bigOfferSliderData">
+            <div class="pro_img best_offer_img" [routerLink]="[slider.redirectLink]">
+              <img
+                src="https://api.admincliq.com/temp/{{ slider.image }}"
+                alt=""
+                class=""
               />
               <div class="pro_offer_txt">
                 <a href="#" class="stretched-link">
@@ -141,12 +157,12 @@
             carouselSlide
             *ngFor="let slider of topSelectedBrandSliderData"
           >
-            <div class="banner_img" [routerLink]="[slider.redirectLink]">
+            <div class="top_brands_img" [routerLink]="[slider.redirectLink]">
               <a href="#" class="d-block">
                 <img
                   src="https://api.admincliq.com/temp/{{ slider.image }}"
                   alt=""
-                  class="img-cover"
+                  class="img-cover "
                 />
               </a>
             </div>
@@ -180,7 +196,7 @@
                 <img
                   src="https://api.admincliq.com/temp/{{ slider.image }}"
                   alt=""
-                  class="img-cover"
+                  class="img-cover ratio ratio-1x1"
                 />
               </div>
               <div class="pro_content">
@@ -221,11 +237,11 @@
               class="best_selling shadow-sm"
               [routerLink]="[slider.redirectLink]"
             >
-              <div class="pro_img">
+              <div class="  ratio ratio-1x1">
                 <img
                   src="https://api.admincliq.com/temp/{{ slider.image }}"
                   alt=""
-                  class="img-cover"
+                  class=""
                 />
               </div>
             </div>
@@ -240,11 +256,13 @@
   <div class="container-main nobg" *ngIf="welcomeOffersData && welcomeOffersData.length">
     <owl-carousel-o [options]="customOptions">
       <ng-template carouselSlide *ngFor="let slider of newArrivalSliderData">
-        <img
+        <div class="foot_banner">
+          <img
           src="https://api.admincliq.com/temp/{{ slider.image }}"
           alt=""
           [routerLink]="[slider.redirectLink]"
         />
+        </div>
       </ng-template>
     </owl-carousel-o>
   </div>
