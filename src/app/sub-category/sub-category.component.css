@@ -185,3 +185,16 @@
 .main_title ul li a:hover {
   color: #000;
 }
+.foot_banner{
+  aspect-ratio: 5 / 1.2;
+}
+.top_brands_img{
+  aspect-ratio: 1 / 0.6;
+}
+.sub_cate_img{
+  aspect-ratio: 1 / 1 !important;
+}
+
+.sub_pro_name{
+  font-size: 14px;
+}

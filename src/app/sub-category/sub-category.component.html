@@ -63,7 +63,7 @@
         <div class="page-hero">
           <owl-carousel-o [options]="customOptions">
             <ng-template carouselSlide *ngFor="let slider of newArrivalOffersData">
-              <img src="https://api.admincliq.com/temp/{{ slider.image }}" alt="" [routerLink]="['../../'+slider.redirectLink]">
+              <img src="https://api.admincliq.com/temp/{{ slider.image }}" alt="" [routerLink]="['../../'+slider.redirectLink]" class="foot_banner">
             </ng-template>
           </owl-carousel-o>
         </div>
@@ -79,7 +79,7 @@
               <ng-template carouselSlide *ngFor="let slider of bestSeller1Data">
                 <div class="banner_img">
                   <a href="javascript:void(0)" class="d-block" [routerLink]="['../../'+slider.redirectLink]">
-                    <img src="https://api.admincliq.com/temp/{{ slider.image }}" alt="" class="img-cover" />
+                    <img src="https://api.admincliq.com/temp/{{ slider.image }}" alt="" class="top_brands_img" />
                   </a>
                 </div>
               </ng-template>
@@ -98,7 +98,7 @@
               <ng-template carouselSlide *ngFor="let slider of bestSeller2Data">
                 <div class="banner_img">
                   <a href="javascript:void(0)" class="d-block" [routerLink]="['../../'+slider.redirectLink]">
-                    <img src="https://api.admincliq.com/temp/{{ slider.image }}" alt="" class="img-cover" />
+                    <img src="https://api.admincliq.com/temp/{{ slider.image }}" alt="" class="top_brands_img" />
                   </a>
                 </div>
               </ng-template>
@@ -117,7 +117,7 @@
               <ng-template carouselSlide *ngFor="let slider of bestSeller2Data">
                 <div class="banner_img">
                   <a href="javascript:void(0)" class="d-block" [routerLink]="['../../'+slider.redirectLink]">
-                    <img src="https://api.admincliq.com/temp/{{ slider.image }}" alt="" class="img-cover" />
+                    <img src="https://api.admincliq.com/temp/{{ slider.image }}" alt="" class="top_brands_img" />
                   </a>
                 </div>
               </ng-template>
@@ -137,10 +137,10 @@
                 <div class="best_selling shadow-sm mb-1" [routerLink]="['../../collections']">
                   <div class="sub_cate_pro_img">
                     <a href="javascript:void(0)">
-                      <img src="https://api.admincliq.com/temp/{{ slider.data.banner }}" alt="" class="img-cover">
+                      <img src="https://api.admincliq.com/temp/{{ slider.data.banner }}" alt="" class="sub_cate_img">
                     </a>
                   </div>
-                  <p class="text-center py-2 m-0 fw-bold">{{ slider.data.name }}</p>
+                  <p class="text-center sub_pro_name p-2 m-0">{{ slider.data.name }}</p>
                 </div>
               </ng-template>
             </owl-carousel-o>
@@ -152,10 +152,10 @@
                 <div class="best_selling shadow-sm mb-1" [routerLink]="['../../collections']">
                   <div class="sub_cate_pro_img">
                     <a href="javascript:void(0)">
-                      <img src="https://api.admincliq.com/temp/{{ slider.data.banner }}" alt="" class="img-cover">
+                      <img src="https://api.admincliq.com/temp/{{ slider.data.banner }}" alt="" class="sub_cate_img">
                     </a>
                   </div>
-                  <p class="text-center py-2 m-0 fw-bold">{{ slider.data.name }}</p>
+                  <p class="text-center sub_pro_name p-2 m-0">{{ slider.data.name }}</p>
                 </div>
               </ng-template>
             </owl-carousel-o>
@@ -167,10 +167,10 @@
                 <div class="best_selling shadow-sm mb-1" [routerLink]="['../../collections']">
                   <div class="sub_cate_pro_img">
                     <a href="javascript:void(0)">
-                      <img src="https://api.admincliq.com/temp/{{ slider.data.banner }}" alt="" class="img-cover">
+                      <img src="https://api.admincliq.com/temp/{{ slider.data.banner }}" alt="" class="sub_cate_img">
                     </a>
                   </div>
-                  <p class="text-center py-2 m-0 fw-bold">{{ slider.data.name }}</p>
+                  <p class="text-center sub_pro_name p-2 m-0">{{ slider.data.name }}</p>
                 </div>
               </ng-template>
             </owl-carousel-o>

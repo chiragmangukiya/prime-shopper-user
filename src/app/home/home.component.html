@@ -109,26 +109,11 @@
       <div class="section-products top_brands_offer">
         <owl-carousel-o [options]="best_offer">
           <ng-template carouselSlide *ngFor="let slider of bigOfferSliderData">
-            <div class="pro_img best_offer_img" [routerLink]="[slider.redirectLink]">
+            <div class="pro_img " [routerLink]="[slider.redirectLink]">
               <img
                 src="https://api.admincliq.com/temp/{{ slider.image }}"
                 alt=""
-                class=""
-              />
-              <div class="pro_offer_txt">
-                <a href="#" class="stretched-link">
-                  <span class="fw-bold">Lets Save</span>
-                  <p class="fw-light m-0">Upto {{ slider.uptoOff }}% Off</p>
-                </a>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template carouselSlide *ngFor="let slider of bigOfferSliderData">
-            <div class="pro_img best_offer_img" [routerLink]="[slider.redirectLink]">
-              <img
-                src="https://api.admincliq.com/temp/{{ slider.image }}"
-                alt=""
-                class=""
+                class="best_offer_img"
               />
               <div class="pro_offer_txt">
                 <a href="#" class="stretched-link">
@@ -157,12 +142,12 @@
             carouselSlide
             *ngFor="let slider of topSelectedBrandSliderData"
           >
-            <div class="top_brands_img" [routerLink]="[slider.redirectLink]">
+            <div class="" [routerLink]="[slider.redirectLink]">
               <a href="#" class="d-block">
                 <img
                   src="https://api.admincliq.com/temp/{{ slider.image }}"
                   alt=""
-                  class="img-cover "
+                  class="top_brands_img"
                 />
               </a>
             </div>
@@ -196,14 +181,14 @@
                 <img
                   src="https://api.admincliq.com/temp/{{ slider.image }}"
                   alt=""
-                  class="img-cover ratio ratio-1x1"
+                  class="ratio ratio-1x1"
                 />
               </div>
               <div class="pro_content">
-                <div class="pro_name fw-bold fs-5 text-truncate">
+                <div class="pro_name fw-bold text-truncate">
                   {{ slider.category }}
                 </div>
-                <div class="pro_offer fs-5">{{ slider.uptoOff }}% Discount</div>
+                <div class="pro_offer">{{ slider.uptoOff }}% Discount</div>
               </div>
             </div>
           </ng-template>
@@ -237,11 +222,11 @@
               class="best_selling shadow-sm"
               [routerLink]="[slider.redirectLink]"
             >
-              <div class="  ratio ratio-1x1">
+              <div class="">
                 <img
                   src="https://api.admincliq.com/temp/{{ slider.image }}"
                   alt=""
-                  class=""
+                  class="best_pro_img"
                 />
               </div>
             </div>

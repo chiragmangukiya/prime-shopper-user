@@ -203,7 +203,10 @@
   aspect-ratio: 1 / 1.4 !important;
 }
 .top_brands_img{
-  aspect-ratio: 1 / 0.5;
+  aspect-ratio: 1 / 0.6;
+}
+.best_pro_img{
+  aspect-ratio: 1 / 1;
 }
 .foot_banner{
   aspect-ratio: 5 / 1.2;
