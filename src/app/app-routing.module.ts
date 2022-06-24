@@ -48,7 +48,7 @@ const routes: Routes = [
         component : AboutUsComponent
       },
       {
-        path : 'collections',
+        path : 'collections/:cat/:subcat',
         component : CollectionComponent
       },
       {

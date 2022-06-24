@@ -12,24 +12,32 @@ export class SubCategoryComponent implements OnInit {
   constructor(private route: ActivatedRoute, private _http: UserDataService) {}
 
   allCategories: any = [];
-  currentCategory: any = [];
+  currentCategory: any = {};
   newArrivalOffersData: any = [];
   bestSeller1Data: any = [];
   bestSeller2Data: any = [];
   childSubChat1Data: any = [];
   childSubChat2Data: any = [];
+  categoryId: any = '';
+  totalBrands: any = [];
+  totalSellers: any = [];
 
   ngOnInit(): void {
     let subId = this.route.snapshot.paramMap.get('id');
 
+    if(subId){
+      this.categoryId = subId;
+    }
+
     this._http.allCategories('').subscribe((result: any) => {
       this.allCategories = result.data;
-      console.log('result', result.data);
 
       if (result.data && result.data.length) {
         let currentCat = result.data.find((el: any) => el._id == subId);
         if (currentCat) {
           this.currentCategory = currentCat;
+          console.log("currentCat::", currentCat);
+
 
           currentCat.children.map((el: any) => {
             if (el && el.children && el.children.length) {
@@ -64,6 +72,38 @@ export class SubCategoryComponent implements OnInit {
       }
       if (alldata.bestSeller2Data && alldata.bestSeller2Data.length) {
         this.bestSeller2Data = alldata.bestSeller2Data;
+      }
+    });
+
+    this._http.get_product({}).subscribe((result: any) => {
+      let allProducts = result.data;
+      console.log(allProducts);
+
+      if (allProducts && allProducts.length) {
+        let totalLength = 0;
+        let maxRange = 0;
+        allProducts.map((el: any) => {
+          if (el && el.variations && el.variations.length) {
+            totalLength = totalLength + el.variations.length;
+            el.variations.map((item: any) => {
+              if (item.price && item.price.price_in_india) {
+                if (maxRange < item.price.price_in_india) {
+                  maxRange = item.price.price_in_india;
+                }
+              }
+            });
+          }
+          if (el.brand_name && !this.totalBrands.includes(el.brand_name)) {
+            this.totalBrands.push(el.brand_name);
+          }
+          if (
+            el.seller &&
+            el.seller.name &&
+            !this.totalSellers.includes(el.seller.name)
+          ) {
+            this.totalSellers.push(el.seller.name);
+          }
+        });
       }
     });
   }
@@ -230,4 +270,28 @@ export class SubCategoryComponent implements OnInit {
     },
     nav: true,
   };
+
+  collectionVariationPath(category: any, subcategory: any) {
+    if(category && subcategory){
+      return '../../collections/' +  category + '/' + subcategory;
+    } else if(category){
+      return '../../collections/' +  category + "/0";
+    } else if(subcategory){
+      return '../../collections/0/' + subcategory;
+    } else {
+      return '../../collections/0/0'
+    }
+  }
+
+  collectionQueryVariationPath(category: any, subcategory: any, key:any, value: any) {
+    if(category && subcategory){
+      return '../../collections/' +  category + '/' + subcategory+"?"+key+"="+value;
+    } else if(category){
+      return '../../collections/' +  category + "/0"+"?"+key+"="+value;
+    } else if(subcategory){
+      return '../../collections/0/' + subcategory+"?"+key+"="+value;
+    } else {
+      return '../../collections/0/0'+"?"+key+"="+value
+    }
+  }
 }

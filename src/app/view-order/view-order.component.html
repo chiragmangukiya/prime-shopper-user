@@ -1,77 +1,138 @@
 <div class="shopping-cart-main container">
-     <!-- Shopping cart -->
-     <div class="row gx-md-3 gx-0 my-4">
-       <div class="col-lg-10 mx-auto col-12">
-         <div class="shopping-cart bg-white">
-           <!-- Title -->
-           <div class="row pb-md-0 pb-3 border-bottom">
-                <div class="col-md-6 col-12">
-                     <div class="title fs-3 border-bottom-0">Your Orders</div>
+  <!-- Shopping cart -->
+  <div class="row gx-md-3 gx-0 my-4">
+    <div class="col-lg-10 mx-auto col-12">
+      <div class="shopping-cart bg-white">
+        <!-- Title -->
+        <div class="row pb-md-0 pb-3 border-bottom">
+          <div class="col-md-6 col-12">
+            <div class="title fs-3 border-bottom-0">Your Orders</div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="searching d-flex">
+              <img src="/assets/images/search.png" alt="" class="search_icon" />
+              <input type="text" placeholder="Search all orders" />
+              <button type="button" class="btn btn-dark ms-2 rounded-0">
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product #1 -->
+        <div class="item my-2">
+          <div class="card">
+            <ng-container *ngIf="pendingOrders && pendingOrders.length">
+              <div *ngFor="let order of pendingOrders">
+                <div class="card-header d-flex">
+                  <div class="me-lg-4 head-detail">
+                    <p class="text-muted my-0">ORDER PLACED</p>
+                    <p class="m-0">{{ getOrderdate(order.createdAt) }}</p>
+                  </div>
+                  <div class="me-lg-4 head-detail">
+                    <p class="text-muted my-0">TOTAL</p>
+                    <p class="m-0">₹{{ order.sellingAmount }}</p>
+                  </div>
+                  <div class="me-lg-4 head-detail">
+                    <p class="text-muted my-0">SHIP TO</p>
+                    <p class="m-0">{{ order.user.name }}</p>
+                  </div>
+                  <div class="head-detail ms-auto text-end">
+                    <p class="text-muted my-0">
+                      ORDER # {{ order.orderNumber }}
+                    </p>
+                    <p class="m-0">
+                      <a href="javascript:void(0)" class="me-2"
+                        >View Order Details</a
+                      >
+                      |
+                      <a href="javascript:void(0)" class="ms-2">Invoice</a>
+                    </p>
+                  </div>
                 </div>
-               <div class="col-md-6 col-12">
-                    <div class="searching d-flex">
-                         <img src="/assets/images/search.png" alt="" class="search_icon">
-                         <input type="text" placeholder="Search all orders">
-                         <button type="button" class="btn btn-dark ms-2 rounded-0">Search</button>
-                     </div>
-               </div>
-           </div>
-   
-           <!-- Product #1 -->
-           <div class="item my-2">
-               <div class="card">
-                    <div class="card-header d-flex">
-                         <div class="me-lg-4 head-detail">
-                              <p class="text-muted my-0">ORDER PLACED</p>
-                              <p class="m-0">12 November 2021</p>
-                         </div>
-                         <div class="me-lg-4 head-detail">
-                              <p class="text-muted my-0">TOTAL</p>
-                              <p class="m-0">₹30,000</p>
-                         </div>
-                         <div class="me-lg-4 head-detail">
-                              <p class="text-muted my-0">SHIP TO</p>
-                              <p class="m-0">User Name</p>
-                         </div>
-                         <div class="head-detail ms-auto text-end">
-                              <p class="text-muted my-0">ORDER # 403-4661690-2465143</p>
-                              <p class="m-0">
-                                   <a href="#" class="me-2">View Order Details</a> |
-                                   <a href="#" class="ms-2">Invoice</a>
-                              </p>
-                         </div>
+                <div class="card-body">
+                  <h5 class="fw-bold mb-0">{{ order.status }}</h5>
+                  <div class="row align-items-center">
+                    <div class="col-lg-1 col-md-2 col-3 p-0">
+                      <div class="order_image">
+                        <img
+                          src="{{ order.variations.banner }}"
+                          alt=""
+                          class="w-100"
+                        />
+                      </div>
                     </div>
-                    <div class="card-body">
-                         <h5 class="fw-bold mb-0">Pre-Ordered</h5>
-                         <p class="text-success my-0 mb-3">Release day delivery : Thursday, May 31, 2022</p>
-                         <div class="row align-items-center">
-                              <div class="col-lg-1 col-md-2 col-3 p-0">
-                                <div class="order_image">
-                                  <img src="../../assets/images/pro (1).png" alt="" class="w-100" />
-                                </div>
-                              </div>
-                              <div class="col-lg-7 col-md-6 col-sm-9 col-9">
-                                <div class="description ms-md-3">
-                                  <a href="#" class="w-100 text-truncate d-block text-dark">
-                                        OnePlus 9 5G (Astral Black, 8GB RAM, 128GB Storage)
-                                  </a>
-                                  <p class="text-muted fs-13 m-0">Return window closed on 25-Nov-2021</p>
-                                  <a href="#" class="btn btn-outline-dark btn-sm my-2 fs-12">View Your Item</a>
-                                </div>
-                              </div>
-                              <div class="col-lg-4 col-md-4 col-12 p-0 col-price text-md-end text-center order-btn">
-                                  <a href="#" class="btn btn-dark btn-block btn-sm my-1 w-75">Cancel Items</a>
-                                  <a href="#" class="btn btn-dark btn-block btn-sm my-1 w-75">Manage Content and Devices</a>
-                              </div>
-                         </div>
+                    <div class="col-lg-7 col-md-6 col-sm-9 col-9">
+                      <div class="description ms-md-3">
+                        <a
+                          href="javascript:void(0)"
+                          class="w-100 text-truncate d-block text-dark"
+                        >
+                          {{ order.variations.title }}
+                        </a>
+                        <a
+                          href="javascript:void(0)"
+                          class="btn btn-outline-dark btn-sm my-2 fs-12"
+                          >View Your Item</a
+                        >
+                      </div>
                     </div>
-                    <div class="card-footer text-muted">
-                         <a href="#" class="text-dark">Archive Order</a>
+                    <div
+                      class="col-lg-4 col-md-4 col-12 p-0 col-price text-md-end text-center order-btn"
+                    >
+                      <a
+                        href="javascript:void(0)"
+                        class="btn btn-dark btn-block btn-sm my-1 w-75"
+                        >Cancel Items</a
+                      >
+                      <a
+                        href="javascript:void(0)"
+                        class="btn btn-dark btn-block btn-sm my-1 w-75"
+                        >Manage Content and Devices</a
+                      >
                     </div>
-               </div>
-           </div> 
-         </div>
-       </div>
-     </div>
-   </div>
-   
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <div class="card-footer text-muted">
+              <a href="javascript:void(0)" class="text-dark">Archive Order</a>
+            </div>
+            <ng-container *ngIf="archivedOrders && archivedOrders.length">
+              <div *ngFor="let order of archivedOrders">
+                <div class="card-body">
+                  <h5 class="fw-bold mb-0">{{ order.status }}</h5>
+                  <div class="row align-items-center">
+                    <div class="col-lg-1 col-md-2 col-3 p-0">
+                      <div class="order_image">
+                        <img
+                          src="{{ order.variations.banner }}"
+                          alt=""
+                          class="w-100"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-7 col-md-6 col-sm-9 col-9">
+                      <div class="description ms-md-3">
+                        <a
+                          href="javascript:void(0)"
+                          class="w-100 text-truncate d-block text-dark"
+                        >
+                          {{ order.variations.title }}
+                        </a>
+                        <div class="me-lg-4 head-detail">
+                          <p class="text-muted my-0"><b>TOTAL</b></p>
+                          <p class="m-0">₹{{ order.sellingAmount }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

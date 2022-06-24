@@ -1,55 +1,88 @@
 <main class="container-main px-0 px-sm-2">
-
   <div class="row g-0">
-    <div class="col-lg-2 col-md-3 col-12 ps-0 mt-5 d-none d-md-block border-end">
+    <div
+      class="col-lg-2 col-md-3 col-12 ps-0 mt-5 d-none d-md-block border-end"
+    >
       <div class="colleting-left">
+        <ng-container
+          *ngIf="
+            currentCategory &&
+            currentCategory.children &&
+            currentCategory.children.length
+          "
+        >
           <div class="main_title mb-3">
             <h6>Department</h6>
             <ul class="sub_cate_list">
-              <p class="fw-bold mb-0">Beauty</p>
-              <li><a href="#">Manicure & Pedicure</a></li>
-              <li><a href="#">Skin Care</a></li>
-              <li><a href="#">Fragrance</a></li>
-              <li><a href="#">Make-up</a></li>
-              <li><a href="#">Tools & Accessories</a></li>
-            </ul>
-          </div>
-          <div class="main_title mb-3">
-            <h6>Department</h6>
-            <ul>
-              <li><a href="#"><input type="checkbox" name="" id=""> Manicure & Pedicure</a>
+              <p class="fw-bold mb-0">{{ currentCategory.data.name }}</p>
+              <li *ngFor="let subCat of currentCategory.children">
+                <a
+                  href="#"
+                  [routerLink]="collectionVariationPath(categoryId, subCat._id)"
+                >
+                  {{ subCat.data.name }}
+                </a>
               </li>
             </ul>
           </div>
+        </ng-container>
+        <!-- <ng-container
+          *ngIf="
+            totalBrands &&
+            totalBrands.length
+          "
+        >
           <div class="main_title mb-3">
-            <h6>Department</h6>
-            <ul>
-              <li><a href="#"><input type="checkbox" name="" id=""> Manicure & Pedicure</a>
+            <h6>Brand</h6>
+            <ul class="sub_cate_list">
+              <li *ngFor="let brand of totalBrands">
+                <a
+                  href="#"
+                  [routerLink]="collectionQueryVariationPath(categoryId, '', 'brand', brand)"
+                >
+                  {{ brand }}
+                </a>
               </li>
             </ul>
           </div>
-          <div class="main_title mb-3">
-            <h6>Department</h6>
-            <ul>
-              <li><a href="#"><input type="checkbox" name="" id=""> Manicure & Pedicure</a>
-              </li>
-            </ul>
-          </div>
+        </ng-container> -->
       </div>
     </div>
 
     <div class="col-lg-10 col-md-9 col-12 mt-0 clearfix">
       <!-- Start Top Brands Banner -->
-      <div class="container-main" *ngIf="currentCategory && currentCategory.children && currentCategory.children.length">
+      <div
+        class="container-main"
+        *ngIf="
+          currentCategory &&
+          currentCategory.children &&
+          currentCategory.children.length
+        "
+      >
         <div class="page-section pt-5">
           <div class="section-products sub_category">
             <owl-carousel-o [options]="subCategorySlider">
-              <ng-template carouselSlide *ngFor="let subCat of currentCategory.children">
-                <div class="single_subcategory" [routerLink]="['../../collections']">
-                  <a href="javascript:void(0);" class="d-block category_img">
-                    <img src="https://api.admincliq.com/temp/{{subCat.data.banner}}" alt="" class="img-cover" />
+              <ng-template
+                carouselSlide
+                *ngFor="let subCat of currentCategory.children"
+              >
+                <div class="single_subcategory">
+                  <a
+                    href="javascript:void(0);"
+                    class="d-block category_img"
+                    [routerLink]="
+                      collectionVariationPath(categoryId, subCat._id)
+                    "
+                  >
+                    <img
+                      src="https://api.admincliq.com/temp/{{
+                        subCat.data.banner
+                      }}"
+                      alt=""
+                      class="img-cover"
+                    />
                   </a>
-                  <p class="cate_name text-truncate">{{subCat.data.name}}</p>
+                  <p class="cate_name text-truncate">{{ subCat.data.name }}</p>
                 </div>
               </ng-template>
             </owl-carousel-o>
@@ -59,7 +92,10 @@
       <!-- End Top Brands Banner -->
 
       <!-- Start Banner -->
-      <div class="container-main nobg px-3 mt-5" *ngIf="newArrivalOffersData && newArrivalOffersData.length">
+      <div
+        class="container-main nobg px-3 mt-5"
+        *ngIf="newArrivalOffersData && newArrivalOffersData.length"
+      >
         <div class="page-hero">
           <owl-carousel-o [options]="customOptions">
             <ng-template carouselSlide *ngFor="let slider of newArrivalOffersData">
@@ -71,7 +107,10 @@
       <!-- End Banner -->
 
       <!-- Start Top Brands Banner -->
-      <div class="container-main" *ngIf="bestSeller1Data && bestSeller1Data.length">
+      <div
+        class="container-main"
+        *ngIf="bestSeller1Data && bestSeller1Data.length"
+      >
         <div class="page-section spacerT">
           <h1 class="fw-bold text-capitalize">Best Offers</h1>
           <div class="section-products brands_banner">
@@ -90,7 +129,10 @@
       <!-- End Top Brands Banner -->
 
       <!-- Start Top Brands Banner -->
-      <div class="container-main" *ngIf="bestSeller2Data && bestSeller2Data.length">
+      <div
+        class="container-main"
+        *ngIf="bestSeller2Data && bestSeller2Data.length"
+      >
         <div class="page-section spacerT">
           <h1 class="fw-bold text-capitalize">Best Offers</h1>
           <div class="section-products brands_banner">
@@ -109,7 +151,10 @@
       <!-- End Top Brands Banner -->
 
       <!-- Start Top Brands Banner -->
-      <div class="container-main" *ngIf="bestSeller2Data && bestSeller2Data.length">
+      <div
+        class="container-main"
+        *ngIf="bestSeller2Data && bestSeller2Data.length"
+      >
         <div class="page-section spacerY">
           <h1 class="fw-bold text-capitalize">Best Offers</h1>
           <div class="section-products brands_banner">
@@ -128,13 +173,26 @@
       <!-- End Top Brands Banner -->
 
       <!-- Start Best Selling Small -->
-      <div class="container px-md-4 px-2 bg-theme" *ngIf="childSubChat1Data && childSubChat1Data.length">
+      <div
+        class="container px-md-4 px-2 bg-theme"
+        *ngIf="childSubChat1Data && childSubChat1Data.length"
+      >
         <div class="page-section py-3">
-          <div class="section-laptop shadow-sm subCategorySmall bg-white p-4 my-3">
-            <h5 class="fw-bold text-capitalize w-50 section_title pb-2">Sub Categories</h5>
+          <div
+            class="section-laptop shadow-sm subCategorySmall bg-white p-4 my-3"
+          >
+            <h5 class="fw-bold text-capitalize w-50 section_title pb-2">
+              Sub Categories
+            </h5>
             <owl-carousel-o [options]="subCategorySmall">
-              <ng-template carouselSlide *ngFor="let slider of childSubChat1Data">
-                <div class="best_selling shadow-sm mb-1" [routerLink]="['../../collections']">
+              <ng-template
+                carouselSlide
+                *ngFor="let slider of childSubChat1Data"
+              >
+                <div
+                  class="best_selling shadow-sm mb-1"
+                  [routerLink]="['../../collections']"
+                >
                   <div class="sub_cate_pro_img">
                     <a href="javascript:void(0)">
                       <img src="https://api.admincliq.com/temp/{{ slider.data.banner }}" alt="" class="sub_cate_img">
@@ -145,11 +203,22 @@
               </ng-template>
             </owl-carousel-o>
           </div>
-          <div class="section-laptop shadow-sm subCategorySmall bg-white p-4 my-3" *ngIf="childSubChat2Data && childSubChat2Data.length">
-            <h5 class="fw-bold text-capitalize w-50 section_title pb-2">Sub Categories</h5>
+          <div
+            class="section-laptop shadow-sm subCategorySmall bg-white p-4 my-3"
+            *ngIf="childSubChat2Data && childSubChat2Data.length"
+          >
+            <h5 class="fw-bold text-capitalize w-50 section_title pb-2">
+              Sub Categories
+            </h5>
             <owl-carousel-o [options]="subCategorySmall">
-              <ng-template carouselSlide *ngFor="let slider of childSubChat2Data">
-                <div class="best_selling shadow-sm mb-1" [routerLink]="['../../collections']">
+              <ng-template
+                carouselSlide
+                *ngFor="let slider of childSubChat2Data"
+              >
+                <div
+                  class="best_selling shadow-sm mb-1"
+                  [routerLink]="['../../collections']"
+                >
                   <div class="sub_cate_pro_img">
                     <a href="javascript:void(0)">
                       <img src="https://api.admincliq.com/temp/{{ slider.data.banner }}" alt="" class="sub_cate_img">
@@ -160,11 +229,22 @@
               </ng-template>
             </owl-carousel-o>
           </div>
-          <div class="section-laptop shadow-sm subCategorySmall bg-white p-4 my-3" *ngIf="childSubChat2Data && childSubChat2Data.length">
-            <h5 class="fw-bold text-capitalize w-50 section_title pb-2">Sub Categories</h5>
+          <div
+            class="section-laptop shadow-sm subCategorySmall bg-white p-4 my-3"
+            *ngIf="childSubChat2Data && childSubChat2Data.length"
+          >
+            <h5 class="fw-bold text-capitalize w-50 section_title pb-2">
+              Sub Categories
+            </h5>
             <owl-carousel-o [options]="subCategorySmall">
-              <ng-template carouselSlide *ngFor="let slider of childSubChat2Data">
-                <div class="best_selling shadow-sm mb-1" [routerLink]="['../../collections']">
+              <ng-template
+                carouselSlide
+                *ngFor="let slider of childSubChat2Data"
+              >
+                <div
+                  class="best_selling shadow-sm mb-1"
+                  [routerLink]="['../../collections']"
+                >
                   <div class="sub_cate_pro_img">
                     <a href="javascript:void(0)">
                       <img src="https://api.admincliq.com/temp/{{ slider.data.banner }}" alt="" class="sub_cate_img">
@@ -180,5 +260,4 @@
       <!-- End Best Selling Small -->
     </div>
   </div>
-
 </main>

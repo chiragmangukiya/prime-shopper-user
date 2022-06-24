@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Options } from '@angular-slider/ngx-slider';
 import { UserDataService } from '../services/user-data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-collection',
@@ -22,18 +23,32 @@ export class CollectionComponent implements OnInit {
 
   // filters
   productData: any = [];
+  categoryId: string = '';
+  subCategoryId: string = '';
   minPriceValue: any = 0;
   maxPriceValue: any = 0;
   filterBrands: any = [];
-  filteSellers: any = [];
+  filterSellers: any = [];
   discount: any = 0;
   arrivalTime: any = 0;
 
-  constructor(private _http: UserDataService) {}
+  constructor(private route: ActivatedRoute, private _http: UserDataService) {}
 
   getAllProducts() {
-    this._http.get_product().subscribe((result: any) => {
+    let filterObj = {
+      categoryId: this.categoryId,
+      subCategoryId: this.subCategoryId,
+      minPriceValue: this.minPriceValue,
+      maxPriceValue: this.maxPriceValue,
+      filterBrands: this.filterBrands,
+      filterSellers: this.filterSellers,
+      discount: this.discount,
+      arrivalTime: this.arrivalTime,
+    };
+
+    this._http.get_product(filterObj).subscribe((result: any) => {
       let allProducts = result.data;
+      console.log(allProducts);
 
       if (allProducts && allProducts.length) {
         this.productData = allProducts.slice();
@@ -56,7 +71,6 @@ export class CollectionComponent implements OnInit {
           if (el.brand_name && !this.totalBrands.includes(el.brand_name)) {
             this.totalBrands.push(el.brand_name);
           }
-
           if (
             el.seller &&
             el.seller.name &&
@@ -76,6 +90,11 @@ export class CollectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let catId = this.route.snapshot.paramMap.get('cat');
+    let subcatId = this.route.snapshot.paramMap.get('subcat');
+    this.categoryId = catId ? catId : '';
+    this.subCategoryId = subcatId ? subcatId : '';
+
     this.getAllProducts();
   }
 
@@ -94,82 +113,57 @@ export class CollectionComponent implements OnInit {
   }
 
   filterProducts() {
-    // this._http.get_product().subscribe((result: any) => {
-    //   if (result.data && result.data.length) {
-    //     let filterData = [...result.data];
-    //     filterData.forEach((el: any) => {
-    //       if (el && el.variations && el.variations.length) {
-    //         el.variations = [...el.variations].filter((item: any) => {
-    //           if (
-    //             item.sellingPrice &&
-    //             item.sellingPrice.selling_price_in_india
-    //           ) {
-    //             return (
-    //               item.sellingPrice.selling_price_in_india >=
-    //                 this.minPriceValue &&
-    //               item.sellingPrice.selling_price_in_india <= this.maxPriceValue
-    //             );
-    //           } else {
-    //             return false;
-    //           }
-    //         });
-    //       }
-    //     });
-
-    //     // if (
-    //     //   filterData &&
-    //     //   filterData.length &&
-    //     //   this.filterBrands &&
-    //     //   this.filterBrands.length
-    //     // ) {
-    //     //   filterData = filterData.filter((el: any) => {
-    //     //     return this.filterBrands.includes(el.brand_name);
-    //     //   });
-    //     // }
-    //     // if (
-    //     //   filterData &&
-    //     //   filterData.length &&
-    //     //   this.filteSellers &&
-    //     //   this.filteSellers.length
-    //     // ) {
-    //     //   filterData = filterData.filter((el: any) => {
-    //     //     if (
-    //     //       el.seller &&
-    //     //       el.seller.name &&
-    //     //       this.filteSellers.includes(el.seller.name)
-    //     //     ) {
-    //     //       return true;
-    //     //     } else {
-    //     //       return false;
-    //     //     }
-    //     //   });
-    //     // }
-
-    //     if (filterData && filterData.length) {
-    //       this.productData = filterData;
-
-    //       let totalLength = 0;
-    //       filterData.map((el: any) => {
-    //         if (el && el.variations && el.variations.length) {
-    //           totalLength = totalLength + el.variations.length;
-    //         }
-    //       });
-    //       this.totalProductsLength = totalLength;
-    //     } else {
-    //       this.productData = [];
-    //       this.totalProductsLength = 0;
-    //     }
-    //   } else {
-    //     this.productData = [];
-    //     this.totalProductsLength = 0;
-    //   }
-    // });
+    let filterObj = {
+      categoryId: this.categoryId,
+      subCategoryId: this.subCategoryId,
+      filterBrands: this.filterBrands,
+      filterSellers: this.filterSellers,
+      arrivalTime: this.arrivalTime,
+    };
+    this._http.get_product(filterObj).subscribe((result: any) => {
+      if (result.data && result.data.length) {
+        let filterData = [...result.data];
+        filterData.forEach((el: any) => {
+          if (el && el.variations && el.variations.length) {
+            el.variations = [...el.variations].filter((item: any) => {
+              if (
+                item.sellingPrice &&
+                item.sellingPrice.selling_price_in_india
+              ) {
+                return (
+                  item.sellingPrice.selling_price_in_india >=
+                    this.minPriceValue &&
+                  item.sellingPrice.selling_price_in_india <= this.maxPriceValue
+                );
+              } else {
+                return false;
+              }
+            });
+          }
+        });
+        if (filterData && filterData.length) {
+          this.productData = filterData;
+          let totalLength = 0;
+          filterData.map((el: any) => {
+            if (el && el.variations && el.variations.length) {
+              totalLength = totalLength + el.variations.length;
+            }
+          });
+          this.totalProductsLength = totalLength;
+        } else {
+          this.productData = [];
+          this.totalProductsLength = 0;
+        }
+      } else {
+        this.productData = [];
+        this.totalProductsLength = 0;
+      }
+    });
   }
 
   priceRangeChange(event: any) {
     this.minPriceValue = event.value;
     this.maxPriceValue = event.highValue;
-
     this.filterProducts();
   }
 
@@ -182,19 +176,19 @@ export class CollectionComponent implements OnInit {
         this.filterBrands.splice(index, 1);
       }
     }
-    this.filterProducts();
+    this.getAllProducts();
   }
 
   onsellerCheckboxChange(event: any, value: any) {
     if (event.target.checked) {
-      this.filteSellers.push(value);
+      this.filterSellers.push(value);
     } else {
-      const index = this.filteSellers.indexOf(value);
+      const index = this.filterSellers.indexOf(value);
       if (index > -1) {
-        this.filteSellers.splice(index, 1);
+        this.filterSellers.splice(index, 1);
       }
     }
-    this.filterProducts();
+    this.getAllProducts();
   }
 
   onDiscountRadioChange(event: any, value: any) {
@@ -204,7 +198,7 @@ export class CollectionComponent implements OnInit {
 
   onNewArrivalRadioChange(event: any, value: any) {
     this.arrivalTime = value;
-    this.filterProducts();
+    this.getAllProducts();
   }
 
   roundFigure(value: number) {

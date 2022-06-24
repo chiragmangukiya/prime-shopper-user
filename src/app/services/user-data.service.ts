@@ -25,6 +25,7 @@ export class UserDataService {
   getAllSubSliders = `${this.currentLiveUrl}/api/v1/subpagesliders`;
   addFavouriteUrl = `${this.currentLiveUrl}/api/v1/add/favorite`;
   allFaourites = `${this.currentLiveUrl}/api/v1/favorites`;
+  orders = `${this.currentLiveUrl}/api/v1/orders`;
 
 
   constructor(private http:HttpClient) {}
@@ -67,9 +68,9 @@ export class UserDataService {
      return this.http.post(this.profileupdate,data,options)
   }
 
-  get_product()
+  get_product(data:any)
   {
-    return this.http.post(this.getProducts,"");
+    return this.http.post(this.getProducts, data);
   }
 
   product(data:any)
@@ -136,6 +137,12 @@ export class UserDataService {
   {
     let options : any = { headers: this._getHeaders() };
     return this.http.post(this.allFaourites, '', options);
+  }
+
+  getOrders()
+  {
+    let options : any = { headers: this._getHeaders() };
+    return this.http.post(this.orders, '', options);
   }
 
   allHomeSliders()
